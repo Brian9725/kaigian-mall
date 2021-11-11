@@ -1,5 +1,6 @@
 /.idea
 /*/target/*
+/kaigian-admin/src/main/resources/application-dev.yml
 *.iml
 # Compiled class file
 *.class
