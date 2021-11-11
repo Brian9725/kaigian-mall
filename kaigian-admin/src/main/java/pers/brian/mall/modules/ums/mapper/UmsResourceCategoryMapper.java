@@ -1,6 +1,7 @@
 package pers.brian.mall.modules.ums.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.springframework.stereotype.Component;
 import pers.brian.mall.modules.ums.model.UmsResourceCategory;
 
 /**
@@ -13,6 +14,7 @@ import pers.brian.mall.modules.ums.model.UmsResourceCategory;
  * @Date: 2021-11-11 11:11
  * @Version: 0.0.1
  **/
+@Component
 public interface UmsResourceCategoryMapper extends BaseMapper<UmsResourceCategory> {
 
 }

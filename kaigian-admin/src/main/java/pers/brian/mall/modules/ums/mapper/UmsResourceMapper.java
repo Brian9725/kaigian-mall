@@ -1,6 +1,7 @@
 package pers.brian.mall.modules.ums.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.springframework.stereotype.Component;
 import pers.brian.mall.modules.ums.model.UmsResource;
 import org.apache.ibatis.annotations.Param;
 
@@ -16,6 +17,7 @@ import java.util.List;
  * @Date: 2021-11-11 11:11
  * @Version: 0.0.1
  **/
+@Component
 public interface UmsResourceMapper extends BaseMapper<UmsResource> {
 
     /**

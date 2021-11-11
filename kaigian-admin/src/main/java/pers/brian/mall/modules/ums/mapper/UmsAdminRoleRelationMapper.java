@@ -1,7 +1,10 @@
 package pers.brian.mall.modules.ums.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.springframework.stereotype.Component;
 import pers.brian.mall.modules.ums.model.UmsAdminRoleRelation;
+
+import javax.annotation.Resource;
 
 /**
  * @Description:
@@ -13,6 +16,7 @@ import pers.brian.mall.modules.ums.model.UmsAdminRoleRelation;
  * @Date: 2021-11-11 11:11
  * @Version: 0.0.1
  **/
+@Component
 public interface UmsAdminRoleRelationMapper extends BaseMapper<UmsAdminRoleRelation> {
 
 }
