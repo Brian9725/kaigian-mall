@@ -6,7 +6,7 @@ import pers.brian.mall.common.api.IErrorCode;
 /**
  * @Description: 断言处理类，用于抛出各种API异常
  * @Author: BrianHu
- * @Date: 2021-11-11 11:11
+ * @Create: 2021-11-11 11:11
  * @Version: 0.0.1
  **/
 public class Asserts {

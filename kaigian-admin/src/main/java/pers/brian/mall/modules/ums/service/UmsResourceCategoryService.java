@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * @Description: 后台资源分类管理Service
  * @Author: BrianHu
- * @Date: 2021-11-11 11:11
+ * @Create: 2021-11-11 11:11
  * @Version: 0.0.1
  **/
 public interface UmsResourceCategoryService extends IService<UmsResourceCategory> {

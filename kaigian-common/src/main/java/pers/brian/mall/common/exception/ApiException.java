@@ -6,7 +6,7 @@ import pers.brian.mall.common.api.IErrorCode;
 /**
  * @Description: 自定义API异常
  * @Author: BrianHu
- * @Date: 2021-11-11 11:11
+ * @Create: 2021-11-11 11:11
  * @Version: 0.0.1
  **/
 public class ApiException extends RuntimeException {
