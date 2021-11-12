@@ -8,7 +8,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 /**
  * @Description: API文档相关配置
  * @Author: BrianHu
- * @Date: 2021-11-11 11:11
+ * @Create: 2021-11-11 11:11
  * @Version: 0.0.1
  **/
 @Configuration

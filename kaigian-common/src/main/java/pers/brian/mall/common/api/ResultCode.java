@@ -3,7 +3,7 @@ package pers.brian.mall.common.api;
 /**
  * @Description: 枚举了一些常用API操作码
  * @Author: BrianHu
- * @Date: 2021-11-11 11:11
+ * @Create: 2021-11-11 11:11
  * @Version: 0.0.1
  **/
 public enum ResultCode implements IErrorCode {

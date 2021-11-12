@@ -12,6 +12,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
+/**
+ * @Description:
+ * @Author: BrianHu
+ * @Create: 2021-11-11 11:11
+ * @Version: 0.0.1
+ **/
 @SpringBootTest
 class KaiGianTestApplicationTests {
 

@@ -17,7 +17,7 @@ import java.util.Map;
 /**
  * @Description:
  * @Author: BrianHu
- * @Date: 2021-11-11 11:11
+ * @Create: 2021-11-11 11:11
  * @Version: 0.0.1
  **/
 @RestController
@@ -26,16 +26,22 @@ public class OSSController {
     @CrossOrigin
     @RequestMapping("/oss/policy")
     public Map<String,String> policy(){
-        String accessId = "LTAI4GHWCM5LdNoiLy35mBog"; // 请填写您的AccessKeyId。
-        String accessKey = "Vytl0LAIKGmiWATIuuwevN3LjzQs9S"; // 请填写您的AccessKeySecret。
-        String endpoint = "oss-cn-chengdu.aliyuncs.com"; // 请填写您的 endpoint。
-        String bucket = "kaigianmall-brian"; // 请填写您的 bucketname 。
-        String host = "https://" + bucket + "." + endpoint; // host的格式为 bucketname.endpoint
+        // 请填写您的AccessKeyId
+        String accessId = "LTAI4GHWCM5LdNoiLy35mBog";
+        // 请填写您的AccessKeySecret
+        String accessKey = "Vytl0LAIKGmiWATIuuwevN3LjzQs9S";
+        // 请填写您的 endpoint
+        String endpoint = "oss-cn-chengdu.aliyuncs.com";
+        // 请填写您的 bucketname
+        String bucket = "kaigianmall-brian";
+        // host的格式为 bucketname.endpoint
+        String host = "https://" + bucket + "." + endpoint;
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String date = simpleDateFormat.format(new Date());
 
-        String dir = "kaigian-test/"+date+"/"; // 用户上传文件时指定的前缀。
+        // 用户上传文件时指定的前缀
+        String dir = "kaigian-test/"+date+"/";
 
         // 创建OSSClient实例。
         OSS ossClient = new OSSClientBuilder().build(endpoint, accessId, accessKey);

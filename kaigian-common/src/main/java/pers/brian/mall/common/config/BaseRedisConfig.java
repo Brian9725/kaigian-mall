@@ -22,7 +22,7 @@ import java.time.Duration;
 /**
  * @Description: Redis基础配置
  * @Author: BrianHu
- * @Date: 2021-11-11 11:11
+ * @Create: 2021-11-11 11:11
  * @Version: 0.0.1
  **/
 public class BaseRedisConfig {
