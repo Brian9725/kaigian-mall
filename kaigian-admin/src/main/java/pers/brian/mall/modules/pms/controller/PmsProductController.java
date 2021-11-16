@@ -33,7 +33,7 @@ public class PmsProductController {
 	}
 
 	@ApiOperation("查询商品")
-	@RequestMapping(value = "list", method = RequestMethod.POST)
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	@ResponseBody
 	public CommonResult<List<PmsProduct>> list() {
 		List<PmsProduct> products = productService.list();
