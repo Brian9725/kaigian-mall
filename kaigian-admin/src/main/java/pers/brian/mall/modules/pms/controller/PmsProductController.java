@@ -22,7 +22,7 @@ import java.util.List;
  * @since 2021-11-15
  */
 @RestController
-@RequestMapping("/pms/pmsProduct")
+@RequestMapping("/product")
 public class PmsProductController {
 
 	private final PmsProductService productService;
