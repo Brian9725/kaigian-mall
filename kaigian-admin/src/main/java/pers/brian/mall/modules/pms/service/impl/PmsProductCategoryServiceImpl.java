@@ -1,6 +1,7 @@
 package pers.brian.mall.modules.pms.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import pers.brian.mall.modules.pms.dto.PmsProductCategoryParam;
@@ -40,11 +41,6 @@ public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategor
 	}
 
 	@Override
-	public int delete(Long id) {
-		return productCategoryMapper.deleteByPrimaryKey(id);
-	}
-
-	@Override
 	public int create(PmsProductCategoryParam productCategoryParam) {
 		return 0;
 	}
@@ -55,13 +51,21 @@ public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategor
 	}
 
 	@Override
-	public int updateNavStatus(List<Long> ids, Integer navStatus) {
-		return 0;
+	public boolean updateNavStatus(List<Long> ids, Integer navStatus) {
+		UpdateWrapper<PmsProductCategory> updateWrapper = new UpdateWrapper<>();
+		updateWrapper.lambda()
+				.set(PmsProductCategory::getNavStatus, navStatus)
+				.in(PmsProductCategory::getId, ids);
+		return this.update(updateWrapper);
 	}
 
 	@Override
-	public int updateShowStatus(List<Long> ids, Integer showStatus) {
-		return 0;
+	public boolean updateShowStatus(List<Long> ids, Integer showStatus) {
+		UpdateWrapper<PmsProductCategory> updateWrapper = new UpdateWrapper<>();
+		updateWrapper.lambda()
+				.set(PmsProductCategory::getShowStatus, showStatus)
+				.in(PmsProductCategory::getId, ids);
+		return this.update(updateWrapper);
 	}
 
 	@Override

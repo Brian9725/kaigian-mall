@@ -4,7 +4,6 @@ package pers.brian.mall.modules.pms.controller;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import pers.brian.mall.common.api.CommonPage;
@@ -48,10 +47,10 @@ public class PmsProductCategoryController {
 	@ApiOperation("删除商品分类")
 	@RequestMapping(value = "/delete/{id}")
 	@ResponseBody
-	public CommonResult delete(@PathVariable(value = "id") Long id) {
-		int count = productCategoryService.delete(id);
-		if (count > 0) {
-			return CommonResult.success(count);
+	public CommonResult<Boolean> delete(@PathVariable(value = "id") Long id) {
+		boolean removed = productCategoryService.removeById(id);
+		if (removed) {
+			return CommonResult.success(true);
 		} else {
 			return CommonResult.failed();
 		}
@@ -68,36 +67,26 @@ public class PmsProductCategoryController {
 	@ApiOperation("添加产品分类")
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	@ResponseBody
-	public CommonResult create(@Validated @RequestBody PmsProductCategoryParam productCategoryParam) {
-		int count = productCategoryService.create(productCategoryParam);
-		if (count > 0) {
-			return CommonResult.success(count);
-		} else {
-			return CommonResult.failed();
-		}
+	public CommonResult<Boolean> create(@Validated @RequestBody PmsProductCategoryParam productCategoryParam) {
+		return CommonResult.failed();
 	}
 
 	@ApiOperation("修改商品分类")
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
 	@ResponseBody
-	public CommonResult update(@PathVariable Long id,
-							   @Validated
-							   @RequestBody PmsProductCategoryParam productCategoryParam) {
-		int count = productCategoryService.update(id, productCategoryParam);
-		if (count > 0) {
-			return CommonResult.success(count);
-		} else {
-			return CommonResult.failed();
-		}
+	public CommonResult<Boolean> update(@PathVariable Long id,
+										@Validated
+										@RequestBody PmsProductCategoryParam productCategoryParam) {
+		return CommonResult.failed();
 	}
 
 	@ApiOperation("修改导航栏显示状态")
 	@RequestMapping(value = "/update/navStatus", method = RequestMethod.POST)
 	@ResponseBody
-	public CommonResult updateNavStatus(@RequestParam("ids") List<Long> ids, @RequestParam("navStatus") Integer navStatus) {
-		int count = productCategoryService.updateNavStatus(ids, navStatus);
-		if (count > 0) {
-			return CommonResult.success(count);
+	public CommonResult<Boolean> updateNavStatus(@RequestParam("ids") List<Long> ids, @RequestParam("navStatus") Integer navStatus) {
+		boolean updated = productCategoryService.updateNavStatus(ids, navStatus);
+		if (updated) {
+			return CommonResult.success(true);
 		} else {
 			return CommonResult.failed();
 		}
@@ -106,10 +95,10 @@ public class PmsProductCategoryController {
 	@ApiOperation("修改显示状态")
 	@RequestMapping(value = "/update/showStatus", method = RequestMethod.POST)
 	@ResponseBody
-	public CommonResult updateShowStatus(@RequestParam("ids") List<Long> ids, @RequestParam("showStatus") Integer showStatus) {
-		int count = productCategoryService.updateShowStatus(ids, showStatus);
-		if (count > 0) {
-			return CommonResult.success(count);
+	public CommonResult<Boolean> updateShowStatus(@RequestParam("ids") List<Long> ids, @RequestParam("showStatus") Integer showStatus) {
+		boolean updated = productCategoryService.updateShowStatus(ids, showStatus);
+		if (updated) {
+			return CommonResult.success(true);
 		} else {
 			return CommonResult.failed();
 		}

@@ -10,10 +10,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Version: 0.0.1
  **/
 @SpringBootApplication
-public class StartApp {
+public class KaiGianMallApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(StartApp.class, args);
+        SpringApplication.run(KaiGianMallApplication.class, args);
     }
 
 }
