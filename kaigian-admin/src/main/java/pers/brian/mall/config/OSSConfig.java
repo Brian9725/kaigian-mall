@@ -1,6 +1,9 @@
 package pers.brian.mall.config;
 
+import com.aliyun.oss.OSS;
+import com.aliyun.oss.OSSBuilder;
 import com.aliyun.oss.OSSClient;
+import com.aliyun.oss.OSSClientBuilder;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,15 +15,16 @@ import org.springframework.context.annotation.Configuration;
  * @Version: 0.0.1
  **/
 @Configuration
-public class OssConfig {
+public class OSSConfig {
     @Value("${aliyun.oss.endpoint}")
     private String ALIYUN_OSS_ENDPOINT;
     @Value("${aliyun.oss.accessKeyId}")
-    private String ALIYUN_OSS_ACCESSKEYID;
+    private String ALIYUN_OSS_ACCESS_KEY_ID;
     @Value("${aliyun.oss.accessKeySecret}")
-    private String ALIYUN_OSS_ACCESSKEYSECRET;
+    private String ALIYUN_OSS_ACCESS_KEY_SECRET;
+
     @Bean
-    public OSSClient ossClient(){
-        return new OSSClient(ALIYUN_OSS_ENDPOINT,ALIYUN_OSS_ACCESSKEYID,ALIYUN_OSS_ACCESSKEYSECRET);
+    public OSS ossClient() {
+        return new OSSClientBuilder().build(ALIYUN_OSS_ENDPOINT, ALIYUN_OSS_ACCESS_KEY_ID, ALIYUN_OSS_ACCESS_KEY_SECRET);
     }
 }

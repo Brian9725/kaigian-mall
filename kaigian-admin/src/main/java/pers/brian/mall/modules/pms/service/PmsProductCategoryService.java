@@ -3,6 +3,7 @@ package pers.brian.mall.modules.pms.service;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import pers.brian.mall.modules.pms.dto.PmsProductCategoryParam;
+import pers.brian.mall.modules.pms.dto.ProductCateChildrenDTO;
 import pers.brian.mall.modules.pms.model.PmsProductCategory;
 import pers.brian.mall.modules.pms.model.PmsProductCategoryWithChildrenItem;
 
@@ -62,5 +63,5 @@ public interface PmsProductCategoryService extends IService<PmsProductCategory> 
 	 * 查询商品分类及其子分类的列表
 	 * @return 商品分类及其子分类的列表
 	 */
-	List<PmsProductCategoryWithChildrenItem> listWithChildren();
+	List<ProductCateChildrenDTO> listWithChildren();
 }
