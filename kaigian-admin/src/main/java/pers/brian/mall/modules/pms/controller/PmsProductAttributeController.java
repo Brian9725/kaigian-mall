@@ -33,13 +33,14 @@ public class PmsProductAttributeController {
 
 
     /**
-     *  根据商品分类id获取关联的筛选属性
-     *   url:'/productAttribute/attrInfo/'+productCategoryId,
-     *     method:'get'
+     * 根据商品分类id获取关联的筛选属性
+     *
+     * @param cId 商品分类id
+     * @return 关联的筛选属性
      */
-    @RequestMapping(value="/attrInfo/{cId}")
-    public CommonResult<List<RelationAttrInfoDTO>> getRelationAttrInfoByCid(@PathVariable Long cId){
-        List<RelationAttrInfoDTO> list=  productAttributeService.getRelationAttrInfoByCid(cId);
+    @RequestMapping(value = "/attrInfo/{cId}")
+    public CommonResult<List<RelationAttrInfoDTO>> getRelationAttrInfoByCid(@PathVariable Long cId) {
+        List<RelationAttrInfoDTO> list = productAttributeService.getRelationAttrInfoByCid(cId);
         return CommonResult.success(list);
     }
 }
