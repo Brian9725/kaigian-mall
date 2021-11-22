@@ -1,7 +1,10 @@
 package pers.brian.mall.modules.pms.service;
 
+import pers.brian.mall.modules.pms.dto.ProductAttributeCateDTO;
 import pers.brian.mall.modules.pms.model.PmsProductAttributeCategory;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,10 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface PmsProductAttributeCategoryService extends IService<PmsProductAttributeCategory> {
 
+    /**
+     * 筛选属性下拉级联数据
+     *
+     * @return 筛选属性下拉级联数据
+     */
+    List<ProductAttributeCateDTO> getListWithAttr();
 }

@@ -32,13 +32,13 @@ public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategor
 
     private final PmsProductCategoryMapper productCategoryMapper;
 
-    private final PmsProductCategoryAttributeRelationService relationService;
+    private final PmsProductCategoryAttributeRelationService productCategoryAttributeRelationService;
 
     @Autowired
     public PmsProductCategoryServiceImpl(PmsProductCategoryMapper productCategoryMapper,
-                                         PmsProductCategoryAttributeRelationService relationService) {
+                                         PmsProductCategoryAttributeRelationService productCategoryAttributeRelationService) {
         this.productCategoryMapper = productCategoryMapper;
-        this.relationService = relationService;
+        this.productCategoryAttributeRelationService = productCategoryAttributeRelationService;
     }
 
     @Override
@@ -122,7 +122,7 @@ public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategor
         // 删除已保存的关联属性—根据商品分类id删除
         QueryWrapper<PmsProductCategoryAttributeRelation> queryWrapper = new QueryWrapper<>();
         queryWrapper.lambda().eq(PmsProductCategoryAttributeRelation::getProductCategoryId, productCategory.getId());
-        relationService.remove(queryWrapper);
+        productCategoryAttributeRelationService.remove(queryWrapper);
         saveAttrRelation(productCategoryDTO, productCategory);
         return true;
     }
@@ -144,6 +144,6 @@ public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategor
             productCategoryAttributeRelation.setProductAttributeId(attrId);
             list.add(productCategoryAttributeRelation);
         }
-        return relationService.saveBatch(list);
+        return productCategoryAttributeRelationService.saveBatch(list);
     }
 }
