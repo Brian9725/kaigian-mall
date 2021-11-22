@@ -1,7 +1,10 @@
 package pers.brian.mall.modules.pms.service;
 
+import pers.brian.mall.modules.pms.dto.RelationAttrInfoDTO;
 import pers.brian.mall.modules.pms.model.PmsProductAttribute;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,11 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface PmsProductAttributeService extends IService<PmsProductAttribute> {
 
+    /**
+     * 根据商品分类id获取关联的筛选属性
+     *
+     * @param cId 商品分类id
+     * @return 关联的筛选属性
+     */
+    List<RelationAttrInfoDTO> getRelationAttrInfoByCid(Long cId);
 }
