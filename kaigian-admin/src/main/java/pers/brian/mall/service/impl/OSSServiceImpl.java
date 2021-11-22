@@ -47,6 +47,7 @@ public class OSSServiceImpl implements OSSService {
 
     @Override
     public OSSPolicyResult policy() {
+        // TODO:解决OSS签名后前端请求添加资源被拒绝bug
         OSSPolicyResult result = OSSPolicyResult.builder().build();
         // 存储目录
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
