@@ -8,7 +8,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import pers.brian.mall.common.api.CommonPage;
 import pers.brian.mall.common.api.CommonResult;
-import pers.brian.mall.modules.pms.dto.PmsProductCategoryParam;
+import pers.brian.mall.modules.pms.dto.PmsProductCategoryDTO;
 import pers.brian.mall.modules.pms.dto.ProductCateChildrenDTO;
 import pers.brian.mall.modules.pms.model.PmsProductCategory;
 import pers.brian.mall.modules.pms.service.PmsProductCategoryService;
@@ -67,16 +67,26 @@ public class PmsProductCategoryController {
     @ApiOperation("添加产品分类")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult<Boolean> create(@Validated @RequestBody PmsProductCategoryParam productCategoryParam) {
-        return CommonResult.failed();
+    public CommonResult<Boolean> create(@Validated @RequestBody PmsProductCategoryDTO productCategoryDTO) {
+        boolean saved = productCategoryService.customSave(productCategoryDTO);
+        if (saved) {
+            return CommonResult.success(true);
+        } else {
+            return CommonResult.failed();
+        }
     }
 
     @ApiOperation("修改商品分类")
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult<Boolean> update(@PathVariable Long id,
-                                        @Validated @RequestBody PmsProductCategoryParam productCategoryParam) {
-        return CommonResult.failed();
+                                        @Validated @RequestBody PmsProductCategoryDTO productCategoryDTO) {
+        boolean updated = productCategoryService.update(productCategoryDTO);
+        if (updated) {
+            return CommonResult.success(true);
+        } else {
+            return CommonResult.failed();
+        }
     }
 
     @ApiOperation("修改导航栏显示状态")
