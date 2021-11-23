@@ -1,13 +1,14 @@
 package pers.brian.mall.modules.pms.controller;
 
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import pers.brian.mall.common.api.CommonPage;
 import pers.brian.mall.common.api.CommonResult;
 import pers.brian.mall.modules.pms.dto.ProductAttributeCateDTO;
+import pers.brian.mall.modules.pms.model.PmsProductAttributeCategory;
 import pers.brian.mall.modules.pms.service.PmsProductAttributeCategoryService;
 
 import java.util.List;
@@ -29,6 +30,20 @@ public class PmsProductAttributeCategoryController {
     @Autowired
     public PmsProductAttributeCategoryController(PmsProductAttributeCategoryService productAttributeCategoryService) {
         this.productAttributeCategoryService = productAttributeCategoryService;
+    }
+
+    /**
+     * 获取商品类型列表
+     *
+     * @param pageNum  页码
+     * @param pageSize 每页大小
+     * @return 商品类型列表
+     */
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public CommonResult<CommonPage<PmsProductAttributeCategory>> list(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
+                                                                      @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize) {
+        Page<PmsProductAttributeCategory> productAttributeCategoryPage = productAttributeCategoryService.page(pageNum, pageSize);
+        return CommonResult.success(CommonPage.restPage(productAttributeCategoryPage));
     }
 
     /**

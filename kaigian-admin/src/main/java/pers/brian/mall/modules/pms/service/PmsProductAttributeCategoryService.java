@@ -1,5 +1,6 @@
 package pers.brian.mall.modules.pms.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import pers.brian.mall.modules.pms.dto.ProductAttributeCateDTO;
 import pers.brian.mall.modules.pms.model.PmsProductAttributeCategory;
 import com.baomidou.mybatisplus.extension.service.IService;
@@ -15,6 +16,15 @@ import java.util.List;
  * @since 2021-11-15
  */
 public interface PmsProductAttributeCategoryService extends IService<PmsProductAttributeCategory> {
+
+    /**
+     * 查询商品类型列表
+     *
+     * @param pageNum  页码
+     * @param pageSize 每页大小
+     * @return 商品类型列表
+     */
+    Page<PmsProductAttributeCategory> page(Integer pageNum, Integer pageSize);
 
     /**
      * 筛选属性下拉级联数据

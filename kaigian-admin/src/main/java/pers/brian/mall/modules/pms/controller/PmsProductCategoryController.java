@@ -79,8 +79,7 @@ public class PmsProductCategoryController {
     @ApiOperation("修改商品分类")
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult<Boolean> update(@PathVariable Long id,
-                                        @Validated @RequestBody PmsProductCategoryDTO productCategoryDTO) {
+    public CommonResult<Boolean> update(@Validated @RequestBody PmsProductCategoryDTO productCategoryDTO) {
         boolean updated = productCategoryService.update(productCategoryDTO);
         if (updated) {
             return CommonResult.success(true);
