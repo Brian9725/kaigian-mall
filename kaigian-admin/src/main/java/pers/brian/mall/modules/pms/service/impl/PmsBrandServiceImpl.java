@@ -1,6 +1,7 @@
 package pers.brian.mall.modules.pms.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.util.StringUtils;
 import pers.brian.mall.modules.pms.model.PmsBrand;
@@ -8,6 +9,8 @@ import pers.brian.mall.modules.pms.mapper.PmsBrandMapper;
 import pers.brian.mall.modules.pms.service.PmsBrandService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -29,5 +32,23 @@ public class PmsBrandServiceImpl extends ServiceImpl<PmsBrandMapper, PmsBrand> i
         }
         brandQueryWrapper.lambda().orderByAsc(PmsBrand::getSort);
         return this.page(page, brandQueryWrapper);
+    }
+
+    @Override
+    public Boolean updateShowStatus(Integer showStatus, List<Long> ids) {
+        UpdateWrapper<PmsBrand> brandUpdateWrapper = new UpdateWrapper<>();
+        brandUpdateWrapper.lambda()
+                .set(PmsBrand::getShowStatus, showStatus)
+                .in(PmsBrand::getId, ids);
+        return this.update(brandUpdateWrapper);
+    }
+
+    @Override
+    public Boolean updateFactoryStatus(Integer factoryStatus, List<Long> ids) {
+        UpdateWrapper<PmsBrand> brandUpdateWrapper = new UpdateWrapper<>();
+        brandUpdateWrapper.lambda()
+                .set(PmsBrand::getFactoryStatus, factoryStatus)
+                .in(PmsBrand::getId, ids);
+        return this.update(brandUpdateWrapper);
     }
 }

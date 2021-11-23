@@ -7,8 +7,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pers.brian.mall.modules.pms.dto.PmsProductCategoryDTO;
-import pers.brian.mall.modules.pms.dto.PmsProductCategoryParam;
+import pers.brian.mall.modules.pms.dto.ProductCategoryDTO;
+import pers.brian.mall.modules.pms.dto.ProductCategoryParam;
 import pers.brian.mall.modules.pms.dto.ProductCateChildrenDTO;
 import pers.brian.mall.modules.pms.mapper.PmsProductCategoryMapper;
 import pers.brian.mall.modules.pms.model.PmsProductCategory;
@@ -50,17 +50,17 @@ public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategor
     }
 
     @Override
-    public int create(PmsProductCategoryParam productCategoryParam) {
+    public int create(ProductCategoryParam productCategoryParam) {
         return 0;
     }
 
     @Override
-    public int update(Long id, PmsProductCategoryParam productCategoryParam) {
+    public int update(Long id, ProductCategoryParam productCategoryParam) {
         return 0;
     }
 
     @Override
-    public boolean updateNavStatus(List<Long> ids, Integer navStatus) {
+    public boolean updateNavStatus(Integer navStatus, List<Long> ids) {
         UpdateWrapper<PmsProductCategory> productCategoryUpdateWrapper = new UpdateWrapper<>();
         productCategoryUpdateWrapper.lambda()
                 .set(PmsProductCategory::getNavStatus, navStatus)
@@ -69,7 +69,7 @@ public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategor
     }
 
     @Override
-    public boolean updateShowStatus(List<Long> ids, Integer showStatus) {
+    public boolean updateShowStatus(Integer showStatus, List<Long> ids) {
         UpdateWrapper<PmsProductCategory> productCategoryUpdateWrapper = new UpdateWrapper<>();
         productCategoryUpdateWrapper.lambda()
                 .set(PmsProductCategory::getShowStatus, showStatus)
@@ -83,7 +83,7 @@ public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategor
     }
 
     @Override
-    public boolean customSave(PmsProductCategoryDTO productCategoryDTO) {
+    public boolean customSave(ProductCategoryDTO productCategoryDTO) {
         // 保存商品分类
         PmsProductCategory productCategory = new PmsProductCategory();
         // 通过BeanUtils 将productCategoryDTO的数据拷贝到productCategory
@@ -104,7 +104,7 @@ public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategor
     }
 
     @Override
-    public boolean update(PmsProductCategoryDTO productCategoryDTO) {
+    public boolean update(ProductCategoryDTO productCategoryDTO) {
         // 保存商品分类
         PmsProductCategory productCategory = new PmsProductCategory();
         // 通过BeanUtils 将productCategoryDTO的数据拷贝到productCategory
@@ -135,7 +135,7 @@ public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategor
      * @param productCategory
      * @return
      */
-    private boolean saveAttrRelation(PmsProductCategoryDTO productCategoryDTO, PmsProductCategory productCategory) {
+    private boolean saveAttrRelation(ProductCategoryDTO productCategoryDTO, PmsProductCategory productCategory) {
         List<Long> productAttributeIdList = productCategoryDTO.getProductAttributeIdList();
         List<PmsProductCategoryAttributeRelation> list = new ArrayList<>();
         for (Long attrId : productAttributeIdList) {

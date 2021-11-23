@@ -18,7 +18,7 @@ import java.util.List;
 @Data
 @Builder
 @Accessors(chain = true)
-public class PmsProductCategoryParam {
+public class ProductCategoryParam {
 	@ApiModelProperty("父分类的编号")
 	private Long parentId;
 

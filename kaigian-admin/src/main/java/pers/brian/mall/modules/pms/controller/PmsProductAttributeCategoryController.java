@@ -32,13 +32,6 @@ public class PmsProductAttributeCategoryController {
         this.productAttributeCategoryService = productAttributeCategoryService;
     }
 
-    /**
-     * 获取商品类型列表
-     *
-     * @param pageNum  页码
-     * @param pageSize 每页大小
-     * @return 商品类型列表
-     */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<CommonPage<PmsProductAttributeCategory>> list(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
@@ -47,11 +40,6 @@ public class PmsProductAttributeCategoryController {
         return CommonResult.success(CommonPage.restPage(productAttributeCategoryPage));
     }
 
-    /**
-     * 筛选属性下拉级联数据
-     *
-     * @return 筛选属性下拉级联数据
-     */
     @RequestMapping(value = "/list/withAttr", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<List<ProductAttributeCateDTO>> getListWithAttr() {

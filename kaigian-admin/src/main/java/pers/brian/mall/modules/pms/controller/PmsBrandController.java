@@ -2,6 +2,7 @@ package pers.brian.mall.modules.pms.controller;
 
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,6 +11,8 @@ import pers.brian.mall.common.api.CommonResult;
 import pers.brian.mall.modules.pms.model.PmsBrand;
 import pers.brian.mall.modules.pms.model.PmsProductAttributeCategory;
 import pers.brian.mall.modules.pms.service.PmsBrandService;
+
+import java.util.List;
 
 /**
  * <p>
@@ -30,14 +33,6 @@ public class PmsBrandController {
         this.brandService = brandService;
     }
 
-    /**
-     * 获取品牌管理列表
-     *
-     * @param keyword  关键词
-     * @param pageNum  页码
-     * @param pageSize 每页大小
-     * @return 品牌管理列表
-     */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<CommonPage<PmsBrand>> list(@RequestParam(value = "keyword", defaultValue = "") String keyword,
@@ -45,6 +40,55 @@ public class PmsBrandController {
                                                    @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize) {
         Page<PmsBrand> brandPage = brandService.page(keyword, pageNum, pageSize);
         return CommonResult.success(CommonPage.restPage(brandPage));
+    }
+
+    @RequestMapping(value = "{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public CommonResult<PmsBrand> getBrand(@PathVariable(value = "id") Long id) {
+        return CommonResult.success(brandService.getById(id));
+    }
+
+
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult createBrand() {
+        return null;
+    }
+
+    @RequestMapping(value = "/update/showStatus", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult<Boolean> updateShowStatus(@RequestParam(value = "showStatus", defaultValue = "0") Integer showStatus,
+                                                  @RequestParam(value = "ids") List<Long> ids) {
+        Boolean updated = brandService.updateShowStatus(showStatus, ids);
+        if (updated) {
+            return CommonResult.success(true);
+        } else {
+            return CommonResult.failed();
+        }
+    }
+
+    @RequestMapping(value = "/update/factoryStatus", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult<Boolean> updateFactoryStatus(@RequestParam(value = "factoryStatus", defaultValue = "0") Integer factoryStatus,
+                                                     @RequestParam(value = "ids") List<Long> ids) {
+        Boolean updated = brandService.updateFactoryStatus(factoryStatus, ids);
+        if (updated) {
+            return CommonResult.success(true);
+        } else {
+            return CommonResult.failed();
+        }
+    }
+
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult deleteBrand(@PathVariable(value = "id") Long id) {
+        return null;
+    }
+
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult update(@PathVariable(value = "id") Long id) {
+        return null;
     }
 }
 

@@ -2,11 +2,10 @@ package pers.brian.mall.modules.pms.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
-import pers.brian.mall.modules.pms.dto.PmsProductCategoryDTO;
-import pers.brian.mall.modules.pms.dto.PmsProductCategoryParam;
+import pers.brian.mall.modules.pms.dto.ProductCategoryDTO;
+import pers.brian.mall.modules.pms.dto.ProductCategoryParam;
 import pers.brian.mall.modules.pms.dto.ProductCateChildrenDTO;
 import pers.brian.mall.modules.pms.model.PmsProductCategory;
-import pers.brian.mall.modules.pms.model.PmsProductCategoryWithChildrenItem;
 
 import java.util.List;
 
@@ -36,7 +35,7 @@ public interface PmsProductCategoryService extends IService<PmsProductCategory> 
      * @param productCategoryParam 新的商品分类信息
      * @return 新建的商品分类数
      */
-    int create(PmsProductCategoryParam productCategoryParam);
+    int create(ProductCategoryParam productCategoryParam);
 
     /**
      * 根据更新商品分类信息
@@ -45,25 +44,25 @@ public interface PmsProductCategoryService extends IService<PmsProductCategory> 
      * @param productCategoryParam 新的商品分类信息
      * @return 更新的纪录条数
      */
-    int update(Long id, PmsProductCategoryParam productCategoryParam);
+    int update(Long id, ProductCategoryParam productCategoryParam);
 
     /**
      * 更新导航栏状态
      *
-     * @param ids       待更新的商品分类id列表
      * @param navStatus 将要更新的导航栏状态值
+     * @param ids       待更新的商品分类id列表
      * @return 更新是否成功
      */
-    boolean updateNavStatus(List<Long> ids, Integer navStatus);
+    boolean updateNavStatus(Integer navStatus, List<Long> ids);
 
     /**
      * 更新商品分类是否显示
      *
-     * @param ids        待更新的商品分类id列表
      * @param showStatus showStatus
+     * @param ids        待更新的商品分类id列表
      * @return 更新是否成功
      */
-    boolean updateShowStatus(List<Long> ids, Integer showStatus);
+    boolean updateShowStatus(Integer showStatus, List<Long> ids);
 
     /**
      * 查询商品分类及其子分类的列表
@@ -78,7 +77,7 @@ public interface PmsProductCategoryService extends IService<PmsProductCategory> 
      * @param productCategoryDTO 待保存的商品分类信息
      * @return 保存是否成功
      */
-    boolean customSave(PmsProductCategoryDTO productCategoryDTO);
+    boolean customSave(ProductCategoryDTO productCategoryDTO);
 
     /**
      * 更新商品分类信息
@@ -86,5 +85,5 @@ public interface PmsProductCategoryService extends IService<PmsProductCategory> 
      * @param productCategoryDTO 待更新的商品分类信息
      * @return 更新是否成功
      */
-    boolean update(PmsProductCategoryDTO productCategoryDTO);
+    boolean update(ProductCategoryDTO productCategoryDTO);
 }
