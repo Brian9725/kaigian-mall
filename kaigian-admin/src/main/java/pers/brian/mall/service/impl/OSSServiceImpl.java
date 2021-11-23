@@ -47,7 +47,7 @@ public class OSSServiceImpl implements OSSService {
 
     @Override
     public OSSPolicyResult policy() {
-        // TODO:解决OSS签名后前端请求添加资源被拒绝bug
+        // 需要在阿里云控制台修改跨域设置，具体操作见阿里云OSS操作手册
         OSSPolicyResult result = OSSPolicyResult.builder().build();
         // 存储目录
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
