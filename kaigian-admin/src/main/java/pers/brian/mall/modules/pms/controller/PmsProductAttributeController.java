@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import pers.brian.mall.common.api.CommonResult;
 import pers.brian.mall.modules.pms.dto.RelationAttrInfoDTO;
@@ -39,6 +40,7 @@ public class PmsProductAttributeController {
      * @return 关联的筛选属性
      */
     @RequestMapping(value = "/attrInfo/{cId}")
+    @ResponseBody
     public CommonResult<List<RelationAttrInfoDTO>> getRelationAttrInfoByCid(@PathVariable Long cId) {
         List<RelationAttrInfoDTO> list = productAttributeService.getRelationAttrInfoByCid(cId);
         return CommonResult.success(list);

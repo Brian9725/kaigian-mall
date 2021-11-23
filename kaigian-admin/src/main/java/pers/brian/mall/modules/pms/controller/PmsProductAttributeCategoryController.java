@@ -40,6 +40,7 @@ public class PmsProductAttributeCategoryController {
      * @return 商品类型列表
      */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @ResponseBody
     public CommonResult<CommonPage<PmsProductAttributeCategory>> list(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
                                                                       @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize) {
         Page<PmsProductAttributeCategory> productAttributeCategoryPage = productAttributeCategoryService.page(pageNum, pageSize);
@@ -52,6 +53,7 @@ public class PmsProductAttributeCategoryController {
      * @return 筛选属性下拉级联数据
      */
     @RequestMapping(value = "/list/withAttr", method = RequestMethod.GET)
+    @ResponseBody
     public CommonResult<List<ProductAttributeCateDTO>> getListWithAttr() {
         List<ProductAttributeCateDTO> list = productAttributeCategoryService.getListWithAttr();
         return CommonResult.success(list);

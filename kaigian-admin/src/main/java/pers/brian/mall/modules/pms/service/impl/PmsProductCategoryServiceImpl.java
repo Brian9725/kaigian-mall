@@ -44,9 +44,9 @@ public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategor
     @Override
     public Page<PmsProductCategory> page(Long parentId, Integer pageNum, Integer pageSize) {
         Page<PmsProductCategory> page = new Page<>(pageNum, pageSize);
-        QueryWrapper<PmsProductCategory> queryWrapper = new QueryWrapper<>();
-        queryWrapper.lambda().eq(PmsProductCategory::getParentId, parentId);
-        return this.page(page, queryWrapper);
+        QueryWrapper<PmsProductCategory> productCategoryQueryWrapper = new QueryWrapper<>();
+        productCategoryQueryWrapper.lambda().eq(PmsProductCategory::getParentId, parentId);
+        return this.page(page, productCategoryQueryWrapper);
     }
 
     @Override
@@ -61,20 +61,20 @@ public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategor
 
     @Override
     public boolean updateNavStatus(List<Long> ids, Integer navStatus) {
-        UpdateWrapper<PmsProductCategory> updateWrapper = new UpdateWrapper<>();
-        updateWrapper.lambda()
+        UpdateWrapper<PmsProductCategory> productCategoryUpdateWrapper = new UpdateWrapper<>();
+        productCategoryUpdateWrapper.lambda()
                 .set(PmsProductCategory::getNavStatus, navStatus)
                 .in(PmsProductCategory::getId, ids);
-        return this.update(updateWrapper);
+        return this.update(productCategoryUpdateWrapper);
     }
 
     @Override
     public boolean updateShowStatus(List<Long> ids, Integer showStatus) {
-        UpdateWrapper<PmsProductCategory> updateWrapper = new UpdateWrapper<>();
-        updateWrapper.lambda()
+        UpdateWrapper<PmsProductCategory> productCategoryUpdateWrapper = new UpdateWrapper<>();
+        productCategoryUpdateWrapper.lambda()
                 .set(PmsProductCategory::getShowStatus, showStatus)
                 .in(PmsProductCategory::getId, ids);
-        return this.update(updateWrapper);
+        return this.update(productCategoryUpdateWrapper);
     }
 
     @Override
@@ -120,9 +120,10 @@ public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategor
         this.updateById(productCategory);
 
         // 删除已保存的关联属性—根据商品分类id删除
-        QueryWrapper<PmsProductCategoryAttributeRelation> queryWrapper = new QueryWrapper<>();
-        queryWrapper.lambda().eq(PmsProductCategoryAttributeRelation::getProductCategoryId, productCategory.getId());
-        productCategoryAttributeRelationService.remove(queryWrapper);
+        QueryWrapper<PmsProductCategoryAttributeRelation> productCategoryAttributeRelationQueryWrapper = new QueryWrapper<>();
+        productCategoryAttributeRelationQueryWrapper.lambda()
+                .eq(PmsProductCategoryAttributeRelation::getProductCategoryId, productCategory.getId());
+        productCategoryAttributeRelationService.remove(productCategoryAttributeRelationQueryWrapper);
         saveAttrRelation(productCategoryDTO, productCategory);
         return true;
     }
