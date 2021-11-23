@@ -2,9 +2,8 @@ package pers.brian.mall.modules.pms.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
-import pers.brian.mall.modules.pms.dto.ProductCategoryDTO;
-import pers.brian.mall.modules.pms.dto.ProductCategoryParam;
 import pers.brian.mall.modules.pms.dto.ProductCateChildrenDTO;
+import pers.brian.mall.modules.pms.dto.ProductCategoryDTO;
 import pers.brian.mall.modules.pms.model.PmsProductCategory;
 
 import java.util.List;
@@ -28,23 +27,6 @@ public interface PmsProductCategoryService extends IService<PmsProductCategory> 
      * @return 查询到的商品分类列表
      */
     Page<PmsProductCategory> page(Long parentId, Integer pageNum, Integer pageSize);
-
-    /**
-     * 创建新的商品分类
-     *
-     * @param productCategoryParam 新的商品分类信息
-     * @return 新建的商品分类数
-     */
-    int create(ProductCategoryParam productCategoryParam);
-
-    /**
-     * 根据更新商品分类信息
-     *
-     * @param id                   商品分类id
-     * @param productCategoryParam 新的商品分类信息
-     * @return 更新的纪录条数
-     */
-    int update(Long id, ProductCategoryParam productCategoryParam);
 
     /**
      * 更新导航栏状态

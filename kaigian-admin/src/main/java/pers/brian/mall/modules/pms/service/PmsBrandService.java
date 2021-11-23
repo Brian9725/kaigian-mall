@@ -1,8 +1,8 @@
 package pers.brian.mall.modules.pms.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import pers.brian.mall.modules.pms.model.PmsBrand;
 import com.baomidou.mybatisplus.extension.service.IService;
+import pers.brian.mall.modules.pms.model.PmsBrand;
 
 import java.util.List;
 

@@ -1,9 +1,9 @@
 package pers.brian.mall.modules.pms.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.IService;
 import pers.brian.mall.modules.pms.dto.ProductAttributeCateDTO;
 import pers.brian.mall.modules.pms.model.PmsProductAttributeCategory;
-import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
 

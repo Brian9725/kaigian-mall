@@ -8,8 +8,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import pers.brian.mall.common.api.CommonPage;
 import pers.brian.mall.common.api.CommonResult;
-import pers.brian.mall.modules.pms.dto.ProductCategoryDTO;
 import pers.brian.mall.modules.pms.dto.ProductCateChildrenDTO;
+import pers.brian.mall.modules.pms.dto.ProductCategoryDTO;
 import pers.brian.mall.modules.pms.model.PmsProductCategory;
 import pers.brian.mall.modules.pms.service.PmsProductCategoryService;
 
