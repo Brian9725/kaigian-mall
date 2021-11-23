@@ -19,8 +19,8 @@ import java.util.List;
 @Builder
 @Accessors(chain = true)
 @EqualsAndHashCode(callSuper = false)
-@ApiModel(value = "ProductCateChildrenDTO商品一级分类和二级分类的级联传输对象", description = "用于商品列表--商品分类下拉级联数据")
-public class ProductCateChildrenDTO {
+@ApiModel(value = "ProductCategoryChildrenDTO商品一级分类和二级分类的级联传输对象", description = "用于商品列表--商品分类下拉级联数据")
+public class ProductCategoryChildrenDTO {
 
     // 商品分类id
     private Long id;

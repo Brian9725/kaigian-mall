@@ -48,7 +48,7 @@ public class PmsBrandController {
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult createBrand() {
+    public CommonResult<Boolean> createBrand() {
         return null;
     }
 
@@ -78,13 +78,18 @@ public class PmsBrandController {
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult deleteBrand(@PathVariable(value = "id") Long id) {
-        return null;
+    public CommonResult<Boolean> deleteBrand(@PathVariable(value = "id") Long id) {
+        boolean removed = brandService.removeById(id);
+        if (removed) {
+            return CommonResult.success(true);
+        } else {
+            return CommonResult.failed();
+        }
     }
 
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult update(@PathVariable(value = "id") Long id) {
+    public CommonResult<Boolean> update(@PathVariable(value = "id") Long id) {
         return null;
     }
 }

@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pers.brian.mall.modules.pms.dto.ProductCateChildrenDTO;
+import pers.brian.mall.modules.pms.dto.ProductCategoryChildrenDTO;
 import pers.brian.mall.modules.pms.dto.ProductCategoryDTO;
 import pers.brian.mall.modules.pms.mapper.PmsProductCategoryMapper;
 import pers.brian.mall.modules.pms.model.PmsProductCategory;
@@ -67,7 +67,7 @@ public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategor
     }
 
     @Override
-    public List<ProductCateChildrenDTO> listWithChildren() {
+    public List<ProductCategoryChildrenDTO> listWithChildren() {
         return productCategoryMapper.listWithChildren();
     }
 

@@ -8,7 +8,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import pers.brian.mall.common.api.CommonPage;
 import pers.brian.mall.common.api.CommonResult;
-import pers.brian.mall.modules.pms.dto.ProductCateChildrenDTO;
+import pers.brian.mall.modules.pms.dto.ProductCategoryChildrenDTO;
 import pers.brian.mall.modules.pms.dto.ProductCategoryDTO;
 import pers.brian.mall.modules.pms.model.PmsProductCategory;
 import pers.brian.mall.modules.pms.service.PmsProductCategoryService;
@@ -117,8 +117,8 @@ public class PmsProductCategoryController {
     @ApiOperation("查询所有一级分类及子分类")
     @RequestMapping(value = "/list/withChildren", method = RequestMethod.GET)
     @ResponseBody
-    public CommonResult<List<ProductCateChildrenDTO>> listWithChildren() {
-        List<ProductCateChildrenDTO> list = productCategoryService.listWithChildren();
+    public CommonResult<List<ProductCategoryChildrenDTO>> listWithChildren() {
+        List<ProductCategoryChildrenDTO> list = productCategoryService.listWithChildren();
         return CommonResult.success(list);
     }
 }
