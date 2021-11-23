@@ -9,7 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import pers.brian.mall.common.util.StringConstants;
+import pers.brian.mall.common.constant.StringConstants;
 import pers.brian.mall.dto.OSSPolicyResult;
 import pers.brian.mall.service.OSSService;
 

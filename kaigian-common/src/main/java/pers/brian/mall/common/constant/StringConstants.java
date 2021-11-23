@@ -1,4 +1,4 @@
-package pers.brian.mall.common.util;
+package pers.brian.mall.common.constant;
 
 /**
  * @Description: 常用的String常量

@@ -1,4 +1,4 @@
-package pers.brian.mall.common.util;
+package pers.brian.mall.common.constant;
 
 /**
  * @Description:

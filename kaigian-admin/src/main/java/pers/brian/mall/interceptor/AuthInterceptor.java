@@ -2,7 +2,7 @@ package pers.brian.mall.interceptor;
 
 import pers.brian.mall.common.api.ResultCode;
 import pers.brian.mall.common.exception.ApiException;
-import pers.brian.mall.common.util.ComConstants;
+import pers.brian.mall.common.constant.ComConstants;
 import pers.brian.mall.modules.ums.model.UmsAdmin;
 import pers.brian.mall.modules.ums.model.UmsResource;
 import pers.brian.mall.modules.ums.service.UmsAdminService;

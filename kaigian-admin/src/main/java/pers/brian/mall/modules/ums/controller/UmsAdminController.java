@@ -4,7 +4,7 @@ import cn.hutool.core.collection.CollUtil;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import pers.brian.mall.common.api.CommonPage;
 import pers.brian.mall.common.api.CommonResult;
-import pers.brian.mall.common.util.ComConstants;
+import pers.brian.mall.common.constant.ComConstants;
 import pers.brian.mall.modules.ums.dto.UmsAdminLoginParam;
 import pers.brian.mall.modules.ums.dto.UmsAdminParam;
 import pers.brian.mall.modules.ums.dto.UpdateAdminPasswordParam;
