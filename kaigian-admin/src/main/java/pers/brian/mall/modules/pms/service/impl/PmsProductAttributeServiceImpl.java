@@ -1,5 +1,7 @@
 package pers.brian.mall.modules.pms.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,5 +33,15 @@ public class PmsProductAttributeServiceImpl extends ServiceImpl<PmsProductAttrib
     @Override
     public List<RelationAttrInfoDTO> getRelationAttrInfoByCid(Long cId) {
         return null;
+    }
+
+    @Override
+    public Page<PmsProductAttribute> list(Long cId, Integer type, Integer pageNum, Integer pageSize) {
+        Page<PmsProductAttribute> page = new Page<>(pageNum, pageSize);
+        QueryWrapper<PmsProductAttribute> productAttributeQueryWrapper = new QueryWrapper<>();
+        productAttributeQueryWrapper.lambda()
+                .eq(PmsProductAttribute::getProductAttributeCategoryId, cId)
+                .eq(PmsProductAttribute::getType, type);
+        return this.page(page, productAttributeQueryWrapper);
     }
 }

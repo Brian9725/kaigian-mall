@@ -1,13 +1,13 @@
 package pers.brian.mall.modules.pms.controller;
 
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import pers.brian.mall.common.api.CommonPage;
 import pers.brian.mall.common.api.CommonResult;
 import pers.brian.mall.modules.pms.dto.RelationAttrInfoDTO;
+import pers.brian.mall.modules.pms.model.PmsProductAttribute;
 import pers.brian.mall.modules.pms.service.PmsProductAttributeService;
 
 import java.util.List;
@@ -29,6 +29,16 @@ public class PmsProductAttributeController {
     @Autowired
     public PmsProductAttributeController(PmsProductAttributeService productAttributeService) {
         this.productAttributeService = productAttributeService;
+    }
+
+    @RequestMapping(value = "/list/{cId}")
+    @ResponseBody
+    public CommonResult<CommonPage<PmsProductAttribute>> getList(@PathVariable Long cId,
+                                                                 @RequestParam(value = "type", defaultValue = "0") Integer type,
+                                                                 @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
+                                                                 @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize) {
+        Page<PmsProductAttribute> productAttributePage = productAttributeService.list(cId, type, pageNum, pageSize);
+        return CommonResult.success(CommonPage.restPage(productAttributePage));
     }
 
     @RequestMapping(value = "/attrInfo/{cId}")
