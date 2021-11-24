@@ -39,4 +39,10 @@ public class PmsProductAttributeCategoryServiceImpl extends ServiceImpl<PmsProdu
     public List<ProductAttributeCateDTO> getListWithAttr() {
         return productAttributeCategoryMapper.getListWithAttr();
     }
+
+    @Override
+    public boolean customSave(PmsProductAttributeCategory pmsProductAttributeCategory) {
+        pmsProductAttributeCategory.setAttributeCount(0).setParamCount(0);
+        return this.save(pmsProductAttributeCategory);
+    }
 }
