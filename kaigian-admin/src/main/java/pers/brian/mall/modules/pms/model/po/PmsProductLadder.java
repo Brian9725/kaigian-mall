@@ -1,10 +1,13 @@
-package pers.brian.mall.modules.pms.model;
+package pers.brian.mall.modules.pms.model.po;
 
 import java.math.BigDecimal;
+
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+
 import java.io.Serializable;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -21,10 +24,10 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("pms_product_ladder")
-@ApiModel(value="PmsProductLadder对象", description="产品阶梯价格表(只针对同商品)")
+@ApiModel(value = "PmsProductLadder对象", description = "产品阶梯价格表(只针对同商品)")
 public class PmsProductLadder implements Serializable {
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;

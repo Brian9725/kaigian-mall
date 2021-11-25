@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import pers.brian.mall.common.api.CommonResult;
-import pers.brian.mall.modules.pms.model.PmsProduct;
+import pers.brian.mall.modules.pms.model.po.PmsProduct;
 import pers.brian.mall.modules.pms.service.PmsProductService;
 
 import java.util.List;
@@ -36,8 +36,8 @@ public class PmsProductController {
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	@ResponseBody
 	public CommonResult<List<PmsProduct>> list() {
-		List<PmsProduct> products = productService.list();
-		return CommonResult.success(products);
+		List<PmsProduct> pmsProducts = productService.list();
+		return CommonResult.success(pmsProducts);
 	}
 }
 

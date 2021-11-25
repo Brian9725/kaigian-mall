@@ -3,7 +3,7 @@
 <mapper namespace="pers.brian.mall.modules.pms.mapper.PmsProductFullReductionMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="pers.brian.mall.modules.pms.model.PmsProductFullReduction">
+    <resultMap id="BaseResultMap" type="pers.brian.mall.modules.pms.model.po.PmsProductFullReduction">
         <id column="id" property="id" />
         <result column="product_id" property="productId" />
         <result column="full_price" property="fullPrice" />

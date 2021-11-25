@@ -1,18 +1,20 @@
-package pers.brian.mall.modules.pms.model;
+package pers.brian.mall.modules.pms.model.po;
 
 import java.math.BigDecimal;
+
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+
 import java.io.Serializable;
+
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
  * <p>
- * 商品会员价格表
+ * 产品满减表(只针对同商品)
  * </p>
  *
  * @author BrianHu
@@ -20,23 +22,20 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@TableName("pms_member_price")
-@ApiModel(value="PmsMemberPrice对象", description="商品会员价格表")
-public class PmsMemberPrice implements Serializable {
+@TableName("pms_product_full_reduction")
+@ApiModel(value = "PmsProductFullReduction对象", description = "产品满减表(只针对同商品)")
+public class PmsProductFullReduction implements Serializable {
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
     private Long productId;
 
-    private Long memberLevelId;
+    private BigDecimal fullPrice;
 
-    @ApiModelProperty(value = "会员价格")
-    private BigDecimal memberPrice;
-
-    private String memberLevelName;
+    private BigDecimal reducePrice;
 
 
 }

@@ -2,9 +2,9 @@ package pers.brian.mall.modules.pms.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
-import pers.brian.mall.modules.pms.dto.ProductCategoryChildrenDTO;
-import pers.brian.mall.modules.pms.dto.ProductCategoryDTO;
-import pers.brian.mall.modules.pms.model.PmsProductCategory;
+import pers.brian.mall.modules.pms.model.dto.PmsProductCategoryChildrenDTO;
+import pers.brian.mall.modules.pms.model.dto.PmsProductCategoryDTO;
+import pers.brian.mall.modules.pms.model.po.PmsProductCategory;
 
 import java.util.List;
 
@@ -51,7 +51,7 @@ public interface PmsProductCategoryService extends IService<PmsProductCategory> 
      *
      * @return 商品分类及其子分类的列表
      */
-    List<ProductCategoryChildrenDTO> listWithChildren();
+    List<PmsProductCategoryChildrenDTO> listWithChildren();
 
     /**
      * 自定义保存商品分类
@@ -59,7 +59,7 @@ public interface PmsProductCategoryService extends IService<PmsProductCategory> 
      * @param productCategoryDTO 待保存的商品分类信息
      * @return 保存是否成功
      */
-    boolean customSave(ProductCategoryDTO productCategoryDTO);
+    boolean customSave(PmsProductCategoryDTO productCategoryDTO);
 
     /**
      * 更新商品分类信息
@@ -67,5 +67,5 @@ public interface PmsProductCategoryService extends IService<PmsProductCategory> 
      * @param productCategoryDTO 待更新的商品分类信息
      * @return 更新是否成功
      */
-    boolean update(ProductCategoryDTO productCategoryDTO);
+    boolean update(PmsProductCategoryDTO productCategoryDTO);
 }

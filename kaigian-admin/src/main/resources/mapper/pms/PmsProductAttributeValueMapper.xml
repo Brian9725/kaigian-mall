@@ -3,7 +3,7 @@
 <mapper namespace="pers.brian.mall.modules.pms.mapper.PmsProductAttributeValueMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="pers.brian.mall.modules.pms.model.PmsProductAttributeValue">
+    <resultMap id="BaseResultMap" type="pers.brian.mall.modules.pms.model.po.PmsProductAttributeValue">
         <id column="id" property="id" />
         <result column="product_id" property="productId" />
         <result column="product_attribute_id" property="productAttributeId" />

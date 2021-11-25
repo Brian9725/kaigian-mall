@@ -3,7 +3,7 @@
 <mapper namespace="pers.brian.mall.modules.pms.mapper.PmsProductAttributeMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="pers.brian.mall.modules.pms.model.PmsProductAttribute">
+    <resultMap id="BaseResultMap" type="pers.brian.mall.modules.pms.model.po.PmsProductAttribute">
         <id column="id" property="id"/>
         <result column="product_attribute_category_id" property="productAttributeCategoryId"/>
         <result column="name" property="name"/>
@@ -18,7 +18,7 @@
         <result column="type" property="type"/>
     </resultMap>
 
-    <resultMap id="RelationAttrInfoByCidMap" type="pers.brian.mall.modules.pms.dto.RelationAttrInfoDTO">
+    <resultMap id="RelationAttrInfoByCidMap" type="pers.brian.mall.modules.pms.model.dto.PmsRelationAttrInfoDTO">
         <result column="product_attribute_id" property="attributeId"/>
         <result column="product_attribute_category_id" property="attributeCategoryId"/>
     </resultMap>

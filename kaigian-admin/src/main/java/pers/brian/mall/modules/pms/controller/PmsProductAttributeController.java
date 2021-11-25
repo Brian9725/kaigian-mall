@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pers.brian.mall.common.api.CommonPage;
 import pers.brian.mall.common.api.CommonResult;
-import pers.brian.mall.modules.pms.dto.RelationAttrInfoDTO;
-import pers.brian.mall.modules.pms.model.PmsProductAttribute;
+import pers.brian.mall.modules.pms.model.dto.PmsRelationAttrInfoDTO;
+import pers.brian.mall.modules.pms.model.po.PmsProductAttribute;
 import pers.brian.mall.modules.pms.service.PmsProductAttributeService;
 
 import java.util.List;
@@ -43,8 +43,8 @@ public class PmsProductAttributeController {
 
     @RequestMapping(value = "/attrInfo/{cId}")
     @ResponseBody
-    public CommonResult<List<RelationAttrInfoDTO>> getRelationAttrInfoByCid(@PathVariable Long cId) {
-        List<RelationAttrInfoDTO> list = productAttributeService.getRelationAttrInfoByCid(cId);
+    public CommonResult<List<PmsRelationAttrInfoDTO>> getRelationAttrInfoByCid(@PathVariable Long cId) {
+        List<PmsRelationAttrInfoDTO> list = productAttributeService.getRelationAttrInfoByCid(cId);
         return CommonResult.success(list);
     }
 }

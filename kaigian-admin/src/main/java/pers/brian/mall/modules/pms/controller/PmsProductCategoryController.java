@@ -8,9 +8,9 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import pers.brian.mall.common.api.CommonPage;
 import pers.brian.mall.common.api.CommonResult;
-import pers.brian.mall.modules.pms.dto.ProductCategoryChildrenDTO;
-import pers.brian.mall.modules.pms.dto.ProductCategoryDTO;
-import pers.brian.mall.modules.pms.model.PmsProductCategory;
+import pers.brian.mall.modules.pms.model.dto.PmsProductCategoryChildrenDTO;
+import pers.brian.mall.modules.pms.model.dto.PmsProductCategoryDTO;
+import pers.brian.mall.modules.pms.model.po.PmsProductCategory;
 import pers.brian.mall.modules.pms.service.PmsProductCategoryService;
 
 import java.util.List;
@@ -67,7 +67,7 @@ public class PmsProductCategoryController {
     @ApiOperation("添加产品分类")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult<Boolean> create(@Validated @RequestBody ProductCategoryDTO productCategoryDTO) {
+    public CommonResult<Boolean> create(@Validated @RequestBody PmsProductCategoryDTO productCategoryDTO) {
         boolean saved = productCategoryService.customSave(productCategoryDTO);
         if (saved) {
             return CommonResult.success(true);
@@ -79,7 +79,7 @@ public class PmsProductCategoryController {
     @ApiOperation("修改商品分类")
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult<Boolean> update(@Validated @RequestBody ProductCategoryDTO productCategoryDTO) {
+    public CommonResult<Boolean> update(@Validated @RequestBody PmsProductCategoryDTO productCategoryDTO) {
         boolean updated = productCategoryService.update(productCategoryDTO);
         if (updated) {
             return CommonResult.success(true);
@@ -117,8 +117,8 @@ public class PmsProductCategoryController {
     @ApiOperation("查询所有一级分类及子分类")
     @RequestMapping(value = "/list/withChildren", method = RequestMethod.GET)
     @ResponseBody
-    public CommonResult<List<ProductCategoryChildrenDTO>> listWithChildren() {
-        List<ProductCategoryChildrenDTO> list = productCategoryService.listWithChildren();
+    public CommonResult<List<PmsProductCategoryChildrenDTO>> listWithChildren() {
+        List<PmsProductCategoryChildrenDTO> list = productCategoryService.listWithChildren();
         return CommonResult.success(list);
     }
 }

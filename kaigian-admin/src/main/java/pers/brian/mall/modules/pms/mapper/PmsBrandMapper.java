@@ -1,6 +1,6 @@
 package pers.brian.mall.modules.pms.mapper;
 
-import pers.brian.mall.modules.pms.model.PmsBrand;
+import pers.brian.mall.modules.pms.model.po.PmsBrand;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

@@ -2,8 +2,8 @@ package pers.brian.mall.modules.pms.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
-import pers.brian.mall.modules.pms.dto.RelationAttrInfoDTO;
-import pers.brian.mall.modules.pms.model.PmsProductAttribute;
+import pers.brian.mall.modules.pms.model.dto.PmsRelationAttrInfoDTO;
+import pers.brian.mall.modules.pms.model.po.PmsProductAttribute;
 
 import java.util.List;
 
@@ -23,7 +23,7 @@ public interface PmsProductAttributeService extends IService<PmsProductAttribute
      * @param cId 商品分类id
      * @return 关联的筛选属性
      */
-    List<RelationAttrInfoDTO> getRelationAttrInfoByCid(Long cId);
+    List<PmsRelationAttrInfoDTO> getRelationAttrInfoByCid(Long cId);
 
     /**
      * 根据id和type筛选商品类型属性

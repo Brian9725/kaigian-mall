@@ -3,19 +3,19 @@
 <mapper namespace="pers.brian.mall.modules.pms.mapper.PmsProductAttributeCategoryMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="pers.brian.mall.modules.pms.model.PmsProductAttributeCategory">
+    <resultMap id="BaseResultMap" type="pers.brian.mall.modules.pms.model.po.PmsProductAttributeCategory">
         <id column="id" property="id"/>
         <result column="name" property="name"/>
         <result column="attribute_count" property="attributeCount"/>
         <result column="param_count" property="paramCount"/>
     </resultMap>
 
-    <resultMap id="ListWithAttrMap" type="pers.brian.mall.modules.pms.dto.ProductAttributeCateDTO">
+    <resultMap id="ListWithAttrMap" type="pers.brian.mall.modules.pms.model.dto.PmsProductAttributeCategoryDTO">
         <id column="id" property="id"/>
         <result column="name" property="name"/>
         <!--嵌套查询   定义2条sql语句 1.查商品分类 2.商品属性-->
         <!--嵌套结果  1.一条sql语句-->
-        <collection property="productAttributeList" columnPrefix="attr_"
+        <collection property="pmsProductAttributeList" columnPrefix="attr_"
                     resultMap="pers.brian.mall.modules.pms.mapper.PmsProductAttributeMapper.BaseResultMap"/>
     </resultMap>
 

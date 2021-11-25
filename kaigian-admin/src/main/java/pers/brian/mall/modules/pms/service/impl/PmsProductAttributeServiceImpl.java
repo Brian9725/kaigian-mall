@@ -5,9 +5,9 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pers.brian.mall.modules.pms.dto.RelationAttrInfoDTO;
+import pers.brian.mall.modules.pms.model.dto.PmsRelationAttrInfoDTO;
 import pers.brian.mall.modules.pms.mapper.PmsProductAttributeMapper;
-import pers.brian.mall.modules.pms.model.PmsProductAttribute;
+import pers.brian.mall.modules.pms.model.po.PmsProductAttribute;
 import pers.brian.mall.modules.pms.service.PmsProductAttributeService;
 
 import java.util.List;
@@ -31,7 +31,7 @@ public class PmsProductAttributeServiceImpl extends ServiceImpl<PmsProductAttrib
     }
 
     @Override
-    public List<RelationAttrInfoDTO> getRelationAttrInfoByCid(Long cId) {
+    public List<PmsRelationAttrInfoDTO> getRelationAttrInfoByCid(Long cId) {
         return null;
     }
 

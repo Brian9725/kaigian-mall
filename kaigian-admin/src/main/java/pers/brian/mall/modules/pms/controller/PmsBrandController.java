@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pers.brian.mall.common.api.CommonPage;
 import pers.brian.mall.common.api.CommonResult;
-import pers.brian.mall.modules.pms.model.PmsBrand;
+import pers.brian.mall.modules.pms.model.po.PmsBrand;
 import pers.brian.mall.modules.pms.service.PmsBrandService;
 
 import java.util.List;

@@ -4,9 +4,9 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pers.brian.mall.modules.pms.dto.ProductAttributeCateDTO;
+import pers.brian.mall.modules.pms.model.dto.PmsProductAttributeCategoryDTO;
 import pers.brian.mall.modules.pms.mapper.PmsProductAttributeCategoryMapper;
-import pers.brian.mall.modules.pms.model.PmsProductAttributeCategory;
+import pers.brian.mall.modules.pms.model.po.PmsProductAttributeCategory;
 import pers.brian.mall.modules.pms.service.PmsProductAttributeCategoryService;
 
 import java.util.List;
@@ -36,7 +36,7 @@ public class PmsProductAttributeCategoryServiceImpl extends ServiceImpl<PmsProdu
     }
 
     @Override
-    public List<ProductAttributeCateDTO> getListWithAttr() {
+    public List<PmsProductAttributeCategoryDTO> getListWithAttr() {
         return productAttributeCategoryMapper.getListWithAttr();
     }
 

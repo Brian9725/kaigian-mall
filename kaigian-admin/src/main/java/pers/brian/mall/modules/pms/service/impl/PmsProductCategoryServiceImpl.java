@@ -7,11 +7,11 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pers.brian.mall.modules.pms.dto.ProductCategoryChildrenDTO;
-import pers.brian.mall.modules.pms.dto.ProductCategoryDTO;
+import pers.brian.mall.modules.pms.model.dto.PmsProductCategoryChildrenDTO;
+import pers.brian.mall.modules.pms.model.dto.PmsProductCategoryDTO;
 import pers.brian.mall.modules.pms.mapper.PmsProductCategoryMapper;
-import pers.brian.mall.modules.pms.model.PmsProductCategory;
-import pers.brian.mall.modules.pms.model.PmsProductCategoryAttributeRelation;
+import pers.brian.mall.modules.pms.model.po.PmsProductCategory;
+import pers.brian.mall.modules.pms.model.po.PmsProductCategoryAttributeRelation;
 import pers.brian.mall.modules.pms.service.PmsProductCategoryAttributeRelationService;
 import pers.brian.mall.modules.pms.service.PmsProductCategoryService;
 
@@ -67,12 +67,12 @@ public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategor
     }
 
     @Override
-    public List<ProductCategoryChildrenDTO> listWithChildren() {
+    public List<PmsProductCategoryChildrenDTO> listWithChildren() {
         return productCategoryMapper.listWithChildren();
     }
 
     @Override
-    public boolean customSave(ProductCategoryDTO productCategoryDTO) {
+    public boolean customSave(PmsProductCategoryDTO productCategoryDTO) {
         // 保存商品分类
         PmsProductCategory productCategory = new PmsProductCategory();
         // 通过BeanUtils 将productCategoryDTO的数据拷贝到productCategory
@@ -93,7 +93,7 @@ public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategor
     }
 
     @Override
-    public boolean update(ProductCategoryDTO productCategoryDTO) {
+    public boolean update(PmsProductCategoryDTO productCategoryDTO) {
         // 保存商品分类
         PmsProductCategory productCategory = new PmsProductCategory();
         // 通过BeanUtils 将productCategoryDTO的数据拷贝到productCategory
@@ -124,7 +124,7 @@ public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategor
      * @param productCategory
      * @return
      */
-    private boolean saveAttrRelation(ProductCategoryDTO productCategoryDTO, PmsProductCategory productCategory) {
+    private boolean saveAttrRelation(PmsProductCategoryDTO productCategoryDTO, PmsProductCategory productCategory) {
         List<Long> productAttributeIdList = productCategoryDTO.getProductAttributeIdList();
         List<PmsProductCategoryAttributeRelation> list = new ArrayList<>();
         for (Long attrId : productAttributeIdList) {

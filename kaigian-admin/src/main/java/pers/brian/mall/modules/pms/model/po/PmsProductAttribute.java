@@ -1,9 +1,11 @@
-package pers.brian.mall.modules.pms.model;
+package pers.brian.mall.modules.pms.model.po;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+
 import java.io.Serializable;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -20,10 +22,10 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("pms_product_attribute")
-@ApiModel(value="PmsProductAttribute对象", description="商品属性参数表")
+@ApiModel(value = "PmsProductAttribute对象", description = "商品属性参数表")
 public class PmsProductAttribute implements Serializable {
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;

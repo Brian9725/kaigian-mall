@@ -1,6 +1,6 @@
 package pers.brian.mall.modules.pms.mapper;
 
-import pers.brian.mall.modules.pms.model.PmsProductVertifyRecord;
+import pers.brian.mall.modules.pms.model.po.PmsProductVertifyRecord;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

@@ -2,8 +2,8 @@ package pers.brian.mall.modules.pms.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
-import pers.brian.mall.modules.pms.dto.ProductAttributeCateDTO;
-import pers.brian.mall.modules.pms.model.PmsProductAttributeCategory;
+import pers.brian.mall.modules.pms.model.dto.PmsProductAttributeCategoryDTO;
+import pers.brian.mall.modules.pms.model.po.PmsProductAttributeCategory;
 
 import java.util.List;
 
@@ -31,13 +31,13 @@ public interface PmsProductAttributeCategoryService extends IService<PmsProductA
 	 *
 	 * @return 筛选属性下拉级联数据
 	 */
-	List<ProductAttributeCateDTO> getListWithAttr();
+	List<PmsProductAttributeCategoryDTO> getListWithAttr();
 
 	/**
 	 * 自定义添加商品类型
 	 *
-	 * @param pmsProductAttributeCategory 待添加的商品类型信息
+	 * @param pmsProductAttributeCategoryParams 待添加的商品类型信息
 	 * @return 是否添加成功
 	 */
-	boolean customSave(PmsProductAttributeCategory pmsProductAttributeCategory);
+	boolean customSave(PmsProductAttributeCategory pmsProductAttributeCategoryParams);
 }

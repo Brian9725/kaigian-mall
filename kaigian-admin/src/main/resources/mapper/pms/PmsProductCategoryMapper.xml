@@ -3,7 +3,7 @@
 <mapper namespace="pers.brian.mall.modules.pms.mapper.PmsProductCategoryMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="pers.brian.mall.modules.pms.model.PmsProductCategory">
+    <resultMap id="BaseResultMap" type="pers.brian.mall.modules.pms.model.po.PmsProductCategory">
         <id column="id" property="id"/>
         <result column="parent_id" property="parentId"/>
         <result column="name" property="name"/>
@@ -19,7 +19,7 @@
     </resultMap>
 
     <!-- 一级分类和二级分类的下拉级联数据 的resultMap-->
-    <resultMap id="WithChildrenMap" type="pers.brian.mall.modules.pms.dto.ProductCategoryChildrenDTO">
+    <resultMap id="WithChildrenMap" type="pers.brian.mall.modules.pms.model.dto.PmsProductCategoryChildrenDTO">
         <result property="id" column="id"/>
         <result property="name" column="name"/>
         <collection property="children" columnPrefix="chirend_" resultMap="BaseResultMap"/>

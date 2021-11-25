@@ -1,8 +1,8 @@
 package pers.brian.mall.modules.pms.mapper;
 
 import org.springframework.stereotype.Component;
-import pers.brian.mall.modules.pms.dto.RelationAttrInfoDTO;
-import pers.brian.mall.modules.pms.model.PmsProductAttribute;
+import pers.brian.mall.modules.pms.model.dto.PmsRelationAttrInfoDTO;
+import pers.brian.mall.modules.pms.model.po.PmsProductAttribute;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 import java.util.List;
@@ -24,5 +24,5 @@ public interface PmsProductAttributeMapper extends BaseMapper<PmsProductAttribut
      * @param cId 商品分类id
      * @return 关联的筛选属性
      */
-    List<RelationAttrInfoDTO> getRelationAttrInfoByCid(Long cId);
+    List<PmsRelationAttrInfoDTO> getRelationAttrInfoByCid(Long cId);
 }

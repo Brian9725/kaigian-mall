@@ -1,8 +1,8 @@
 package pers.brian.mall.modules.pms.mapper;
 
 import org.springframework.stereotype.Component;
-import pers.brian.mall.modules.pms.dto.ProductCategoryChildrenDTO;
-import pers.brian.mall.modules.pms.model.PmsProductCategory;
+import pers.brian.mall.modules.pms.model.dto.PmsProductCategoryChildrenDTO;
+import pers.brian.mall.modules.pms.model.po.PmsProductCategory;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 import java.util.List;
@@ -22,5 +22,5 @@ public interface PmsProductCategoryMapper extends BaseMapper<PmsProductCategory>
      * 查询商品分类及其子分类的列表
      * @return 商品分类及其子分类的列表
      */
-    List<ProductCategoryChildrenDTO> listWithChildren();
+    List<PmsProductCategoryChildrenDTO> listWithChildren();
 }

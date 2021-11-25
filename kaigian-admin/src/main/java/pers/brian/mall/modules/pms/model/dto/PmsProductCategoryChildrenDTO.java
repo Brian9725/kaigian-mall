@@ -1,11 +1,11 @@
-package pers.brian.mall.modules.pms.dto;
+package pers.brian.mall.modules.pms.model.dto;
 
 import io.swagger.annotations.ApiModel;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-import pers.brian.mall.modules.pms.model.PmsProductCategory;
+import pers.brian.mall.modules.pms.model.po.PmsProductCategory;
 
 import java.util.List;
 
@@ -20,14 +20,20 @@ import java.util.List;
 @Accessors(chain = true)
 @EqualsAndHashCode(callSuper = false)
 @ApiModel(value = "ProductCategoryChildrenDTO商品一级分类和二级分类的级联传输对象", description = "用于商品列表--商品分类下拉级联数据")
-public class ProductCategoryChildrenDTO {
+public class PmsProductCategoryChildrenDTO {
 
-    // 商品分类id
+    /**
+     * 商品分类id
+     */
     private Long id;
 
-    // 商品分类名称
+    /**
+     * 商品分类名称
+     */
     private String name;
 
-    // 商品分类二级级联
+    /**
+     * 商品分类二级级联
+     */
     private List<PmsProductCategory> children;
 }
