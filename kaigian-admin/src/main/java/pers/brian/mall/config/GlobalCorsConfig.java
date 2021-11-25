@@ -13,7 +13,7 @@ import org.springframework.web.filter.CorsFilter;
  * @Version: 0.0.1
  **/
 @Configuration
-public class GlobalCorsConfig  {
+public class GlobalCorsConfig {
 
     /**
      * 允许跨域调用的过滤器
@@ -33,5 +33,5 @@ public class GlobalCorsConfig  {
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
     }
- 
+
 }

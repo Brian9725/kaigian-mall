@@ -14,7 +14,7 @@ import lombok.experimental.Accessors;
 @Data
 @Builder
 @Accessors(chain = true)
-public class OSSPolicyResult {
+public class OssPolicyResult {
     @ApiModelProperty("访问身份验证中用到用户标识")
     private String accessKeyId;
 

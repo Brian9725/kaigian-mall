@@ -23,7 +23,9 @@ import java.util.List;
  **/
 public class AuthInterceptor extends HandlerInterceptorAdapter {
 
-    // 配置文件中的白名单secure.ignored.urls
+    /**
+     * 配置文件中的白名单secure.ignored.urls
+     */
     private List<String> urls;
 
     @Autowired
@@ -39,8 +41,8 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
         // 因为session基于cookie,解决cookie的跨站不能共享的新特性问题（课后同学反馈所加，很多同学浏览器中有这个新特性）
         response.setHeader("SET-COOKIE", "JSESSIONID=" + request.getSession().getId() + ";Path=/;secure;HttpOnly;SameSite=None");
         for (String ignoredUrl : urls) {
-            if(matcher.match(ignoredUrl,requestURI)){
-                return  true;
+            if (matcher.match(ignoredUrl, requestURI)) {
+                return true;
             }
         }
 
@@ -54,8 +56,8 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
             // 获取用户所有可访问资源
             List<UmsResource> resourceList = umsAdminService.getResourceList(umsAdmin.getId());
             for (UmsResource umsResource : resourceList) {
-                if(matcher.match( umsResource.getUrl(),requestURI)){
-                    return  true;
+                if (matcher.match(umsResource.getUrl(), requestURI)) {
+                    return true;
                 }
             }
             throw new ApiException(ResultCode.FORBIDDEN);

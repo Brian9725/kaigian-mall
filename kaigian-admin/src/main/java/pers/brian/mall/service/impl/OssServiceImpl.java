@@ -10,8 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import pers.brian.mall.common.constant.StringConstants;
-import pers.brian.mall.dto.OSSPolicyResult;
-import pers.brian.mall.service.OSSService;
+import pers.brian.mall.dto.OssPolicyResult;
+import pers.brian.mall.service.OssService;
 
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
@@ -25,7 +25,7 @@ import java.util.Date;
  **/
 @Service
 @Slf4j
-public class OSSServiceImpl implements OSSService {
+public class OssServiceImpl implements OssService {
 
     @Value("${aliyun.oss.policy.expire}")
     private int ALIYUN_OSS_EXPIRE;
@@ -41,14 +41,14 @@ public class OSSServiceImpl implements OSSService {
     private final OSS ossClient;
 
     @Autowired
-    public OSSServiceImpl(OSS ossClient) {
+    public OssServiceImpl(OSS ossClient) {
         this.ossClient = ossClient;
     }
 
     @Override
-    public OSSPolicyResult policy() {
+    public OssPolicyResult policy() {
         // 需要在阿里云控制台修改跨域设置，具体操作见阿里云OSS操作手册
-        OSSPolicyResult result = OSSPolicyResult.builder().build();
+        OssPolicyResult result = OssPolicyResult.builder().build();
         // 存储目录
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
         String dir = ALIYUN_OSS_DIR_PREFIX + sdf.format(new Date());

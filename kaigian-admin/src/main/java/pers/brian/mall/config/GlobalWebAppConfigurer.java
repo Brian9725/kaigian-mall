@@ -18,6 +18,7 @@ public class GlobalWebAppConfigurer implements WebMvcConfigurer {
 
     /**
      * 该拦截器主要是为了权限验证
+     *
      * @param registry
      */
     @Override
@@ -27,7 +28,7 @@ public class GlobalWebAppConfigurer implements WebMvcConfigurer {
 
     @Bean
     @ConfigurationProperties(prefix = "secure.ignored")
-    public AuthInterceptor authInterceptor(){
+    public AuthInterceptor authInterceptor() {
         return new AuthInterceptor();
     }
 }
