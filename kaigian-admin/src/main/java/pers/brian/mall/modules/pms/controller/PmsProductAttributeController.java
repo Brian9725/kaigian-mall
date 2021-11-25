@@ -31,7 +31,7 @@ public class PmsProductAttributeController {
         this.productAttributeService = productAttributeService;
     }
 
-    @RequestMapping(value = "/list/{cId}")
+    @RequestMapping(value = "/list/{cId}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<CommonPage<PmsProductAttribute>> getList(@PathVariable Long cId,
                                                                  @RequestParam(value = "type", defaultValue = "0") Integer type,
@@ -41,11 +41,50 @@ public class PmsProductAttributeController {
         return CommonResult.success(CommonPage.restPage(productAttributePage));
     }
 
-    @RequestMapping(value = "/attrInfo/{cId}")
+    @RequestMapping(value = "/attrInfo/{cId}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<List<PmsRelationAttrInfoDTO>> getRelationAttrInfoByCid(@PathVariable Long cId) {
         List<PmsRelationAttrInfoDTO> list = productAttributeService.getRelationAttrInfoByCid(cId);
         return CommonResult.success(list);
+    }
+
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult<Boolean> delete(@RequestParam(value = "ids") List<Long> ids) {
+        boolean removed = productAttributeService.delete(ids);
+        if (removed) {
+            return CommonResult.success(true);
+        } else {
+            return CommonResult.failed();
+        }
+    }
+
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult<Boolean> create(@RequestBody PmsProductAttribute productAttribute) {
+        boolean saved = productAttributeService.create(productAttribute);
+        if (saved) {
+            return CommonResult.success(true);
+        } else {
+            return CommonResult.failed();
+        }
+    }
+
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult<Boolean> update(@PathVariable String id, @RequestBody PmsProductAttribute productAttribute) {
+        boolean updated = productAttributeService.updateById(productAttribute);
+        if (updated) {
+            return CommonResult.success(true);
+        } else {
+            return CommonResult.failed();
+        }
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public CommonResult<PmsProductAttribute> get(@PathVariable String id) {
+        return CommonResult.success(productAttributeService.getById(id));
     }
 }
 

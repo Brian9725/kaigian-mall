@@ -29,30 +29,30 @@ public class PmsBrandServiceImpl extends ServiceImpl<PmsBrandMapper, PmsBrand> i
     @Override
     public Page<PmsBrand> page(String keyword, Integer pageNum, Integer pageSize) {
         Page<PmsBrand> page = new Page<>(pageNum, pageSize);
-        QueryWrapper<PmsBrand> brandQueryWrapper = new QueryWrapper<>();
+        QueryWrapper<PmsBrand> queryWrapper = new QueryWrapper<>();
         if (!StringUtils.isEmpty(keyword)) {
-            brandQueryWrapper.lambda().like(PmsBrand::getName, keyword);
+            queryWrapper.lambda().like(PmsBrand::getName, keyword);
         }
-        brandQueryWrapper.lambda().orderByAsc(PmsBrand::getSort);
-        return this.page(page, brandQueryWrapper);
+        queryWrapper.lambda().orderByAsc(PmsBrand::getSort);
+        return this.page(page, queryWrapper);
     }
 
     @Override
     public Boolean updateShowStatus(Integer showStatus, List<Long> ids) {
-        UpdateWrapper<PmsBrand> brandUpdateWrapper = new UpdateWrapper<>();
-        brandUpdateWrapper.lambda()
+        UpdateWrapper<PmsBrand> updateWrapper = new UpdateWrapper<>();
+        updateWrapper.lambda()
                 .set(PmsBrand::getShowStatus, showStatus)
                 .in(PmsBrand::getId, ids);
-        return this.update(brandUpdateWrapper);
+        return this.update(updateWrapper);
     }
 
     @Override
     public Boolean updateFactoryStatus(Integer factoryStatus, List<Long> ids) {
-        UpdateWrapper<PmsBrand> brandUpdateWrapper = new UpdateWrapper<>();
-        brandUpdateWrapper.lambda()
+        UpdateWrapper<PmsBrand> updateWrapper = new UpdateWrapper<>();
+        updateWrapper.lambda()
                 .set(PmsBrand::getFactoryStatus, factoryStatus)
                 .in(PmsBrand::getId, ids);
-        return this.update(brandUpdateWrapper);
+        return this.update(updateWrapper);
     }
 
     /**

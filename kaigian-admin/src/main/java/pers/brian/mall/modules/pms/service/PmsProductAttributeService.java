@@ -35,4 +35,20 @@ public interface PmsProductAttributeService extends IService<PmsProductAttribute
      * @return 筛选出的商品类型属性
      */
     Page<PmsProductAttribute> list(Long cId, Integer type, Integer pageNum, Integer pageSize);
+
+    /**
+     * 创建新的商品类型属性
+     *
+     * @param productAttribute 带添加的商品类型属性信息
+     * @return 是否创建成功
+     */
+    boolean create(PmsProductAttribute productAttribute);
+
+    /**
+     * 删除id列表中的商品类型属性
+     *
+     * @param ids id列表
+     * @return 是否删除成功
+     */
+    boolean delete(List<Long> ids);
 }

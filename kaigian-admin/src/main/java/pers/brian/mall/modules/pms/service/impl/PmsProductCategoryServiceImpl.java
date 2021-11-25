@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pers.brian.mall.modules.pms.model.dto.PmsProductCategoryChildrenDTO;
 import pers.brian.mall.modules.pms.model.dto.PmsProductCategoryDTO;
 import pers.brian.mall.modules.pms.mapper.PmsProductCategoryMapper;
@@ -43,27 +44,27 @@ public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategor
     @Override
     public Page<PmsProductCategory> page(Long parentId, Integer pageNum, Integer pageSize) {
         Page<PmsProductCategory> page = new Page<>(pageNum, pageSize);
-        QueryWrapper<PmsProductCategory> productCategoryQueryWrapper = new QueryWrapper<>();
-        productCategoryQueryWrapper.lambda().eq(PmsProductCategory::getParentId, parentId);
-        return this.page(page, productCategoryQueryWrapper);
+        QueryWrapper<PmsProductCategory> queryWrapper = new QueryWrapper<>();
+        queryWrapper.lambda().eq(PmsProductCategory::getParentId, parentId);
+        return this.page(page, queryWrapper);
     }
 
     @Override
     public boolean updateNavStatus(Integer navStatus, List<Long> ids) {
-        UpdateWrapper<PmsProductCategory> productCategoryUpdateWrapper = new UpdateWrapper<>();
-        productCategoryUpdateWrapper.lambda()
+        UpdateWrapper<PmsProductCategory> updateWrapper = new UpdateWrapper<>();
+        updateWrapper.lambda()
                 .set(PmsProductCategory::getNavStatus, navStatus)
                 .in(PmsProductCategory::getId, ids);
-        return this.update(productCategoryUpdateWrapper);
+        return this.update(updateWrapper);
     }
 
     @Override
     public boolean updateShowStatus(Integer showStatus, List<Long> ids) {
-        UpdateWrapper<PmsProductCategory> productCategoryUpdateWrapper = new UpdateWrapper<>();
-        productCategoryUpdateWrapper.lambda()
+        UpdateWrapper<PmsProductCategory> updateWrapper = new UpdateWrapper<>();
+        updateWrapper.lambda()
                 .set(PmsProductCategory::getShowStatus, showStatus)
                 .in(PmsProductCategory::getId, ids);
-        return this.update(productCategoryUpdateWrapper);
+        return this.update(updateWrapper);
     }
 
     @Override
@@ -71,6 +72,7 @@ public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategor
         return productCategoryMapper.listWithChildren();
     }
 
+    @Transactional(rollbackFor = RuntimeException.class)
     @Override
     public boolean customSave(PmsProductCategoryDTO productCategoryDTO) {
         // 保存商品分类
@@ -92,6 +94,7 @@ public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategor
         return true;
     }
 
+    @Transactional(rollbackFor = RuntimeException.class)
     @Override
     public boolean update(PmsProductCategoryDTO productCategoryDTO) {
         // 保存商品分类
@@ -109,10 +112,9 @@ public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategor
         this.updateById(productCategory);
 
         // 删除已保存的关联属性—根据商品分类id删除
-        QueryWrapper<PmsProductCategoryAttributeRelation> productCategoryAttributeRelationQueryWrapper = new QueryWrapper<>();
-        productCategoryAttributeRelationQueryWrapper.lambda()
-                .eq(PmsProductCategoryAttributeRelation::getProductCategoryId, productCategory.getId());
-        productCategoryAttributeRelationService.remove(productCategoryAttributeRelationQueryWrapper);
+        QueryWrapper<PmsProductCategoryAttributeRelation> queryWrapper = new QueryWrapper<>();
+        queryWrapper.lambda().eq(PmsProductCategoryAttributeRelation::getProductCategoryId, productCategory.getId());
+        productCategoryAttributeRelationService.remove(queryWrapper);
         saveAttrRelation(productCategoryDTO, productCategory);
         return true;
     }
