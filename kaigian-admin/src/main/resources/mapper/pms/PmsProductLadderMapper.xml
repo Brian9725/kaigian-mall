@@ -3,7 +3,7 @@
 <mapper namespace="pers.brian.mall.modules.pms.mapper.PmsProductLadderMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="pers.brian.mall.modules.pms.model.po.PmsProductLadder">
+    <resultMap id="BaseResultMap" type="pers.brian.mall.modules.pms.model.entity.PmsProductLadder">
         <id column="id" property="id" />
         <result column="product_id" property="productId" />
         <result column="count" property="count" />

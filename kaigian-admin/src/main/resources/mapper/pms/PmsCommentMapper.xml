@@ -3,7 +3,7 @@
 <mapper namespace="pers.brian.mall.modules.pms.mapper.PmsCommentMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="pers.brian.mall.modules.pms.model.po.PmsComment">
+    <resultMap id="BaseResultMap" type="pers.brian.mall.modules.pms.model.entity.PmsComment">
         <id column="id" property="id" />
         <result column="product_id" property="productId" />
         <result column="member_nick_name" property="memberNickName" />

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import pers.brian.mall.common.api.CommonPage;
 import pers.brian.mall.common.api.CommonResult;
 import pers.brian.mall.modules.pms.model.dto.PmsRelationAttrInfoDTO;
-import pers.brian.mall.modules.pms.model.po.PmsProductAttribute;
+import pers.brian.mall.modules.pms.model.entity.PmsProductAttribute;
 import pers.brian.mall.modules.pms.service.PmsProductAttributeService;
 
 import java.util.List;

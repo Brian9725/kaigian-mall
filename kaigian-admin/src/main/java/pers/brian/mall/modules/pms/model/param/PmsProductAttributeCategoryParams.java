@@ -1,7 +1,7 @@
 package pers.brian.mall.modules.pms.model.param;
 
 import lombok.Data;
-import pers.brian.mall.modules.pms.model.po.PmsProductAttributeCategory;
+import pers.brian.mall.modules.pms.model.entity.PmsProductAttributeCategory;
 
 /**
  * @Description: controller层接收到的productAttributeCategory请求参数

@@ -1,6 +1,6 @@
 package pers.brian.mall.modules.pms.service.impl;
 
-import pers.brian.mall.modules.pms.model.po.PmsProductFullReduction;
+import pers.brian.mall.modules.pms.model.entity.PmsProductFullReduction;
 import pers.brian.mall.modules.pms.mapper.PmsProductFullReductionMapper;
 import pers.brian.mall.modules.pms.service.PmsProductFullReductionService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

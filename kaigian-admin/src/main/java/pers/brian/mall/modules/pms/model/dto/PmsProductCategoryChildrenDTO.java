@@ -5,7 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-import pers.brian.mall.modules.pms.model.po.PmsProductCategory;
+import pers.brian.mall.modules.pms.model.entity.PmsProductCategory;
 
 import java.util.List;
 

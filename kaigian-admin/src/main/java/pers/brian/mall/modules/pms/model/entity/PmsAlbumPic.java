@@ -1,4 +1,4 @@
-package pers.brian.mall.modules.pms.model.po;
+package pers.brian.mall.modules.pms.model.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -12,7 +12,7 @@ import lombok.EqualsAndHashCode;
 
 /**
  * <p>
- * 相册表
+ * 画册图片表
  * </p>
  *
  * @author BrianHu
@@ -20,24 +20,18 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@TableName("pms_album")
-@ApiModel(value = "PmsAlbum对象", description = "相册表")
-public class PmsAlbum implements Serializable {
+@TableName("pms_album_pic")
+@ApiModel(value = "PmsAlbumPic对象", description = "画册图片表")
+public class PmsAlbumPic implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
-    private String name;
+    private Long albumId;
 
-    private String coverPic;
-
-    private Integer picCount;
-
-    private Integer sort;
-
-    private String description;
+    private String pic;
 
 
 }

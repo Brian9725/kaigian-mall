@@ -3,7 +3,7 @@
 <mapper namespace="pers.brian.mall.modules.pms.mapper.PmsProductAttributeCategoryMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="pers.brian.mall.modules.pms.model.po.PmsProductAttributeCategory">
+    <resultMap id="BaseResultMap" type="pers.brian.mall.modules.pms.model.entity.PmsProductAttributeCategory">
         <id column="id" property="id"/>
         <result column="name" property="name"/>
         <result column="attribute_count" property="attributeCount"/>

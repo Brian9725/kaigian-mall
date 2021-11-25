@@ -10,12 +10,11 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 import pers.brian.mall.modules.pms.model.dto.PmsRelationAttrInfoDTO;
 import pers.brian.mall.modules.pms.mapper.PmsProductAttributeMapper;
-import pers.brian.mall.modules.pms.model.po.PmsProductAttribute;
-import pers.brian.mall.modules.pms.model.po.PmsProductAttributeCategory;
+import pers.brian.mall.modules.pms.model.entity.PmsProductAttribute;
+import pers.brian.mall.modules.pms.model.entity.PmsProductAttributeCategory;
 import pers.brian.mall.modules.pms.service.PmsProductAttributeCategoryService;
 import pers.brian.mall.modules.pms.service.PmsProductAttributeService;
 
-import java.io.IOException;
 import java.util.List;
 
 /**

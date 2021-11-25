@@ -1,6 +1,6 @@
 package pers.brian.mall.modules.pms.model.dto;
 
-import pers.brian.mall.modules.pms.model.po.PmsBrand;
+import pers.brian.mall.modules.pms.model.entity.PmsBrand;
 
 /**
  * @Description: 品牌数据传输对象

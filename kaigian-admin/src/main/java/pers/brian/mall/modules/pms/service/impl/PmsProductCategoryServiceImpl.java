@@ -11,8 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 import pers.brian.mall.modules.pms.model.dto.PmsProductCategoryChildrenDTO;
 import pers.brian.mall.modules.pms.model.dto.PmsProductCategoryDTO;
 import pers.brian.mall.modules.pms.mapper.PmsProductCategoryMapper;
-import pers.brian.mall.modules.pms.model.po.PmsProductCategory;
-import pers.brian.mall.modules.pms.model.po.PmsProductCategoryAttributeRelation;
+import pers.brian.mall.modules.pms.model.entity.PmsProductCategory;
+import pers.brian.mall.modules.pms.model.entity.PmsProductCategoryAttributeRelation;
 import pers.brian.mall.modules.pms.service.PmsProductCategoryAttributeRelationService;
 import pers.brian.mall.modules.pms.service.PmsProductCategoryService;
 

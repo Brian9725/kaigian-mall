@@ -3,7 +3,7 @@
 <mapper namespace="pers.brian.mall.modules.pms.mapper.PmsProductCategoryMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="pers.brian.mall.modules.pms.model.po.PmsProductCategory">
+    <resultMap id="BaseResultMap" type="pers.brian.mall.modules.pms.model.entity.PmsProductCategory">
         <id column="id" property="id"/>
         <result column="parent_id" property="parentId"/>
         <result column="name" property="name"/>

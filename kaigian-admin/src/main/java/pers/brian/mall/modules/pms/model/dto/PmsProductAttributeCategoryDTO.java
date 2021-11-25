@@ -3,7 +3,7 @@ package pers.brian.mall.modules.pms.model.dto;
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import pers.brian.mall.modules.pms.model.po.PmsProductAttribute;
+import pers.brian.mall.modules.pms.model.entity.PmsProductAttribute;
 
 import java.util.List;
 

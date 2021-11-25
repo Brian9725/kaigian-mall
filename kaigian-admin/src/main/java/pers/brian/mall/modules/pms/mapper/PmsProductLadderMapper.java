@@ -1,6 +1,6 @@
 package pers.brian.mall.modules.pms.mapper;
 
-import pers.brian.mall.modules.pms.model.po.PmsProductLadder;
+import pers.brian.mall.modules.pms.model.entity.PmsProductLadder;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

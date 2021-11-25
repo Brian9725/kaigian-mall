@@ -1,6 +1,6 @@
 package pers.brian.mall.modules.pms.service.impl;
 
-import pers.brian.mall.modules.pms.model.po.PmsCommentReplay;
+import pers.brian.mall.modules.pms.model.entity.PmsCommentReplay;
 import pers.brian.mall.modules.pms.mapper.PmsCommentReplayMapper;
 import pers.brian.mall.modules.pms.service.PmsCommentReplayService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

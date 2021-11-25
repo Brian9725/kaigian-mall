@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import pers.brian.mall.common.api.CommonResult;
-import pers.brian.mall.modules.pms.model.po.PmsProduct;
+import pers.brian.mall.modules.pms.model.entity.PmsProduct;
 import pers.brian.mall.modules.pms.service.PmsProductService;
 
 import java.util.List;

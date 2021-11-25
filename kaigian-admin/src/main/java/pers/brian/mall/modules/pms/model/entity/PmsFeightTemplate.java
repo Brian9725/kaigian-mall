@@ -1,4 +1,4 @@
-package pers.brian.mall.modules.pms.model.po;
+package pers.brian.mall.modules.pms.model.entity;
 
 import java.math.BigDecimal;
 

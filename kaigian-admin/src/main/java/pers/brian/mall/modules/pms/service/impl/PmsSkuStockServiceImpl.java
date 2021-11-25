@@ -1,6 +1,6 @@
 package pers.brian.mall.modules.pms.service.impl;
 
-import pers.brian.mall.modules.pms.model.po.PmsSkuStock;
+import pers.brian.mall.modules.pms.model.entity.PmsSkuStock;
 import pers.brian.mall.modules.pms.mapper.PmsSkuStockMapper;
 import pers.brian.mall.modules.pms.service.PmsSkuStockService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

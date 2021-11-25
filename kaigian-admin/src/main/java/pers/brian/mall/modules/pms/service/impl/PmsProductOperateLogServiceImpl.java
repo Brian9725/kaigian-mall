@@ -1,6 +1,6 @@
 package pers.brian.mall.modules.pms.service.impl;
 
-import pers.brian.mall.modules.pms.model.po.PmsProductOperateLog;
+import pers.brian.mall.modules.pms.model.entity.PmsProductOperateLog;
 import pers.brian.mall.modules.pms.mapper.PmsProductOperateLogMapper;
 import pers.brian.mall.modules.pms.service.PmsProductOperateLogService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

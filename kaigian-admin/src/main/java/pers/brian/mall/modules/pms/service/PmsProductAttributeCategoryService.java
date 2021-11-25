@@ -3,7 +3,7 @@ package pers.brian.mall.modules.pms.service;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import pers.brian.mall.modules.pms.model.dto.PmsProductAttributeCategoryDTO;
-import pers.brian.mall.modules.pms.model.po.PmsProductAttributeCategory;
+import pers.brian.mall.modules.pms.model.entity.PmsProductAttributeCategory;
 
 import java.util.List;
 

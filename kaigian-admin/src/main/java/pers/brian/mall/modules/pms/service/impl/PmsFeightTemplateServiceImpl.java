@@ -1,6 +1,6 @@
 package pers.brian.mall.modules.pms.service.impl;
 
-import pers.brian.mall.modules.pms.model.po.PmsFeightTemplate;
+import pers.brian.mall.modules.pms.model.entity.PmsFeightTemplate;
 import pers.brian.mall.modules.pms.mapper.PmsFeightTemplateMapper;
 import pers.brian.mall.modules.pms.service.PmsFeightTemplateService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

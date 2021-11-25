@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import pers.brian.mall.modules.pms.model.dto.PmsProductCategoryChildrenDTO;
 import pers.brian.mall.modules.pms.model.dto.PmsProductCategoryDTO;
-import pers.brian.mall.modules.pms.model.po.PmsProductCategory;
+import pers.brian.mall.modules.pms.model.entity.PmsProductCategory;
 
 import java.util.List;
 

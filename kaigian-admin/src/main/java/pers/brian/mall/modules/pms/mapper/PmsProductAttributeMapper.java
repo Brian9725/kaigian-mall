@@ -2,7 +2,7 @@ package pers.brian.mall.modules.pms.mapper;
 
 import org.springframework.stereotype.Component;
 import pers.brian.mall.modules.pms.model.dto.PmsRelationAttrInfoDTO;
-import pers.brian.mall.modules.pms.model.po.PmsProductAttribute;
+import pers.brian.mall.modules.pms.model.entity.PmsProductAttribute;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 import java.util.List;

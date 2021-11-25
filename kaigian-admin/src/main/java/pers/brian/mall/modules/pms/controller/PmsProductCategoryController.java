@@ -10,7 +10,7 @@ import pers.brian.mall.common.api.CommonPage;
 import pers.brian.mall.common.api.CommonResult;
 import pers.brian.mall.modules.pms.model.dto.PmsProductCategoryChildrenDTO;
 import pers.brian.mall.modules.pms.model.dto.PmsProductCategoryDTO;
-import pers.brian.mall.modules.pms.model.po.PmsProductCategory;
+import pers.brian.mall.modules.pms.model.entity.PmsProductCategory;
 import pers.brian.mall.modules.pms.service.PmsProductCategoryService;
 
 import java.util.List;

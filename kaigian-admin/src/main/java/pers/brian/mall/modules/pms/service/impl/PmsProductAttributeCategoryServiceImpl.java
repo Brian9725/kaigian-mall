@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pers.brian.mall.modules.pms.model.dto.PmsProductAttributeCategoryDTO;
 import pers.brian.mall.modules.pms.mapper.PmsProductAttributeCategoryMapper;
-import pers.brian.mall.modules.pms.model.po.PmsProductAttributeCategory;
+import pers.brian.mall.modules.pms.model.entity.PmsProductAttributeCategory;
 import pers.brian.mall.modules.pms.service.PmsProductAttributeCategoryService;
 
 import java.util.List;

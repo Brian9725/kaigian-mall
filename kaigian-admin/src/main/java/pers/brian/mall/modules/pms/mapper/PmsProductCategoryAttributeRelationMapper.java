@@ -1,6 +1,6 @@
 package pers.brian.mall.modules.pms.mapper;
 
-import pers.brian.mall.modules.pms.model.po.PmsProductCategoryAttributeRelation;
+import pers.brian.mall.modules.pms.model.entity.PmsProductCategoryAttributeRelation;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

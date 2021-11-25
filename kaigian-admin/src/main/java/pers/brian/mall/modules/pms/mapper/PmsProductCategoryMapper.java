@@ -2,7 +2,7 @@ package pers.brian.mall.modules.pms.mapper;
 
 import org.springframework.stereotype.Component;
 import pers.brian.mall.modules.pms.model.dto.PmsProductCategoryChildrenDTO;
-import pers.brian.mall.modules.pms.model.po.PmsProductCategory;
+import pers.brian.mall.modules.pms.model.entity.PmsProductCategory;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 import java.util.List;

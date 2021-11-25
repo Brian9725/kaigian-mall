@@ -1,9 +1,10 @@
-package pers.brian.mall.modules.pms.model.po;
-
-import java.math.BigDecimal;
+package pers.brian.mall.modules.pms.model.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
+
+import java.util.Date;
+
 import com.baomidou.mybatisplus.annotation.TableId;
 
 import java.io.Serializable;
@@ -15,7 +16,7 @@ import lombok.EqualsAndHashCode;
 
 /**
  * <p>
- * 商品会员价格表
+ * 商品审核记录
  * </p>
  *
  * @author BrianHu
@@ -23,9 +24,9 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@TableName("pms_member_price")
-@ApiModel(value = "PmsMemberPrice对象", description = "商品会员价格表")
-public class PmsMemberPrice implements Serializable {
+@TableName("pms_product_vertify_record")
+@ApiModel(value = "PmsProductVertifyRecord对象", description = "商品审核记录")
+public class PmsProductVertifyRecord implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -34,12 +35,15 @@ public class PmsMemberPrice implements Serializable {
 
     private Long productId;
 
-    private Long memberLevelId;
+    private Date createTime;
 
-    @ApiModelProperty(value = "会员价格")
-    private BigDecimal memberPrice;
+    @ApiModelProperty(value = "审核人")
+    private String vertifyMan;
 
-    private String memberLevelName;
+    private Integer status;
+
+    @ApiModelProperty(value = "反馈详情")
+    private String detail;
 
 
 }

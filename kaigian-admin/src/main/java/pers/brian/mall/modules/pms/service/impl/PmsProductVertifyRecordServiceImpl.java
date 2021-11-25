@@ -1,6 +1,6 @@
 package pers.brian.mall.modules.pms.service.impl;
 
-import pers.brian.mall.modules.pms.model.po.PmsProductVertifyRecord;
+import pers.brian.mall.modules.pms.model.entity.PmsProductVertifyRecord;
 import pers.brian.mall.modules.pms.mapper.PmsProductVertifyRecordMapper;
 import pers.brian.mall.modules.pms.service.PmsProductVertifyRecordService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
