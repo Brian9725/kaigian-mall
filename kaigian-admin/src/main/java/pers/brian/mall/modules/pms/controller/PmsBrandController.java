@@ -35,6 +35,7 @@ public class PmsBrandController {
     public CommonResult<CommonPage<PmsBrand>> list(@RequestParam(value = "keyword", defaultValue = "") String keyword,
                                                    @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
                                                    @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize) {
+        // TODO:使用Params类接收请求参数，返回VO类
         Page<PmsBrand> brandPage = brandService.page(keyword, pageNum, pageSize);
         return CommonResult.success(CommonPage.restPage(brandPage));
     }
