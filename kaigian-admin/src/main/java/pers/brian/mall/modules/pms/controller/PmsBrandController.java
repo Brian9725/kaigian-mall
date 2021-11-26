@@ -50,6 +50,7 @@ public class PmsBrandController {
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult<Boolean> createBrand() {
+        // TODO:实现品牌管理的添加和更新
         return null;
     }
 
