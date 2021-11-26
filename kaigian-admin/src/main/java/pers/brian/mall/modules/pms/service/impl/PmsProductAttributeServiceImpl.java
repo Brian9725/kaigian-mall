@@ -40,7 +40,7 @@ public class PmsProductAttributeServiceImpl extends ServiceImpl<PmsProductAttrib
 
     @Override
     public List<PmsRelationAttrInfoDTO> getRelationAttrInfoByCid(Long cId) {
-        return null;
+        return productAttributeMapper.getRelationAttrInfoByCid(cId);
     }
 
     @Override
