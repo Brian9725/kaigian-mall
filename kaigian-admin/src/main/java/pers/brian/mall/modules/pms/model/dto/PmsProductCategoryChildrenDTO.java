@@ -1,9 +1,7 @@
 package pers.brian.mall.modules.pms.model.dto;
 
 import io.swagger.annotations.ApiModel;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 import lombok.experimental.Accessors;
 import pers.brian.mall.modules.pms.model.entity.PmsProductCategory;
 
@@ -17,6 +15,8 @@ import java.util.List;
  **/
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Accessors(chain = true)
 @EqualsAndHashCode(callSuper = false)
 @ApiModel(value = "ProductCategoryChildrenDTO商品一级分类和二级分类的级联传输对象", description = "用于商品列表--商品分类下拉级联数据")

@@ -18,13 +18,13 @@
         <result column="type" property="type"/>
     </resultMap>
 
-    <resultMap id="relationAttrInfoByCidMap" type="pers.brian.mall.modules.pms.model.dto.PmsRelationAttrInfoDTO">
+    <resultMap id="RelationAttrInfoByCidMap" type="pers.brian.mall.modules.pms.model.dto.PmsRelationAttrInfoDTO">
         <result column="product_attribute_id" property="attributeId"/>
         <result column="product_attribute_category_id" property="attributeCategoryId"/>
     </resultMap>
 
     <!--根据商品分类id获取关联的筛选属性-->
-    <select id="getRelationAttrInfoByCid" resultMap="relationAttrInfoByCidMap">
+    <select id="getRelationAttrInfoByCid" resultMap="RelationAttrInfoByCidMap">
         SELECT pcar.product_attribute_id,
                pa.product_attribute_category_id
         FROM pms_product_category_attribute_relation pcar

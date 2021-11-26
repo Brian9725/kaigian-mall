@@ -8,8 +8,10 @@ import java.io.Serializable;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * <p>
@@ -20,6 +22,8 @@ import lombok.EqualsAndHashCode;
  * @since 2021-11-15
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @TableName("pms_product_attribute")
 @ApiModel(value = "PmsProductAttribute对象", description = "商品属性参数表")

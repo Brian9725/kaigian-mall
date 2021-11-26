@@ -22,17 +22,17 @@
     <resultMap id="WithChildrenMap" type="pers.brian.mall.modules.pms.model.dto.PmsProductCategoryChildrenDTO">
         <result property="id" column="id"/>
         <result property="name" column="name"/>
-        <collection property="children" columnPrefix="chirend_" resultMap="BaseResultMap"/>
+        <collection property="children" columnPrefix="child_" resultMap="BaseResultMap"/>
     </resultMap>
 
     <!--获取商品一级分类和二级分类的下拉级联数据-->
     <select id="listWithChildren" resultMap="WithChildrenMap">
         SELECT pc.id,
                pc.`name`,
-               pc2.id     chirend_id,
-               pc2.`name` chirend_name
+               pc2.id     child_id,
+               pc2.`name` child_name
         FROM pms_product_category pc
-                 LEFT JOIN pms_product_category pc2 ON pc.id = pc2.parent_id
+                 LEFT JOIN pms_product_category pc2 ON pc.id = pc2.parent_id AND pc2.parent_id <![CDATA[<>]]> 0
         WHERE pc.parent_id = 0
     </select>
 </mapper>
