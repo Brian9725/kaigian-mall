@@ -89,8 +89,9 @@ public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategor
             // 由于只有2级分类，直接设置为1
             productCategory.setLevel(1);
         }
-        this.save(productCategory);
-        return saveAttrRelation(productCategoryDTO, productCategory);
+        boolean saveProductCategory = this.save(productCategory);
+        boolean saveRelation = saveAttrRelation(productCategoryDTO, productCategory);
+        return (saveProductCategory && saveRelation);
     }
 
     @Transactional(rollbackFor = {Exception.class})
@@ -121,7 +122,7 @@ public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategor
      * 添加关联属性
      *
      * @param productCategoryDTO controller接收到的参数
-     * @param productCategory 包含了商品分类的id
+     * @param productCategory    包含了商品分类的id
      * @return 是否保存成功
      */
     private boolean saveAttrRelation(PmsProductCategoryDTO productCategoryDTO, PmsProductCategory productCategory) {
