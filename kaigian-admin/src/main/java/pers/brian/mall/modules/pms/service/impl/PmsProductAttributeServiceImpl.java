@@ -53,7 +53,7 @@ public class PmsProductAttributeServiceImpl extends ServiceImpl<PmsProductAttrib
         return this.page(page, queryWrapper);
     }
 
-    @Transactional(rollbackFor = RuntimeException.class)
+    @Transactional(rollbackFor = {Exception.class})
     @Override
     public boolean create(PmsProductAttribute productAttribute) {
         // 1.添加新增的商品类型属性
@@ -72,7 +72,7 @@ public class PmsProductAttributeServiceImpl extends ServiceImpl<PmsProductAttrib
         return saved;
     }
 
-    @Transactional(rollbackFor = RuntimeException.class)
+    @Transactional(rollbackFor = {Exception.class})
     @Override
     public boolean delete(List<Long> ids) {
         if (!CollectionUtils.isEmpty(ids)) {

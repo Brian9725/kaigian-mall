@@ -72,7 +72,7 @@ public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategor
         return productCategoryMapper.listWithChildren();
     }
 
-    @Transactional(rollbackFor = RuntimeException.class)
+    @Transactional(rollbackFor = {Exception.class})
     @Override
     public boolean customSave(PmsProductCategoryDTO productCategoryDTO) {
         // 保存商品分类
@@ -90,17 +90,16 @@ public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategor
             productCategory.setLevel(1);
         }
         this.save(productCategory);
-        saveAttrRelation(productCategoryDTO, productCategory);
-        return true;
+        return saveAttrRelation(productCategoryDTO, productCategory);
     }
 
-    @Transactional(rollbackFor = RuntimeException.class)
+    @Transactional(rollbackFor = {Exception.class})
     @Override
     public boolean update(PmsProductCategoryDTO productCategoryDTO) {
         // 保存商品分类
         PmsProductCategory productCategory = new PmsProductCategory();
         // 通过BeanUtils 将productCategoryDTO的数据拷贝到productCategory
-        // 为什么要拷贝：因为一定要通过this.save 去保存PmsProductCategory，因为只有它才映射了@TableName
+        // 为什么要拷贝：因为一定要通过this.save去保存PmsProductCategory，因为只有它才映射了@TableName
         BeanUtils.copyProperties(productCategoryDTO, productCategory);
         if (productCategory.getParentId() == 0) {
             productCategory.setLevel(0);
@@ -115,22 +114,21 @@ public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategor
         QueryWrapper<PmsProductCategoryAttributeRelation> queryWrapper = new QueryWrapper<>();
         queryWrapper.lambda().eq(PmsProductCategoryAttributeRelation::getProductCategoryId, productCategory.getId());
         productCategoryAttributeRelationService.remove(queryWrapper);
-        saveAttrRelation(productCategoryDTO, productCategory);
-        return true;
+        return saveAttrRelation(productCategoryDTO, productCategory);
     }
 
     /**
      * 添加关联属性
      *
-     * @param productCategoryDTO
-     * @param productCategory
-     * @return
+     * @param productCategoryDTO controller接收到的参数
+     * @param productCategory 包含了商品分类的id
+     * @return 是否保存成功
      */
     private boolean saveAttrRelation(PmsProductCategoryDTO productCategoryDTO, PmsProductCategory productCategory) {
         List<Long> productAttributeIdList = productCategoryDTO.getProductAttributeIdList();
         List<PmsProductCategoryAttributeRelation> list = new ArrayList<>();
         for (Long attrId : productAttributeIdList) {
-            // 得到分类保存后的主键id,   保存商品分类筛选属性关系
+            // 得到分类保存后的主键id，保存商品分类筛选属性关系
             PmsProductCategoryAttributeRelation productCategoryAttributeRelation = new PmsProductCategoryAttributeRelation();
             productCategoryAttributeRelation.setProductCategoryId(productCategory.getId());
             productCategoryAttributeRelation.setProductAttributeId(attrId);
