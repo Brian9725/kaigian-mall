@@ -89,9 +89,9 @@ public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategor
             // 由于只有2级分类，直接设置为1
             productCategory.setLevel(1);
         }
-        boolean saveProductCategory = this.save(productCategory);
-        boolean saveRelation = saveAttrRelation(productCategoryDTO, productCategory);
-        return (saveProductCategory && saveRelation);
+        this.save(productCategory);
+        saveAttrRelation(productCategoryDTO, productCategory);
+        return true;
     }
 
     @Transactional(rollbackFor = {Exception.class})
@@ -114,8 +114,10 @@ public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategor
         // 删除已保存的关联属性—根据商品分类id删除
         QueryWrapper<PmsProductCategoryAttributeRelation> queryWrapper = new QueryWrapper<>();
         queryWrapper.lambda().eq(PmsProductCategoryAttributeRelation::getProductCategoryId, productCategory.getId());
+        // 未选择筛选属性时，下面的删除和保存操作均会返回false
         productCategoryAttributeRelationService.remove(queryWrapper);
-        return saveAttrRelation(productCategoryDTO, productCategory);
+        saveAttrRelation(productCategoryDTO, productCategory);
+        return true;
     }
 
     /**
