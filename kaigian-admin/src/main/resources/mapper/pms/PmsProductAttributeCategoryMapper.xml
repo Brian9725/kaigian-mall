@@ -15,7 +15,7 @@
         <result column="name" property="name"/>
         <!--嵌套查询   定义2条sql语句 1.查商品分类 2.商品属性-->
         <!--嵌套结果  1.一条sql语句-->
-        <collection property="pmsProductAttributeList" columnPrefix="attr_"
+        <collection property="productAttributeList" columnPrefix="attr_"
                     resultMap="pers.brian.mall.modules.pms.mapper.PmsProductAttributeMapper.BaseResultMap"/>
     </resultMap>
 

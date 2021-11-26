@@ -30,5 +30,5 @@ public class PmsProductAttributeCategoryDTO {
     /**
      * 商品属性二级级联
      */
-    private List<PmsProductAttribute> pmsProductAttributeList;
+    private List<PmsProductAttribute> productAttributeList;
 }

@@ -18,5 +18,10 @@ import java.util.List;
 @Component
 public interface PmsProductAttributeCategoryMapper extends BaseMapper<PmsProductAttributeCategory> {
 
+    /**
+     * 筛选属性下拉级联数据
+     *
+     * @return 筛选属性下拉级联数据
+     */
     List<PmsProductAttributeCategoryDTO> getListWithAttr();
 }
