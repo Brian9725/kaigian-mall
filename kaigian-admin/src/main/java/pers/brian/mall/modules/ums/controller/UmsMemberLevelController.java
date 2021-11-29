@@ -2,10 +2,7 @@ package pers.brian.mall.modules.ums.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pers.brian.mall.common.api.CommonResult;
 import pers.brian.mall.modules.ums.model.UmsMemberLevel;
 import pers.brian.mall.modules.ums.service.UmsMemberLevelService;
@@ -24,23 +21,18 @@ import java.util.List;
 @RequestMapping("/memberLevel")
 public class UmsMemberLevelController {
 
-	private final UmsMemberLevelService memberLevelService;
+    private final UmsMemberLevelService memberLevelService;
 
-	@Autowired
-	public UmsMemberLevelController(UmsMemberLevelService memberLevelService) {
-		this.memberLevelService = memberLevelService;
-	}
+    @Autowired
+    public UmsMemberLevelController(UmsMemberLevelService memberLevelService) {
+        this.memberLevelService = memberLevelService;
+    }
 
-	/**
-	 * url:'/memberLevel/list',
-	 * method:'get',
-	 * params:{defaultStatus: 0}
-	 */
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public CommonResult list(
-			@RequestParam(value = "defaultStatus", defaultValue = "0") Integer defaultStatus) {
-		List<UmsMemberLevel> list = memberLevelService.list(defaultStatus);
-		return CommonResult.success(list);
-	}
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @ResponseBody
+    public CommonResult<List<UmsMemberLevel>> list(@RequestParam(value = "defaultStatus", defaultValue = "0") Integer defaultStatus) {
+        List<UmsMemberLevel> list = memberLevelService.list(defaultStatus);
+        return CommonResult.success(list);
+    }
 }
 
