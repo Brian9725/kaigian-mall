@@ -105,6 +105,7 @@ public class PmsProductController {
     @RequestMapping(value = "/updateInfo/{id}")
     @ResponseBody
     public CommonResult<ProductUpdateInitDTO> getUpdateInfo(@PathVariable Long id) {
+        // TODO:商品编辑页面的商品分类信息显示bug
         ProductUpdateInitDTO updateInitDTO = productService.getUpdateInfo(id);
         return CommonResult.success(updateInitDTO);
     }
