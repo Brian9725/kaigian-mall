@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.core.toolkit.support.SFunction;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import pers.brian.mall.modules.pms.model.dto.PmsProductConditionDTO;
+import pers.brian.mall.modules.pms.model.dto.ProductSaveParamsDTO;
+import pers.brian.mall.modules.pms.model.dto.ProductUpdateInitDTO;
 import pers.brian.mall.modules.pms.model.entity.PmsProduct;
 
 import java.util.List;
@@ -35,4 +37,20 @@ public interface PmsProductService extends IService<PmsProduct> {
      * @return 是否更新成功
      */
     boolean updateStatus(Integer status, List<Long> ids, SFunction<PmsProduct, ?> getStatus);
+
+    /**
+     * 根据提供的参数添加商品
+     *
+     * @param productSaveParamsDTO 提供的参数
+     * @return 是否添加成功
+     */
+    boolean create(ProductSaveParamsDTO productSaveParamsDTO);
+
+    /**
+     * 通过请求的参数更新商品
+     *
+     * @param productSaveParamsDTO 请求的参数信息
+     * @return 是否更新成功
+     */
+    boolean update(ProductSaveParamsDTO productSaveParamsDTO);
 }
