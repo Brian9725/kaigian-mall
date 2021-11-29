@@ -3,6 +3,8 @@ package pers.brian.mall.modules.pms.service.impl;
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.baomidou.mybatisplus.core.toolkit.support.SFunction;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import pers.brian.mall.modules.pms.model.dto.PmsProductConditionDTO;
 import pers.brian.mall.modules.pms.model.entity.PmsProduct;
@@ -56,5 +58,13 @@ public class PmsProductServiceImpl extends ServiceImpl<PmsProductMapper, PmsProd
         }
         lambdaWrapper.orderByAsc(PmsProduct::getSort);
         return this.page(page, lambdaWrapper);
+    }
+
+    @Override
+    public boolean updateStatus(Integer status, List<Long> ids, SFunction<PmsProduct, ?> getStatus) {
+        UpdateWrapper<PmsProduct> updateWrapper = new UpdateWrapper<>();
+        updateWrapper.lambda().set(getStatus, status)
+                .in(PmsProduct::getId, ids);
+        return this.update(updateWrapper);
     }
 }

@@ -43,9 +43,45 @@ public class PmsProductController {
     @RequestMapping(value = "/update/deleteStatus", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult<Boolean> updateDeleteStatus(@RequestParam(value = "deleteStatus", defaultValue = "0") Integer deleteStatus,
-                                                    @RequestParam("ids") List<Long> ids) {
+                                                    @RequestParam(value = "ids", defaultValue = "") List<Long> ids) {
         boolean removed = productService.removeByIds(ids);
         if (removed) {
+            return CommonResult.success(true);
+        } else {
+            return CommonResult.failed();
+        }
+    }
+
+    @RequestMapping(value = "/update/newStatus", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult<Boolean> updateNewStatus(@RequestParam(value = "newStatus", defaultValue = "0") Integer newStatus,
+                                        @RequestParam(value = "ids", defaultValue = "") List<Long> ids) {
+        boolean updated = productService.updateStatus(newStatus, ids, PmsProduct::getNewStatus);
+        if (updated) {
+            return CommonResult.success(true);
+        } else {
+            return CommonResult.failed();
+        }
+    }
+
+    @RequestMapping(value = "/update/recommendStatus", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult<Boolean> updateRecommendStatus(@RequestParam(value = "recommendStatus", defaultValue = "0") Integer recommendStatus,
+                                              @RequestParam(value = "ids", defaultValue = "") List<Long> ids) {
+        boolean updated = productService.updateStatus(recommendStatus, ids, PmsProduct::getRecommandStatus);
+        if (updated) {
+            return CommonResult.success(true);
+        } else {
+            return CommonResult.failed();
+        }
+    }
+
+    @RequestMapping(value = "/update/publishStatus", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult<Boolean> updatePublishStatus(@RequestParam(value = "publishStatus", defaultValue = "0") Integer publishStatus,
+                                            @RequestParam(value = "ids", defaultValue = "") List<Long> ids) {
+        boolean updated = productService.updateStatus(publishStatus, ids, PmsProduct::getPublishStatus);
+        if (updated) {
             return CommonResult.success(true);
         } else {
             return CommonResult.failed();

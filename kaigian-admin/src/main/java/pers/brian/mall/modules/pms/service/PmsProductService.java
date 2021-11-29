@@ -1,9 +1,12 @@
 package pers.brian.mall.modules.pms.service;
 
+import com.baomidou.mybatisplus.core.toolkit.support.SFunction;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import pers.brian.mall.modules.pms.model.dto.PmsProductConditionDTO;
 import pers.brian.mall.modules.pms.model.entity.PmsProduct;
+
+import java.util.List;
 
 /**
  * <p>
@@ -22,4 +25,14 @@ public interface PmsProductService extends IService<PmsProduct> {
      * @return 符合条件的商品列表
      */
     Page<PmsProduct> list(PmsProductConditionDTO condition);
+
+    /**
+     * 更新商品状态
+     *
+     * @param status    将要更新的状态
+     * @param ids       待更新的商品列表
+     * @param getStatus 待更新的字段
+     * @return 是否更新成功
+     */
+    boolean updateStatus(Integer status, List<Long> ids, SFunction<PmsProduct, ?> getStatus);
 }
