@@ -49,9 +49,13 @@ public class PmsBrandController {
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult<Boolean> createBrand() {
-        // TODO:实现品牌管理的添加和更新
-        return null;
+    public CommonResult<Boolean> createBrand(@RequestBody PmsBrand brand) {
+        boolean saved = brandService.save(brand);
+        if (saved) {
+            return CommonResult.success(true);
+        } else {
+            return CommonResult.failed();
+        }
     }
 
     @RequestMapping(value = "/update/showStatus", method = RequestMethod.POST)
@@ -92,6 +96,7 @@ public class PmsBrandController {
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult<Boolean> update(@PathVariable(value = "id") Long id) {
+        // TODO:添加品牌管理更新接口
         return null;
     }
 }
