@@ -1,6 +1,6 @@
 package pers.brian.mall.modules.pms.service;
 
-import pers.brian.mall.modules.pms.model.PmsProductLadder;
+import pers.brian.mall.modules.pms.model.entity.PmsProductLadder;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

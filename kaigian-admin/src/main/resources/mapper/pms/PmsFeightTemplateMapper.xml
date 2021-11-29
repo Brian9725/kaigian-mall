@@ -3,7 +3,7 @@
 <mapper namespace="pers.brian.mall.modules.pms.mapper.PmsFeightTemplateMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="pers.brian.mall.modules.pms.model.PmsFeightTemplate">
+    <resultMap id="BaseResultMap" type="pers.brian.mall.modules.pms.model.entity.PmsFeightTemplate">
         <id column="id" property="id" />
         <result column="name" property="name" />
         <result column="charge_type" property="chargeType" />

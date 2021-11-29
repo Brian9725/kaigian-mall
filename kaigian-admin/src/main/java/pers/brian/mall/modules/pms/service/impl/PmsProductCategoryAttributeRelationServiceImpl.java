@@ -1,6 +1,6 @@
 package pers.brian.mall.modules.pms.service.impl;
 
-import pers.brian.mall.modules.pms.model.PmsProductCategoryAttributeRelation;
+import pers.brian.mall.modules.pms.model.entity.PmsProductCategoryAttributeRelation;
 import pers.brian.mall.modules.pms.mapper.PmsProductCategoryAttributeRelationMapper;
 import pers.brian.mall.modules.pms.service.PmsProductCategoryAttributeRelationService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

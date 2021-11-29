@@ -3,14 +3,13 @@ package pers.brian.kaigiantest;
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import pers.brian.kaigiantest.service.OSSService;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.UUID;
 
 /**
  * @Description:
@@ -21,34 +20,28 @@ import java.util.UUID;
 @SpringBootTest
 class KaiGianTestApplicationTests {
 
-    @Test
-    void uploadOSS() throws FileNotFoundException {
-        // https://kaigianmall-brian.oss-cn-chengdu.aliyuncs.com/v2-def8223c53c7c90774515cf9c106da57_720w.jpg
-        // Endpoint以成都为例，其它Region请按实际情况填写。
-        String endpoint = "http://oss-cn-chengdu.aliyuncs.com";
+	@Autowired
+	private OSSService ossService;
 
-        // 云账号AccessKey有所有API访问权限，建议遵循阿里云安全最佳实践，创建并使用RAM子账号进行API访问或日常运维，请登录 https://ram.console.aliyun.com 创建。
-        // 1. 创建RAM 子账户
-        // 2. 获得accessKeyId  accessKeySecret
-        // 3. 给子用户设置权限
-        String accessKeyId = "LTAI4GHWCM5LdNoiLy35mBog";
-        String accessKeySecret = "Vytl0LAIKGmiWATIuuwevN3LjzQs9S";
+	@Test
+	void uploadOSS() throws FileNotFoundException {
+		// yourEndpoint填写Bucket所在地域对应的Endpoint。以华东1（杭州）为例，Endpoint填写为https://oss-cn-hangzhou.aliyuncs.com。
+		String endpoint = "https://oss-cn-beijing.aliyuncs.com";
+		// 阿里云账号AccessKey拥有所有API的访问权限，风险很高。强烈建议您创建并使用RAM用户进行API访问或日常运维，请登录RAM控制台创建RAM用户。
+		String accessKeyId = "LTAI5tHFcVtYQo2oS9ngDJ1K";
+		String accessKeySecret = "jvaN4ORALLzX9JoQY0dt6v6pElInvd";
 
-        // 创建OSSClient实例。
-        OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
+		// 创建OSSClient实例。
+		OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String dir = simpleDateFormat.format(new Date())+"/";
+		// 上传文件流。
+		InputStream inputStream = new FileInputStream("C:\\Users\\Brian\\Desktop\\163.png");
+		ossClient.putObject("kaigian-mall", "164.jpg", inputStream);
 
+		// 关闭OSSClient。
+		ossClient.shutdown();
 
-        // 上传文件流。
-        InputStream inputStream = new FileInputStream("C:\\Users\\Brian\\Pictures\\v2-def8223c53c7c90774515cf9c106da57_720w.jpg");
-        ossClient.putObject("kaigianmall-brian", dir+"v2-def8223c53c7c90774515cf9c106da57_720w.jpg", inputStream);
-
-        // 关闭OSSClient。
-        ossClient.shutdown();
-
-        System.out.println("上传成功！");
-    }
+		System.out.println("上传成功！");
+	}
 
 }

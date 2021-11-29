@@ -1,14 +1,14 @@
 package pers.brian.mall.modules.pms.controller;
 
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import pers.brian.mall.common.api.CommonPage;
 import pers.brian.mall.common.api.CommonResult;
-import pers.brian.mall.modules.pms.model.PmsProduct;
+import pers.brian.mall.modules.pms.model.dto.PmsProductConditionDTO;
+import pers.brian.mall.modules.pms.model.entity.PmsProduct;
 import pers.brian.mall.modules.pms.service.PmsProductService;
 
 import java.util.List;
@@ -22,7 +22,7 @@ import java.util.List;
  * @since 2021-11-15
  */
 @RestController
-@RequestMapping("/pms/pmsProduct")
+@RequestMapping("/product")
 public class PmsProductController {
 
 	private final PmsProductService productService;
@@ -33,11 +33,11 @@ public class PmsProductController {
 	}
 
 	@ApiOperation("查询商品")
-	@RequestMapping(value = "list", method = RequestMethod.POST)
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	@ResponseBody
-	public CommonResult<List<PmsProduct>> list() {
-		List<PmsProduct> products = productService.list();
-		return CommonResult.success(products);
+	public CommonResult<CommonPage<PmsProduct>> list(PmsProductConditionDTO productConditionDTO) {
+		Page<PmsProduct> productPage = productService.list(productConditionDTO);
+		return CommonResult.success(CommonPage.restPage(productPage));
 	}
 }
 

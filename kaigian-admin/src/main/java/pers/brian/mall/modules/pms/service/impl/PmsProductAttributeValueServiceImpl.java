@@ -1,6 +1,6 @@
 package pers.brian.mall.modules.pms.service.impl;
 
-import pers.brian.mall.modules.pms.model.PmsProductAttributeValue;
+import pers.brian.mall.modules.pms.model.entity.PmsProductAttributeValue;
 import pers.brian.mall.modules.pms.mapper.PmsProductAttributeValueMapper;
 import pers.brian.mall.modules.pms.service.PmsProductAttributeValueService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

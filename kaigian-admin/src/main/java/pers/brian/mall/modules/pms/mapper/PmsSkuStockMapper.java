@@ -1,6 +1,6 @@
 package pers.brian.mall.modules.pms.mapper;
 
-import pers.brian.mall.modules.pms.model.PmsSkuStock;
+import pers.brian.mall.modules.pms.model.entity.PmsSkuStock;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

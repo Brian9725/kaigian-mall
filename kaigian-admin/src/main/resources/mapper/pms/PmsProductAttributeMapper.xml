@@ -3,19 +3,33 @@
 <mapper namespace="pers.brian.mall.modules.pms.mapper.PmsProductAttributeMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="pers.brian.mall.modules.pms.model.PmsProductAttribute">
-        <id column="id" property="id" />
-        <result column="product_attribute_category_id" property="productAttributeCategoryId" />
-        <result column="name" property="name" />
-        <result column="select_type" property="selectType" />
-        <result column="input_type" property="inputType" />
-        <result column="input_list" property="inputList" />
-        <result column="sort" property="sort" />
-        <result column="filter_type" property="filterType" />
-        <result column="search_type" property="searchType" />
-        <result column="related_status" property="relatedStatus" />
-        <result column="hand_add_status" property="handAddStatus" />
-        <result column="type" property="type" />
+    <resultMap id="BaseResultMap" type="pers.brian.mall.modules.pms.model.entity.PmsProductAttribute">
+        <id column="id" property="id"/>
+        <result column="product_attribute_category_id" property="productAttributeCategoryId"/>
+        <result column="name" property="name"/>
+        <result column="select_type" property="selectType"/>
+        <result column="input_type" property="inputType"/>
+        <result column="input_list" property="inputList"/>
+        <result column="sort" property="sort"/>
+        <result column="filter_type" property="filterType"/>
+        <result column="search_type" property="searchType"/>
+        <result column="related_status" property="relatedStatus"/>
+        <result column="hand_add_status" property="handAddStatus"/>
+        <result column="type" property="type"/>
     </resultMap>
+
+    <resultMap id="RelationAttrInfoByCidMap" type="pers.brian.mall.modules.pms.model.dto.PmsRelationAttrInfoDTO">
+        <result column="product_attribute_id" property="attributeId"/>
+        <result column="product_attribute_category_id" property="attributeCategoryId"/>
+    </resultMap>
+
+    <!--根据商品分类id获取关联的筛选属性-->
+    <select id="getRelationAttrInfoByCid" resultMap="RelationAttrInfoByCidMap">
+        SELECT pcar.product_attribute_id,
+               pa.product_attribute_category_id
+        FROM pms_product_category_attribute_relation pcar
+                 LEFT JOIN pms_product_attribute pa ON pcar.product_attribute_id = pa.id
+        WHERE pcar.product_category_id = #{cId}
+    </select>
 
 </mapper>

@@ -3,7 +3,7 @@
 <mapper namespace="pers.brian.mall.modules.pms.mapper.PmsMemberPriceMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="pers.brian.mall.modules.pms.model.PmsMemberPrice">
+    <resultMap id="BaseResultMap" type="pers.brian.mall.modules.pms.model.entity.PmsMemberPrice">
         <id column="id" property="id" />
         <result column="product_id" property="productId" />
         <result column="member_level_id" property="memberLevelId" />
