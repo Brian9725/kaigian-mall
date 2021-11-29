@@ -22,7 +22,7 @@ public class UmsResourceCategoryServiceImpl extends ServiceImpl<UmsResourceCateg
     @Override
     public List<UmsResourceCategory> listAll() {
         QueryWrapper<UmsResourceCategory> wrapper = new QueryWrapper<>();
-        wrapper.lambda().orderByDesc(UmsResourceCategory::getSort);
+        wrapper.lambda().orderByAsc(UmsResourceCategory::getSort);
         return list(wrapper);
     }
 
