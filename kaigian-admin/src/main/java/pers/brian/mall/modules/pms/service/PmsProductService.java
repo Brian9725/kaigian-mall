@@ -53,4 +53,12 @@ public interface PmsProductService extends IService<PmsProduct> {
      * @return 是否更新成功
      */
     boolean update(ProductSaveParamsDTO productSaveParamsDTO);
+
+    /**
+     * 获取编辑状态下商品信息
+     *
+     * @param id 商品id
+     * @return 对应的商品信息
+     */
+    ProductUpdateInitDTO getUpdateInfo(Long id);
 }

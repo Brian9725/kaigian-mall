@@ -33,6 +33,8 @@ import java.util.List;
 @Service
 public class PmsProductServiceImpl extends ServiceImpl<PmsProductMapper, PmsProduct> implements PmsProductService {
 
+    private final PmsProductMapper productMapper;
+
     private final PmsMemberPriceService memberPriceService;
 
     private final PmsProductLadderService productLadderService;
@@ -44,11 +46,13 @@ public class PmsProductServiceImpl extends ServiceImpl<PmsProductMapper, PmsProd
     private final PmsProductAttributeValueService productAttributeValueService;
 
     @Autowired
-    public PmsProductServiceImpl(PmsMemberPriceService memberPriceService,
+    public PmsProductServiceImpl(PmsProductMapper productMapper,
+                                 PmsMemberPriceService memberPriceService,
                                  PmsProductLadderService productLadderService,
                                  PmsProductFullReductionService productFullReductionService,
                                  PmsSkuStockService skuStockService,
                                  PmsProductAttributeValueService productAttributeValueService) {
+        this.productMapper = productMapper;
         this.memberPriceService = memberPriceService;
         this.productLadderService = productLadderService;
         this.productFullReductionService = productFullReductionService;
@@ -169,6 +173,11 @@ public class PmsProductServiceImpl extends ServiceImpl<PmsProductMapper, PmsProd
             saveRelatedData(productSaveParamsDTO.getProductAttributeValueList(), productSaveParamsDTO.getId(), productAttributeValueService);
         }
         return result;
+    }
+
+    @Override
+    public ProductUpdateInitDTO getUpdateInfo(Long id) {
+        return productMapper.getUpdateInfo(id);
     }
 
     /**

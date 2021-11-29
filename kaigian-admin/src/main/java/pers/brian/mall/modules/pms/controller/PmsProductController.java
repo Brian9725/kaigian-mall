@@ -9,6 +9,7 @@ import pers.brian.mall.common.api.CommonPage;
 import pers.brian.mall.common.api.CommonResult;
 import pers.brian.mall.modules.pms.model.dto.PmsProductConditionDTO;
 import pers.brian.mall.modules.pms.model.dto.ProductSaveParamsDTO;
+import pers.brian.mall.modules.pms.model.dto.ProductUpdateInitDTO;
 import pers.brian.mall.modules.pms.model.entity.PmsProduct;
 import pers.brian.mall.modules.pms.service.PmsProductService;
 
@@ -99,6 +100,13 @@ public class PmsProductController {
         } else {
             return CommonResult.failed();
         }
+    }
+
+    @RequestMapping(value = "/updateInfo/{id}")
+    @ResponseBody
+    public CommonResult<ProductUpdateInitDTO> getUpdateInfo(@PathVariable Long id) {
+        ProductUpdateInitDTO updateInitDTO = productService.getUpdateInfo(id);
+        return CommonResult.success(updateInitDTO);
     }
 
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
