@@ -25,19 +25,31 @@ import java.util.List;
 @RequestMapping("/product")
 public class PmsProductController {
 
-	private final PmsProductService productService;
+    private final PmsProductService productService;
 
-	@Autowired
-	public PmsProductController(PmsProductService productService) {
-		this.productService = productService;
-	}
+    @Autowired
+    public PmsProductController(PmsProductService productService) {
+        this.productService = productService;
+    }
 
-	@ApiOperation("查询商品")
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	@ResponseBody
-	public CommonResult<CommonPage<PmsProduct>> list(PmsProductConditionDTO productConditionDTO) {
-		Page<PmsProduct> productPage = productService.list(productConditionDTO);
-		return CommonResult.success(CommonPage.restPage(productPage));
-	}
+    @ApiOperation("查询商品")
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @ResponseBody
+    public CommonResult<CommonPage<PmsProduct>> list(PmsProductConditionDTO productConditionDTO) {
+        Page<PmsProduct> productPage = productService.list(productConditionDTO);
+        return CommonResult.success(CommonPage.restPage(productPage));
+    }
+
+    @RequestMapping(value = "/update/deleteStatus", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult<Boolean> updateDeleteStatus(@RequestParam(value = "deleteStatus", defaultValue = "0") Integer deleteStatus,
+                                                    @RequestParam("ids") List<Long> ids) {
+        boolean removed = productService.removeByIds(ids);
+        if (removed) {
+            return CommonResult.success(true);
+        } else {
+            return CommonResult.failed();
+        }
+    }
 }
 
