@@ -12,11 +12,9 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @Description:
- * <p>
+ * @Description: <p>
  * 资源分类表
  * </p>
- *
  * @Author: BrianHu
  * @Create: 2021-11-11 11:11
  * @Version: 0.0.1
@@ -24,10 +22,10 @@ import java.util.Date;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("ums_resource_category")
-@ApiModel(value="UmsResourceCategory对象", description="资源分类表")
+@ApiModel(value = "UmsResourceCategory对象", description = "资源分类表")
 public class UmsResourceCategory implements Serializable {
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;

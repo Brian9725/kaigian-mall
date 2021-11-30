@@ -5,11 +5,9 @@ import org.springframework.stereotype.Component;
 import pers.brian.mall.modules.ums.model.UmsAdminLoginLog;
 
 /**
- * @Description:
- * <p>
+ * @Description: <p>
  * 后台用户登录日志表 Mapper 接口
  * </p>
- *
  * @Author: BrianHu
  * @Create: 2021-11-11 11:11
  * @Version: 0.0.1

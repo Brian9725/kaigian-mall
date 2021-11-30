@@ -1,8 +1,8 @@
 package pers.brian.mall.modules.ums.service.impl;
 
-import pers.brian.mall.common.service.RedisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import pers.brian.mall.common.service.RedisService;
 
 import java.util.List;
 import java.util.Map;

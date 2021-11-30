@@ -7,18 +7,6 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import pers.brian.mall.common.exception.ApiException;
-import pers.brian.mall.common.exception.Asserts;
-import pers.brian.mall.modules.ums.dto.UmsAdminParam;
-import pers.brian.mall.modules.ums.dto.UpdateAdminPasswordParam;
-import pers.brian.mall.modules.ums.mapper.UmsAdminLoginLogMapper;
-import pers.brian.mall.modules.ums.mapper.UmsAdminMapper;
-import pers.brian.mall.modules.ums.mapper.UmsResourceMapper;
-import pers.brian.mall.modules.ums.mapper.UmsRoleMapper;
-import pers.brian.mall.modules.ums.service.UmsAdminCacheService;
-import pers.brian.mall.modules.ums.service.UmsAdminRoleRelationService;
-import pers.brian.mall.modules.ums.service.UmsAdminService;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
@@ -27,7 +15,18 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import pers.brian.mall.common.exception.ApiException;
+import pers.brian.mall.common.exception.Asserts;
+import pers.brian.mall.modules.ums.dto.UmsAdminParam;
+import pers.brian.mall.modules.ums.dto.UpdateAdminPasswordParam;
+import pers.brian.mall.modules.ums.mapper.UmsAdminLoginLogMapper;
+import pers.brian.mall.modules.ums.mapper.UmsAdminMapper;
+import pers.brian.mall.modules.ums.mapper.UmsResourceMapper;
+import pers.brian.mall.modules.ums.mapper.UmsRoleMapper;
 import pers.brian.mall.modules.ums.model.*;
+import pers.brian.mall.modules.ums.service.UmsAdminCacheService;
+import pers.brian.mall.modules.ums.service.UmsAdminRoleRelationService;
+import pers.brian.mall.modules.ums.service.UmsAdminService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -42,6 +41,7 @@ import java.util.List;
  **/
 @Service
 public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> implements UmsAdminService {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(UmsAdminServiceImpl.class);
 
     @Autowired
@@ -58,9 +58,11 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
     @Override
     public UmsAdmin getAdminByUsername(String username) {
         UmsAdmin admin = adminCacheService.getAdmin(username);
-        if(admin!=null) return  admin;
+        if (admin != null) {
+            return admin;
+        }
         QueryWrapper<UmsAdmin> wrapper = new QueryWrapper<>();
-        wrapper.lambda().eq(UmsAdmin::getUsername,username);
+        wrapper.lambda().eq(UmsAdmin::getUsername, username);
         List<UmsAdmin> adminList = list(wrapper);
         if (adminList != null && adminList.size() > 0) {
             admin = adminList.get(0);
@@ -78,7 +80,7 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
         umsAdmin.setStatus(1);
         //查询是否有相同用户名的用户
         QueryWrapper<UmsAdmin> wrapper = new QueryWrapper<>();
-        wrapper.lambda().eq(UmsAdmin::getUsername,umsAdmin.getUsername());
+        wrapper.lambda().eq(UmsAdmin::getUsername, umsAdmin.getUsername());
         List<UmsAdmin> umsAdminList = list(wrapper);
         if (umsAdminList.size() > 0) {
             return null;
@@ -94,10 +96,10 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
     public UmsAdmin login(String username, String password) {
 
         //密码需要客户端加密后传递
-        UmsAdmin umsAdmin=null;
+        UmsAdmin umsAdmin = null;
         try {
-             umsAdmin = loadUserByUsername(username);
-            if(!BCrypt.checkpw(password,umsAdmin.getPassword())){
+            umsAdmin = loadUserByUsername(username);
+            if (!BCrypt.checkpw(password, umsAdmin.getPassword())) {
                 Asserts.fail("密码不正确");
             }
             /*if(!userDetails.isEnabled()){
@@ -105,18 +107,21 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
             }*/
             insertLoginLog(username);
         } catch (Exception e) {
-            Asserts.fail("登录异常:"+e.getMessage());
+            Asserts.fail("登录异常:" + e.getMessage());
         }
         return umsAdmin;
     }
 
     /**
      * 添加登录记录
+     *
      * @param username 用户名
      */
     private void insertLoginLog(String username) {
         UmsAdmin admin = getAdminByUsername(username);
-        if(admin==null) return;
+        if (admin == null) {
+            return;
+        }
         UmsAdminLoginLog loginLog = new UmsAdminLoginLog();
         loginLog.setAdminId(admin.getId());
         loginLog.setCreateTime(new Date());
@@ -133,35 +138,35 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
         UmsAdmin record = new UmsAdmin();
         record.setLoginTime(new Date());
         QueryWrapper<UmsAdmin> wrapper = new QueryWrapper<>();
-        wrapper.lambda().eq(UmsAdmin::getUsername,username);
-        update(record,wrapper);
+        wrapper.lambda().eq(UmsAdmin::getUsername, username);
+        update(record, wrapper);
     }
 
 
     @Override
     public Page<UmsAdmin> list(String keyword, Integer pageSize, Integer pageNum) {
-        Page<UmsAdmin> page = new Page<>(pageNum,pageSize);
+        Page<UmsAdmin> page = new Page<>(pageNum, pageSize);
         QueryWrapper<UmsAdmin> wrapper = new QueryWrapper<>();
         LambdaQueryWrapper<UmsAdmin> lambda = wrapper.lambda();
-        if(StrUtil.isNotEmpty(keyword)){
-            lambda.like(UmsAdmin::getUsername,keyword);
-            lambda.or().like(UmsAdmin::getNickName,keyword);
+        if (StrUtil.isNotEmpty(keyword)) {
+            lambda.like(UmsAdmin::getUsername, keyword);
+            lambda.or().like(UmsAdmin::getNickName, keyword);
         }
-        return page(page,wrapper);
+        return page(page, wrapper);
     }
 
     @Override
     public boolean update(Long id, UmsAdmin admin) {
         admin.setId(id);
         UmsAdmin rawAdmin = getById(id);
-        if(rawAdmin.getPassword().equals(admin.getPassword())){
+        if (rawAdmin.getPassword().equals(admin.getPassword())) {
             //与原加密密码相同的不需要修改
             admin.setPassword(null);
-        }else{
+        } else {
             //与原加密密码不同的需要加密修改
-            if(StrUtil.isEmpty(admin.getPassword())){
+            if (StrUtil.isEmpty(admin.getPassword())) {
                 admin.setPassword(null);
-            }else{
+            } else {
                 admin.setPassword(BCrypt.hashpw(admin.getPassword()));
             }
         }
@@ -183,7 +188,7 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
         int count = roleIds == null ? 0 : roleIds.size();
         //先删除原来的关系
         QueryWrapper<UmsAdminRoleRelation> wrapper = new QueryWrapper<>();
-        wrapper.lambda().eq(UmsAdminRoleRelation::getAdminId,adminId);
+        wrapper.lambda().eq(UmsAdminRoleRelation::getAdminId, adminId);
         adminRoleRelationService.remove(wrapper);
         //建立新关系
         if (!CollectionUtils.isEmpty(roleIds)) {
@@ -208,31 +213,31 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
     @Override
     public List<UmsResource> getResourceList(Long adminId) {
         List<UmsResource> resourceList = adminCacheService.getResourceList(adminId);
-        if(CollUtil.isNotEmpty(resourceList)){
-            return  resourceList;
+        if (CollUtil.isNotEmpty(resourceList)) {
+            return resourceList;
         }
         resourceList = resourceMapper.getResourceList(adminId);
-        if(CollUtil.isNotEmpty(resourceList)){
-            adminCacheService.setResourceList(adminId,resourceList);
+        if (CollUtil.isNotEmpty(resourceList)) {
+            adminCacheService.setResourceList(adminId, resourceList);
         }
         return resourceList;
     }
 
     @Override
     public int updatePassword(UpdateAdminPasswordParam param) {
-        if(StrUtil.isEmpty(param.getUsername())
-                ||StrUtil.isEmpty(param.getOldPassword())
-                ||StrUtil.isEmpty(param.getNewPassword())){
+        if (StrUtil.isEmpty(param.getUsername())
+                || StrUtil.isEmpty(param.getOldPassword())
+                || StrUtil.isEmpty(param.getNewPassword())) {
             return -1;
         }
         QueryWrapper<UmsAdmin> wrapper = new QueryWrapper<>();
-        wrapper.lambda().eq(UmsAdmin::getUsername,param.getUsername());
+        wrapper.lambda().eq(UmsAdmin::getUsername, param.getUsername());
         List<UmsAdmin> adminList = list(wrapper);
-        if(CollUtil.isEmpty(adminList)){
+        if (CollUtil.isEmpty(adminList)) {
             return -2;
         }
         UmsAdmin umsAdmin = adminList.get(0);
-        if(!BCrypt.checkpw(param.getOldPassword(),umsAdmin.getPassword())){
+        if (!BCrypt.checkpw(param.getOldPassword(), umsAdmin.getPassword())) {
             return -3;
         }
         umsAdmin.setPassword(BCrypt.hashpw(param.getNewPassword()));
@@ -242,7 +247,7 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
     }
 
     @Override
-    public UmsAdmin loadUserByUsername(String username){
+    public UmsAdmin loadUserByUsername(String username) {
         //获取用户信息
         UmsAdmin admin = getAdminByUsername(username);
         if (admin != null) {

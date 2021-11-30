@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import pers.brian.mall.modules.ums.mapper.UmsMenuMapper;
 import pers.brian.mall.modules.ums.mapper.UmsResourceMapper;
 import pers.brian.mall.modules.ums.mapper.UmsRoleMapper;
@@ -12,7 +13,6 @@ import pers.brian.mall.modules.ums.service.UmsAdminCacheService;
 import pers.brian.mall.modules.ums.service.UmsRoleMenuRelationService;
 import pers.brian.mall.modules.ums.service.UmsRoleResourceRelationService;
 import pers.brian.mall.modules.ums.service.UmsRoleService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pers.brian.mall.modules.ums.model.*;
 
@@ -27,17 +27,32 @@ import java.util.List;
  * @Version: 0.0.1
  **/
 @Service
-public class UmsRoleServiceImpl extends ServiceImpl<UmsRoleMapper, UmsRole>implements UmsRoleService {
+public class UmsRoleServiceImpl extends ServiceImpl<UmsRoleMapper, UmsRole> implements UmsRoleService {
+
+    private final UmsAdminCacheService adminCacheService;
+
+    private final UmsRoleMenuRelationService roleMenuRelationService;
+
+    private final UmsRoleResourceRelationService roleResourceRelationService;
+
+    private final UmsMenuMapper menuMapper;
+
+    private final UmsResourceMapper resourceMapper;
+
     @Autowired
-    private UmsAdminCacheService adminCacheService;
-    @Autowired
-    private UmsRoleMenuRelationService roleMenuRelationService;
-    @Autowired
-    private UmsRoleResourceRelationService roleResourceRelationService;
-    @Autowired
-    private UmsMenuMapper menuMapper;
-    @Autowired
-    private UmsResourceMapper resourceMapper;
+    public UmsRoleServiceImpl(UmsAdminCacheService adminCacheService,
+                              UmsRoleMenuRelationService roleMenuRelationService,
+                              UmsRoleResourceRelationService roleResourceRelationService,
+                              UmsMenuMapper menuMapper,
+                              UmsResourceMapper resourceMapper) {
+        this.adminCacheService = adminCacheService;
+        this.roleMenuRelationService = roleMenuRelationService;
+        this.roleResourceRelationService = roleResourceRelationService;
+        this.menuMapper = menuMapper;
+        this.resourceMapper = resourceMapper;
+    }
+
+
     @Override
     public boolean create(UmsRole role) {
         role.setCreateTime(new Date());
@@ -55,13 +70,13 @@ public class UmsRoleServiceImpl extends ServiceImpl<UmsRoleMapper, UmsRole>imple
 
     @Override
     public Page<UmsRole> list(String keyword, Integer pageSize, Integer pageNum) {
-        Page<UmsRole> page = new Page<>(pageNum,pageSize);
+        Page<UmsRole> page = new Page<>(pageNum, pageSize);
         QueryWrapper<UmsRole> wrapper = new QueryWrapper<>();
         LambdaQueryWrapper<UmsRole> lambda = wrapper.lambda();
-        if(StrUtil.isNotEmpty(keyword)){
-            lambda.like(UmsRole::getName,keyword);
+        if (StrUtil.isNotEmpty(keyword)) {
+            lambda.like(UmsRole::getName, keyword);
         }
-        return page(page,wrapper);
+        return page(page, wrapper);
     }
 
     @Override
@@ -83,7 +98,7 @@ public class UmsRoleServiceImpl extends ServiceImpl<UmsRoleMapper, UmsRole>imple
     public int allocMenu(Long roleId, List<Long> menuIds) {
         //先删除原有关系
         QueryWrapper<UmsRoleMenuRelation> wrapper = new QueryWrapper<>();
-        wrapper.lambda().eq(UmsRoleMenuRelation::getRoleId,roleId);
+        wrapper.lambda().eq(UmsRoleMenuRelation::getRoleId, roleId);
         roleMenuRelationService.remove(wrapper);
         //批量插入新关系
         List<UmsRoleMenuRelation> relationList = new ArrayList<>();
@@ -101,7 +116,7 @@ public class UmsRoleServiceImpl extends ServiceImpl<UmsRoleMapper, UmsRole>imple
     public int allocResource(Long roleId, List<Long> resourceIds) {
         //先删除原有关系
         QueryWrapper<UmsRoleResourceRelation> wrapper = new QueryWrapper<>();
-        wrapper.lambda().eq(UmsRoleResourceRelation::getRoleId,roleId);
+        wrapper.lambda().eq(UmsRoleResourceRelation::getRoleId, roleId);
         roleResourceRelationService.remove(wrapper);
         //批量插入新关系
         List<UmsRoleResourceRelation> relationList = new ArrayList<>();
