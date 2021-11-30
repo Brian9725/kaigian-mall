@@ -10,11 +10,9 @@ import lombok.EqualsAndHashCode;
 import java.io.Serializable;
 
 /**
- * @Description:
- * <p>
+ * @Description: <p>
  * 后台用户和角色关系表
  * </p>
- *
  * @Author: BrianHu
  * @Create: 2021-11-11 11:11
  * @Version: 0.0.1
@@ -22,10 +20,10 @@ import java.io.Serializable;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("ums_admin_role_relation")
-@ApiModel(value="UmsAdminRoleRelation对象", description="后台用户和角色关系表")
+@ApiModel(value = "UmsAdminRoleRelation对象", description = "后台用户和角色关系表")
 public class UmsAdminRoleRelation implements Serializable {
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;

@@ -6,6 +6,7 @@
     <modules>
         <module>kaigian-common</module>
         <module>kaigian-admin</module>
+        <module>kaigian-portal</module>
         <module>kaigian-mpbg</module>
         <module>kaigian-test</module>
     </modules>

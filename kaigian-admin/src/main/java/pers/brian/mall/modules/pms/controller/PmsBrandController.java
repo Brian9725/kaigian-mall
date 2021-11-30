@@ -95,9 +95,14 @@ public class PmsBrandController {
 
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult<Boolean> update(@PathVariable(value = "id") Long id) {
-        // TODO:添加品牌管理更新接口
-        return null;
+    public CommonResult<Boolean> update(@PathVariable(value = "id") Long id,
+                                        @RequestBody PmsBrand brand) {
+        boolean updated = brandService.updateById(brand);
+        if (updated) {
+            return CommonResult.success(true);
+        } else {
+            return CommonResult.failed();
+        }
     }
 }
 

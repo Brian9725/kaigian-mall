@@ -11,11 +11,9 @@ import lombok.EqualsAndHashCode;
 import java.io.Serializable;
 
 /**
- * @Description:
- * <p>
+ * @Description: <p>
  * 后台角色菜单关系表
  * </p>
- *
  * @Author: BrianHu
  * @Create: 2021-11-11 11:11
  * @Version: 0.0.1
@@ -23,10 +21,10 @@ import java.io.Serializable;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("ums_role_menu_relation")
-@ApiModel(value="UmsRoleMenuRelation对象", description="后台角色菜单关系表")
+@ApiModel(value = "UmsRoleMenuRelation对象", description = "后台角色菜单关系表")
 public class UmsRoleMenuRelation implements Serializable {
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;

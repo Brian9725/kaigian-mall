@@ -1,18 +1,16 @@
 package pers.brian.mall.modules.ums.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 import pers.brian.mall.modules.ums.model.UmsResource;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 /**
- * @Description:
- * <p>
+ * @Description: <p>
  * 后台资源表 Mapper 接口
  * </p>
- *
  * @Author: BrianHu
  * @Create: 2021-11-11 11:11
  * @Version: 0.0.1
@@ -22,11 +20,17 @@ public interface UmsResourceMapper extends BaseMapper<UmsResource> {
 
     /**
      * 获取用户所有可访问资源
+     *
+     * @param adminId 用户id
+     * @return 可访问资源列表
      */
     List<UmsResource> getResourceList(@Param("adminId") Long adminId);
 
     /**
      * 根据角色ID获取资源
+     *
+     * @param roleId 角色ID
+     * @return 资源列表
      */
     List<UmsResource> getResourceListByRoleId(@Param("roleId") Long roleId);
 

@@ -18,60 +18,60 @@ import java.util.List;
  * @Version: 0.0.1
  **/
 @Controller
-@Api(tags = "UmsResourceCategoryController", description = "后台资源分类管理")
+@Api(tags = "UmsResourceCategoryController")
 @RequestMapping("/resourceCategory")
 public class UmsResourceCategoryController {
 
-	private final UmsResourceCategoryService resourceCategoryService;
+    private final UmsResourceCategoryService resourceCategoryService;
 
-	@Autowired
-	public UmsResourceCategoryController(UmsResourceCategoryService resourceCategoryService) {
-		this.resourceCategoryService = resourceCategoryService;
-	}
+    @Autowired
+    public UmsResourceCategoryController(UmsResourceCategoryService resourceCategoryService) {
+        this.resourceCategoryService = resourceCategoryService;
+    }
 
-	@ApiOperation("查询所有后台资源分类")
-	@RequestMapping(value = "/listAll", method = RequestMethod.GET)
-	@ResponseBody
-	public CommonResult<List<UmsResourceCategory>> listAll() {
-		List<UmsResourceCategory> resourceList = resourceCategoryService.listAll();
-		return CommonResult.success(resourceList);
-	}
+    @ApiOperation("查询所有后台资源分类")
+    @RequestMapping(value = "/listAll", method = RequestMethod.GET)
+    @ResponseBody
+    public CommonResult<List<UmsResourceCategory>> listAll() {
+        List<UmsResourceCategory> resourceList = resourceCategoryService.listAll();
+        return CommonResult.success(resourceList);
+    }
 
-	@ApiOperation("添加后台资源分类")
-	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	@ResponseBody
-	public CommonResult create(@RequestBody UmsResourceCategory umsResourceCategory) {
-		boolean success = resourceCategoryService.create(umsResourceCategory);
-		if (success) {
-			return CommonResult.success(null);
-		} else {
-			return CommonResult.failed();
-		}
-	}
+    @ApiOperation("添加后台资源分类")
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult<Boolean> create(@RequestBody UmsResourceCategory umsResourceCategory) {
+        boolean success = resourceCategoryService.create(umsResourceCategory);
+        if (success) {
+            return CommonResult.success(true);
+        } else {
+            return CommonResult.failed();
+        }
+    }
 
-	@ApiOperation("修改后台资源分类")
-	@RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
-	@ResponseBody
-	public CommonResult update(@PathVariable Long id,
-							   @RequestBody UmsResourceCategory umsResourceCategory) {
-		umsResourceCategory.setId(id);
-		boolean success = resourceCategoryService.updateById(umsResourceCategory);
-		if (success) {
-			return CommonResult.success(null);
-		} else {
-			return CommonResult.failed();
-		}
-	}
+    @ApiOperation("修改后台资源分类")
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult<Boolean> update(@PathVariable Long id,
+                                        @RequestBody UmsResourceCategory umsResourceCategory) {
+        umsResourceCategory.setId(id);
+        boolean success = resourceCategoryService.updateById(umsResourceCategory);
+        if (success) {
+            return CommonResult.success(true);
+        } else {
+            return CommonResult.failed();
+        }
+    }
 
-	@ApiOperation("根据ID删除后台资源")
-	@RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
-	@ResponseBody
-	public CommonResult delete(@PathVariable Long id) {
-		boolean success = resourceCategoryService.removeById(id);
-		if (success) {
-			return CommonResult.success(null);
-		} else {
-			return CommonResult.failed();
-		}
-	}
+    @ApiOperation("根据ID删除后台资源")
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult<Boolean> delete(@PathVariable Long id) {
+        boolean success = resourceCategoryService.removeById(id);
+        if (success) {
+            return CommonResult.success(true);
+        } else {
+            return CommonResult.failed();
+        }
+    }
 }

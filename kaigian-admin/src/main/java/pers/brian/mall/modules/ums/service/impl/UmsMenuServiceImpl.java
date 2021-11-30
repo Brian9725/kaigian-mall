@@ -3,12 +3,12 @@ package pers.brian.mall.modules.ums.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Service;
 import pers.brian.mall.modules.ums.dto.UmsMenuNode;
 import pers.brian.mall.modules.ums.mapper.UmsMenuMapper;
 import pers.brian.mall.modules.ums.model.UmsMenu;
 import pers.brian.mall.modules.ums.service.UmsMenuService;
-import org.springframework.beans.BeanUtils;
-import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
  * @Version: 0.0.1
  **/
 @Service
-public class UmsMenuServiceImpl extends ServiceImpl<UmsMenuMapper, UmsMenu>implements UmsMenuService {
+public class UmsMenuServiceImpl extends ServiceImpl<UmsMenuMapper, UmsMenu> implements UmsMenuService {
 
     @Override
     public boolean create(UmsMenu umsMenu) {
@@ -57,11 +57,12 @@ public class UmsMenuServiceImpl extends ServiceImpl<UmsMenuMapper, UmsMenu>imple
 
     @Override
     public Page<UmsMenu> list(Long parentId, Integer pageSize, Integer pageNum) {
-        Page<UmsMenu> page = new Page<>(pageNum,pageSize);
+        Page<UmsMenu> page = new Page<>(pageNum, pageSize);
         QueryWrapper<UmsMenu> wrapper = new QueryWrapper<>();
-        wrapper.lambda().eq(UmsMenu::getParentId,parentId)
-                .orderByDesc(UmsMenu::getSort);
-        return page(page,wrapper);
+        wrapper.lambda()
+                .eq(UmsMenu::getParentId, parentId)
+                .orderByAsc(UmsMenu::getSort);
+        return page(page, wrapper);
     }
 
     @Override
