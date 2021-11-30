@@ -1,6 +1,7 @@
 /.idea
 /*/target/*
 /kaigian-admin/src/main/resources/application-dev.yml
+/kaigian-portal/src/main/resources/application-dev.yml
 /kaigian-mpbg/src/main/resources/generator.properties
 *.iml
 # Compiled class file
