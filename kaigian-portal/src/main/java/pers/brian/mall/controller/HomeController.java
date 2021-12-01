@@ -6,8 +6,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import pers.brian.mall.common.api.CommonResult;
+import pers.brian.mall.dto.HomeGoodsSaleDTO;
+import pers.brian.mall.dto.HomeMenusBannerDTO;
 import pers.brian.mall.dto.HomeMenusDTO;
 import pers.brian.mall.modules.pms.service.PmsProductCategoryService;
+import pers.brian.mall.modules.sms.model.SmsHomeAdvertise;
+import pers.brian.mall.modules.sms.service.SmsHomeAdvertiseService;
+import pers.brian.mall.modules.sms.service.SmsHomeCategoryService;
 
 import java.util.List;
 
@@ -25,14 +30,29 @@ public class HomeController {
     @Autowired
     private PmsProductCategoryService productCategoryService;
 
-    /**
-     * 获取首页类型导航栏和数据
-     * get("/home/menus")
-     */
-    @RequestMapping(value = "/menus", method = RequestMethod.GET)
-    public CommonResult getMenus() {
+    @Autowired
+    private SmsHomeAdvertiseService homeAdvertiseService;
+
+    @Autowired
+    private SmsHomeCategoryService homeCategoryService;
+
+    @RequestMapping(value = "/menus_banner", method = RequestMethod.GET)
+    public CommonResult<HomeMenusBannerDTO> getMenus() {
         // 分类导航
         List<HomeMenusDTO> list = productCategoryService.getMenus();
+        // banner
+        List<SmsHomeAdvertise> homeAdvertisesList = homeAdvertiseService.getHomeBanners();
+
+        HomeMenusBannerDTO homeMenusBannerDTO = new HomeMenusBannerDTO();
+        homeMenusBannerDTO.setHomeMenusList(list);
+        homeMenusBannerDTO.setHomeAdvertisesList(homeAdvertisesList);
+
+        return CommonResult.success(homeMenusBannerDTO);
+    }
+
+    @RequestMapping(value = "/goods_sale", method = RequestMethod.GET)
+    public CommonResult<List<HomeGoodsSaleDTO>> getGoodsSale() {
+        List<HomeGoodsSaleDTO> list = homeCategoryService.getGoodsSale();
         return CommonResult.success(list);
     }
 }

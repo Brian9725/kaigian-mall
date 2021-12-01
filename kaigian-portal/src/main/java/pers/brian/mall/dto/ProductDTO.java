@@ -36,6 +36,9 @@ public class ProductDTO {
     @ApiModelProperty(value = "副标题")
     private String subTitle;
 
+    @ApiModelProperty(value = "商品描述")
+    private String description;
+
     @ApiModelProperty(value = "控制价格是否要加上 xx元起 ，如果=1就不需要加，如果=0否则需要")
     private Integer sub;
 
