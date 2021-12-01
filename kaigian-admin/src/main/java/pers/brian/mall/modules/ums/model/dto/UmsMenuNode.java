@@ -1,6 +1,6 @@
-package pers.brian.mall.modules.ums.dto;
+package pers.brian.mall.modules.ums.model.dto;
 
-import pers.brian.mall.modules.ums.model.UmsMenu;
+import pers.brian.mall.modules.ums.model.entity.UmsMenu;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;

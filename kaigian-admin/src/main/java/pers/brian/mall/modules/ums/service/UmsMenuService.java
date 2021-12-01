@@ -2,8 +2,8 @@ package pers.brian.mall.modules.ums.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
-import pers.brian.mall.modules.ums.dto.UmsMenuNode;
-import pers.brian.mall.modules.ums.model.UmsMenu;
+import pers.brian.mall.modules.ums.model.dto.UmsMenuNode;
+import pers.brian.mall.modules.ums.model.entity.UmsMenu;
 
 import java.util.List;
 

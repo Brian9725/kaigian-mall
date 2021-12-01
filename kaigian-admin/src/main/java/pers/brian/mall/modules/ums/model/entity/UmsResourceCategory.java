@@ -1,4 +1,4 @@
-package pers.brian.mall.modules.ums.model;
+package pers.brian.mall.modules.ums.model.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -9,10 +9,11 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @Description: <p>
- * 后台角色资源关系表
+ * 资源分类表
  * </p>
  * @Author: BrianHu
  * @Create: 2021-11-11 11:11
@@ -20,20 +21,23 @@ import java.io.Serializable;
  **/
 @Data
 @EqualsAndHashCode(callSuper = false)
-@TableName("ums_role_resource_relation")
-@ApiModel(value = "UmsRoleResourceRelation对象", description = "后台角色资源关系表")
-public class UmsRoleResourceRelation implements Serializable {
+@TableName("ums_resource_category")
+@ApiModel(value = "UmsResourceCategory对象", description = "资源分类表")
+public class UmsResourceCategory implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
-    @ApiModelProperty(value = "角色ID")
-    private Long roleId;
+    @ApiModelProperty(value = "创建时间")
+    private Date createTime;
 
-    @ApiModelProperty(value = "资源ID")
-    private Long resourceId;
+    @ApiModelProperty(value = "分类名称")
+    private String name;
+
+    @ApiModelProperty(value = "排序")
+    private Integer sort;
 
 
 }

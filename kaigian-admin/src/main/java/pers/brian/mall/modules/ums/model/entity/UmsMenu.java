@@ -1,4 +1,4 @@
-package pers.brian.mall.modules.ums.model;
+package pers.brian.mall.modules.ums.model.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -13,7 +13,7 @@ import java.util.Date;
 
 /**
  * @Description: <p>
- * 资源分类表
+ * 后台菜单表
  * </p>
  * @Author: BrianHu
  * @Create: 2021-11-11 11:11
@@ -21,23 +21,38 @@ import java.util.Date;
  **/
 @Data
 @EqualsAndHashCode(callSuper = false)
-@TableName("ums_resource_category")
-@ApiModel(value = "UmsResourceCategory对象", description = "资源分类表")
-public class UmsResourceCategory implements Serializable {
+@TableName("ums_menu")
+@ApiModel(value = "UmsMenu对象", description = "后台菜单表")
+public class UmsMenu implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
+    @ApiModelProperty(value = "父级ID")
+    private Long parentId;
+
     @ApiModelProperty(value = "创建时间")
     private Date createTime;
 
-    @ApiModelProperty(value = "分类名称")
+    @ApiModelProperty(value = "菜单名称")
+    private String title;
+
+    @ApiModelProperty(value = "菜单级数")
+    private Integer level;
+
+    @ApiModelProperty(value = "菜单排序")
+    private Integer sort;
+
+    @ApiModelProperty(value = "前端名称")
     private String name;
 
-    @ApiModelProperty(value = "排序")
-    private Integer sort;
+    @ApiModelProperty(value = "前端图标")
+    private String icon;
+
+    @ApiModelProperty(value = "前端隐藏")
+    private Integer hidden;
 
 
 }

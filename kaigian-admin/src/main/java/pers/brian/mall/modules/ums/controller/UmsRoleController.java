@@ -8,9 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pers.brian.mall.common.api.CommonPage;
 import pers.brian.mall.common.api.CommonResult;
-import pers.brian.mall.modules.ums.model.UmsMenu;
-import pers.brian.mall.modules.ums.model.UmsResource;
-import pers.brian.mall.modules.ums.model.UmsRole;
+import pers.brian.mall.modules.ums.model.entity.UmsMenu;
+import pers.brian.mall.modules.ums.model.entity.UmsResource;
+import pers.brian.mall.modules.ums.model.entity.UmsRole;
 import pers.brian.mall.modules.ums.service.UmsRoleService;
 
 import java.util.List;

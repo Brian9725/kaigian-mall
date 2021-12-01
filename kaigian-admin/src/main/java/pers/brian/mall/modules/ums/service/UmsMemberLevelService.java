@@ -1,7 +1,7 @@
 package pers.brian.mall.modules.ums.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import pers.brian.mall.modules.ums.model.UmsMemberLevel;
+import pers.brian.mall.modules.ums.model.entity.UmsMemberLevel;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
 package pers.brian.mall.modules.ums.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import pers.brian.mall.modules.ums.model.UmsRoleMenuRelation;
+import pers.brian.mall.modules.ums.model.entity.UmsRoleMenuRelation;
 
 /**
  * @Description: 角色菜单关系管理Service

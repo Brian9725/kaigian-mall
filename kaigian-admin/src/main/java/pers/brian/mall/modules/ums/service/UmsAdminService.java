@@ -2,11 +2,11 @@ package pers.brian.mall.modules.ums.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
-import pers.brian.mall.modules.ums.dto.UmsAdminParam;
-import pers.brian.mall.modules.ums.dto.UpdateAdminPasswordParam;
-import pers.brian.mall.modules.ums.model.UmsAdmin;
-import pers.brian.mall.modules.ums.model.UmsResource;
-import pers.brian.mall.modules.ums.model.UmsRole;
+import pers.brian.mall.modules.ums.model.dto.UmsAdminParam;
+import pers.brian.mall.modules.ums.model.dto.UpdateAdminPasswordParam;
+import pers.brian.mall.modules.ums.model.entity.UmsAdmin;
+import pers.brian.mall.modules.ums.model.entity.UmsResource;
+import pers.brian.mall.modules.ums.model.entity.UmsRole;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;

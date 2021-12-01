@@ -3,7 +3,7 @@ package pers.brian.mall.modules.ums.service.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import pers.brian.mall.modules.ums.mapper.UmsAdminRoleRelationMapper;
-import pers.brian.mall.modules.ums.model.UmsAdminRoleRelation;
+import pers.brian.mall.modules.ums.model.entity.UmsAdminRoleRelation;
 import pers.brian.mall.modules.ums.service.UmsAdminRoleRelationService;
 
 /**

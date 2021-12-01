@@ -1,4 +1,4 @@
-package pers.brian.mall.modules.ums.model;
+package pers.brian.mall.modules.ums.model.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -13,7 +13,7 @@ import java.util.Date;
 
 /**
  * @Description: <p>
- * 后台用户登录日志表
+ * 后台资源表
  * </p>
  * @Author: BrianHu
  * @Create: 2021-11-11 11:11
@@ -21,25 +21,29 @@ import java.util.Date;
  **/
 @Data
 @EqualsAndHashCode(callSuper = false)
-@TableName("ums_admin_login_log")
-@ApiModel(value = "UmsAdminLoginLog对象", description = "后台用户登录日志表")
-public class UmsAdminLoginLog implements Serializable {
+@TableName("ums_resource")
+@ApiModel(value = "UmsResource对象", description = "后台资源表")
+public class UmsResource implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
-    private Long adminId;
-
+    @ApiModelProperty(value = "创建时间")
     private Date createTime;
 
-    private String ip;
+    @ApiModelProperty(value = "资源名称")
+    private String name;
 
-    private String address;
+    @ApiModelProperty(value = "资源URL")
+    private String url;
 
-    @ApiModelProperty(value = "浏览器登录类型")
-    private String userAgent;
+    @ApiModelProperty(value = "描述")
+    private String description;
+
+    @ApiModelProperty(value = "资源分类ID")
+    private Long categoryId;
 
 
 }

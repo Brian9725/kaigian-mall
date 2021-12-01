@@ -2,9 +2,9 @@ package pers.brian.mall.modules.ums.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
-import pers.brian.mall.modules.ums.model.UmsMenu;
-import pers.brian.mall.modules.ums.model.UmsResource;
-import pers.brian.mall.modules.ums.model.UmsRole;
+import pers.brian.mall.modules.ums.model.entity.UmsMenu;
+import pers.brian.mall.modules.ums.model.entity.UmsResource;
+import pers.brian.mall.modules.ums.model.entity.UmsRole;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;

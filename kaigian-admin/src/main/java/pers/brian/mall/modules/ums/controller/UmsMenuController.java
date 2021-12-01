@@ -8,8 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pers.brian.mall.common.api.CommonPage;
 import pers.brian.mall.common.api.CommonResult;
-import pers.brian.mall.modules.ums.dto.UmsMenuNode;
-import pers.brian.mall.modules.ums.model.UmsMenu;
+import pers.brian.mall.modules.ums.model.dto.UmsMenuNode;
+import pers.brian.mall.modules.ums.model.entity.UmsMenu;
 import pers.brian.mall.modules.ums.service.UmsMenuService;
 
 import java.util.List;

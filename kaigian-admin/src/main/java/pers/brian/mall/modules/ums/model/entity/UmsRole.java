@@ -1,4 +1,4 @@
-package pers.brian.mall.modules.ums.model;
+package pers.brian.mall.modules.ums.model.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;

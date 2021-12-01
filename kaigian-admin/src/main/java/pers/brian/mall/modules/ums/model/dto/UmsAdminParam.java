@@ -1,4 +1,4 @@
-package pers.brian.mall.modules.ums.dto;
+package pers.brian.mall.modules.ums.model.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;

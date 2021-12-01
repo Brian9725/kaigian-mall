@@ -3,7 +3,7 @@
 <mapper namespace="pers.brian.mall.modules.ums.mapper.UmsRoleResourceRelationMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="pers.brian.mall.modules.ums.model.UmsRoleResourceRelation">
+    <resultMap id="BaseResultMap" type="pers.brian.mall.modules.ums.model.entity.UmsRoleResourceRelation">
         <id column="id" property="id" />
         <result column="role_id" property="roleId" />
         <result column="resource_id" property="resourceId" />

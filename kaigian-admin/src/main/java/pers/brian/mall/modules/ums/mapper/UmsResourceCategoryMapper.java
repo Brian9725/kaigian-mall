@@ -2,7 +2,7 @@ package pers.brian.mall.modules.ums.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.stereotype.Component;
-import pers.brian.mall.modules.ums.model.UmsResourceCategory;
+import pers.brian.mall.modules.ums.model.entity.UmsResourceCategory;
 
 /**
  * @Description: <p>

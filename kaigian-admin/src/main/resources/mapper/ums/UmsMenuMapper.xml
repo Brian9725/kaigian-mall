@@ -3,7 +3,7 @@
 <mapper namespace="pers.brian.mall.modules.ums.mapper.UmsMenuMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="pers.brian.mall.modules.ums.model.UmsMenu">
+    <resultMap id="BaseResultMap" type="pers.brian.mall.modules.ums.model.entity.UmsMenu">
         <id column="id" property="id" />
         <result column="parent_id" property="parentId" />
         <result column="create_time" property="createTime" />
@@ -15,7 +15,7 @@
         <result column="hidden" property="hidden" />
     </resultMap>
 
-    <select id="getMenuList" resultType="pers.brian.mall.modules.ums.model.UmsMenu">
+    <select id="getMenuList" resultType="pers.brian.mall.modules.ums.model.entity.UmsMenu">
         SELECT
             m.id id,
             m.parent_id parentId,
@@ -37,7 +37,7 @@
         GROUP BY
             m.id
     </select>
-    <select id="getMenuListByRoleId" resultType="pers.brian.mall.modules.ums.model.UmsMenu">
+    <select id="getMenuListByRoleId" resultType="pers.brian.mall.modules.ums.model.entity.UmsMenu">
         SELECT
             m.id id,
             m.parent_id parentId,

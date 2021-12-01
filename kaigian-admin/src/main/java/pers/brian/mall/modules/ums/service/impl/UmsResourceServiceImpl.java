@@ -8,7 +8,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pers.brian.mall.modules.ums.mapper.UmsResourceMapper;
-import pers.brian.mall.modules.ums.model.UmsResource;
+import pers.brian.mall.modules.ums.model.entity.UmsResource;
 import pers.brian.mall.modules.ums.service.UmsAdminCacheService;
 import pers.brian.mall.modules.ums.service.UmsResourceService;
 
