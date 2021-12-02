@@ -4,6 +4,7 @@ import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import pers.brian.mall.common.api.CommonResult;
 import pers.brian.mall.dto.HomeGoodsSaleDTO;
@@ -37,6 +38,7 @@ public class HomeController {
     private SmsHomeCategoryService homeCategoryService;
 
     @RequestMapping(value = "/menus_banner", method = RequestMethod.GET)
+    @ResponseBody
     public CommonResult<HomeMenusBannerDTO> getMenus() {
         // 分类导航
         List<HomeMenusDTO> list = productCategoryService.getMenus();
@@ -51,6 +53,7 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/goods_sale", method = RequestMethod.GET)
+    @ResponseBody
     public CommonResult<List<HomeGoodsSaleDTO>> getGoodsSale() {
         List<HomeGoodsSaleDTO> list = homeCategoryService.getGoodsSale();
         return CommonResult.success(list);

@@ -1,7 +1,8 @@
 package pers.brian.mall.modules.pms.service;
 
-import pers.brian.mall.modules.pms.model.PmsProduct;
 import com.baomidou.mybatisplus.extension.service.IService;
+import pers.brian.mall.dto.ProductDetailDTO;
+import pers.brian.mall.modules.pms.model.PmsProduct;
 
 /**
  * <p>
@@ -13,4 +14,11 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface PmsProductService extends IService<PmsProduct> {
 
+    /**
+     * 根据商品id获取商品详情
+     *
+     * @param id 商品id
+     * @return 商品详情
+     */
+    ProductDetailDTO getProductDetail(Long id);
 }
