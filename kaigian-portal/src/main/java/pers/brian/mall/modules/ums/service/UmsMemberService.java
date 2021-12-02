@@ -29,4 +29,11 @@ public interface UmsMemberService extends IService<UmsMember> {
      * @return 登陆的用户信息
      */
     UmsMember login(String username, String password);
+
+    /**
+     * 获取当前登陆的用户
+     *
+     * @return 当前登陆的用户
+     */
+    UmsMember getCurrentMember();
 }

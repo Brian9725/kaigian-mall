@@ -1,7 +1,8 @@
 package pers.brian.mall.modules.oms.service;
 
-import pers.brian.mall.modules.oms.model.OmsCartItem;
 import com.baomidou.mybatisplus.extension.service.IService;
+import pers.brian.mall.dto.AddCartDTO;
+import pers.brian.mall.modules.oms.model.OmsCartItem;
 
 /**
  * <p>
@@ -13,4 +14,11 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface OmsCartItemService extends IService<OmsCartItem> {
 
+    /**
+     * 添加购物车
+     *
+     * @param addCartDTO 商品参数
+     * @return 是否添加成功
+     */
+    Boolean add(AddCartDTO addCartDTO);
 }

@@ -1,15 +1,18 @@
 package pers.brian.mall.modules.oms.model;
 
-import java.math.BigDecimal;
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
-import java.util.Date;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.TableLogic;
+import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * <p>
@@ -20,12 +23,13 @@ import lombok.EqualsAndHashCode;
  * @since 2021-12-01
  */
 @Data
+@Accessors(chain = true)
 @EqualsAndHashCode(callSuper = false)
 @TableName("oms_cart_item")
-@ApiModel(value="OmsCartItem对象", description="购物车表")
+@ApiModel(value = "OmsCartItem对象", description = "购物车表")
 public class OmsCartItem implements Serializable {
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
@@ -73,6 +77,7 @@ public class OmsCartItem implements Serializable {
     private Date modifyDate;
 
     @ApiModelProperty(value = "是否删除")
+    @TableLogic(value = "0", delval = "1")
     private Integer deleteStatus;
 
     @ApiModelProperty(value = "商品分类")

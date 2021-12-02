@@ -3,7 +3,9 @@ package pers.brian.mall.modules.ums.service.impl;
 import cn.hutool.crypto.digest.BCrypt;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
+import pers.brian.mall.common.constant.ComConstants;
 import pers.brian.mall.common.exception.Asserts;
 import pers.brian.mall.modules.ums.model.UmsMember;
 import pers.brian.mall.modules.ums.mapper.UmsMemberMapper;
@@ -11,6 +13,7 @@ import pers.brian.mall.modules.ums.service.UmsMemberService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.List;
 
@@ -24,6 +27,9 @@ import java.util.List;
  */
 @Service
 public class UmsMemberServiceImpl extends ServiceImpl<UmsMemberMapper, UmsMember> implements UmsMemberService {
+
+    @Autowired
+    private HttpSession session;
 
     @Override
     public UmsMember register(UmsMember umsMemberParam) {
@@ -60,5 +66,11 @@ public class UmsMemberServiceImpl extends ServiceImpl<UmsMemberMapper, UmsMember
             return null;
         }
         return user;
+    }
+
+    @Override
+    public UmsMember getCurrentMember() {
+        UmsMember member = (UmsMember) session.getAttribute(ComConstants.FRONT_CURRENT_USER);
+        return member;
     }
 }
