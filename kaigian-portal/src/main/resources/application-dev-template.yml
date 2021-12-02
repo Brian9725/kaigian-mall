@@ -13,5 +13,5 @@ spring:
 logging:
   level:
     root: info
-    pers.kaigian: debug
+    pers.brian: debug
 

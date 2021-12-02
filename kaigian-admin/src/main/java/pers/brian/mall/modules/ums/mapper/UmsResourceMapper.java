@@ -3,7 +3,7 @@ package pers.brian.mall.modules.ums.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
-import pers.brian.mall.modules.ums.model.UmsResource;
+import pers.brian.mall.modules.ums.model.entity.UmsResource;
 
 import java.util.List;
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.brian.mall.modules.ums.mapper.UmsMemberLevelMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="pers.brian.mall.modules.ums.model.UmsMemberLevel">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="growth_point" property="growthPoint" />
+        <result column="default_status" property="defaultStatus" />
+        <result column="free_freight_point" property="freeFreightPoint" />
+        <result column="comment_growth_point" property="commentGrowthPoint" />
+        <result column="privilege_free_freight" property="privilegeFreeFreight" />
+        <result column="privilege_sign_in" property="privilegeSignIn" />
+        <result column="privilege_comment" property="privilegeComment" />
+        <result column="privilege_promotion" property="privilegePromotion" />
+        <result column="privilege_member_price" property="privilegeMemberPrice" />
+        <result column="privilege_birthday" property="privilegeBirthday" />
+        <result column="note" property="note" />
+    </resultMap>
+
+</mapper>

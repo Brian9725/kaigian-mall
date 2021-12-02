@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pers.brian.mall.common.api.CommonResult;
-import pers.brian.mall.modules.ums.model.UmsResourceCategory;
+import pers.brian.mall.modules.ums.model.entity.UmsResourceCategory;
 import pers.brian.mall.modules.ums.service.UmsResourceCategoryService;
 
 import java.util.List;

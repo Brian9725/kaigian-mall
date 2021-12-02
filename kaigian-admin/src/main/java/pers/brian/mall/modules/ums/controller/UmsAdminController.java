@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.*;
 import pers.brian.mall.common.api.CommonPage;
 import pers.brian.mall.common.api.CommonResult;
 import pers.brian.mall.common.constant.ComConstants;
-import pers.brian.mall.modules.ums.dto.UmsAdminLoginParam;
-import pers.brian.mall.modules.ums.dto.UmsAdminParam;
-import pers.brian.mall.modules.ums.dto.UpdateAdminPasswordParam;
-import pers.brian.mall.modules.ums.model.UmsAdmin;
-import pers.brian.mall.modules.ums.model.UmsRole;
+import pers.brian.mall.modules.ums.model.dto.UmsAdminLoginParam;
+import pers.brian.mall.modules.ums.model.dto.UmsAdminParam;
+import pers.brian.mall.modules.ums.model.dto.UpdateAdminPasswordParam;
+import pers.brian.mall.modules.ums.model.entity.UmsAdmin;
+import pers.brian.mall.modules.ums.model.entity.UmsRole;
 import pers.brian.mall.modules.ums.service.UmsAdminService;
 import pers.brian.mall.modules.ums.service.UmsRoleService;
 

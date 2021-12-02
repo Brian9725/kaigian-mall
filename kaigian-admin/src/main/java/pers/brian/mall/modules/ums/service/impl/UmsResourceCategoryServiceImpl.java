@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import pers.brian.mall.modules.ums.mapper.UmsResourceCategoryMapper;
-import pers.brian.mall.modules.ums.model.UmsResourceCategory;
+import pers.brian.mall.modules.ums.model.entity.UmsResourceCategory;
 import pers.brian.mall.modules.ums.service.UmsResourceCategoryService;
 
 import java.util.Date;

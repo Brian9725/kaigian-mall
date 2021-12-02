@@ -3,19 +3,19 @@
 <mapper namespace="pers.brian.mall.modules.ums.mapper.UmsMemberLevelMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="pers.brian.mall.modules.ums.model.UmsMemberLevel">
+    <resultMap id="BaseResultMap" type="pers.brian.mall.modules.ums.model.entity.UmsMemberLevel">
         <id column="id" property="id" />
         <result column="name" property="name" />
         <result column="growth_point" property="growthPoint" />
         <result column="default_status" property="defaultStatus" />
         <result column="free_freight_point" property="freeFreightPoint" />
         <result column="comment_growth_point" property="commentGrowthPoint" />
-        <result column="priviledge_free_freight" property="priviledgeFreeFreight" />
-        <result column="priviledge_sign_in" property="priviledgeSignIn" />
-        <result column="priviledge_comment" property="priviledgeComment" />
-        <result column="priviledge_promotion" property="priviledgePromotion" />
-        <result column="priviledge_member_price" property="priviledgeMemberPrice" />
-        <result column="priviledge_birthday" property="priviledgeBirthday" />
+        <result column="privilege_free_freight" property="privilegeFreeFreight" />
+        <result column="privilege_sign_in" property="privilegeSignIn" />
+        <result column="privilege_comment" property="privilegeComment" />
+        <result column="privilege_promotion" property="privilegePromotion" />
+        <result column="privilege_member_price" property="privilegeMemberPrice" />
+        <result column="privilege_birthday" property="privilegeBirthday" />
         <result column="note" property="note" />
     </resultMap>
 

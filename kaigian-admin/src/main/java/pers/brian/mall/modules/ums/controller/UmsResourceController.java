@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pers.brian.mall.common.api.CommonPage;
 import pers.brian.mall.common.api.CommonResult;
-import pers.brian.mall.modules.ums.model.UmsResource;
+import pers.brian.mall.modules.ums.model.entity.UmsResource;
 import pers.brian.mall.modules.ums.service.UmsResourceService;
 
 import java.util.List;

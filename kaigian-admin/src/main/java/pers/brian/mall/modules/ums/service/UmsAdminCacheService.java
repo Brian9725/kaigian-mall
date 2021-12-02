@@ -1,7 +1,7 @@
 package pers.brian.mall.modules.ums.service;
 
-import pers.brian.mall.modules.ums.model.UmsAdmin;
-import pers.brian.mall.modules.ums.model.UmsResource;
+import pers.brian.mall.modules.ums.model.entity.UmsAdmin;
+import pers.brian.mall.modules.ums.model.entity.UmsResource;
 
 import java.util.List;
 

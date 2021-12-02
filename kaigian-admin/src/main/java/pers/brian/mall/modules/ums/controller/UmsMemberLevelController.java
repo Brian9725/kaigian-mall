@@ -4,7 +4,7 @@ package pers.brian.mall.modules.ums.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pers.brian.mall.common.api.CommonResult;
-import pers.brian.mall.modules.ums.model.UmsMemberLevel;
+import pers.brian.mall.modules.ums.model.entity.UmsMemberLevel;
 import pers.brian.mall.modules.ums.service.UmsMemberLevelService;
 
 import java.util.List;

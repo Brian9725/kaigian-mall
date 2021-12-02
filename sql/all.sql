@@ -739,23 +739,23 @@ CREATE TABLE `pms_comment_replay` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for pms_feight_template
+-- Table structure for pms_freight_template
 -- ----------------------------
-DROP TABLE IF EXISTS `pms_feight_template`;
-CREATE TABLE `pms_feight_template` (
+DROP TABLE IF EXISTS `pms_freight_template`;
+CREATE TABLE `pms_freight_template` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(64) DEFAULT NULL,
   `charge_type` int(1) DEFAULT NULL COMMENT '计费类型:0->按重量；1->按件数',
   `first_weight` decimal(10,2) DEFAULT NULL COMMENT '首重kg',
   `first_fee` decimal(10,2) DEFAULT NULL COMMENT '首费（元）',
   `continue_weight` decimal(10,2) DEFAULT NULL,
-  `continme_fee` decimal(10,2) DEFAULT NULL,
+  `continue_fee` decimal(10,2) DEFAULT NULL,
   `dest` varchar(255) DEFAULT NULL COMMENT '目的地（省、市）',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='运费模版';
 
 -- ----------------------------
--- Records of pms_feight_template
+-- Records of pms_freight_template
 -- ----------------------------
 
 -- ----------------------------
@@ -836,7 +836,7 @@ CREATE TABLE `pms_product` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `brand_id` bigint(20) DEFAULT NULL,
   `product_category_id` bigint(20) DEFAULT NULL,
-  `feight_template_id` bigint(20) DEFAULT NULL,
+  `freight_template_id` bigint(20) DEFAULT NULL,
   `product_attribute_category_id` bigint(20) DEFAULT NULL,
   `name` varchar(64) NOT NULL,
   `pic` varchar(255) DEFAULT NULL,
@@ -844,7 +844,7 @@ CREATE TABLE `pms_product` (
   `delete_status` int(1) DEFAULT NULL COMMENT '删除状态：0->未删除；1->已删除',
   `publish_status` int(1) DEFAULT NULL COMMENT '上架状态：0->下架；1->上架',
   `new_status` int(1) DEFAULT NULL COMMENT '新品状态:0->不是新品；1->新品',
-  `recommand_status` int(1) DEFAULT NULL COMMENT '推荐状态；0->不推荐；1->推荐',
+  `recommend_status` int(1) DEFAULT NULL COMMENT '推荐状态；0->不推荐；1->推荐',
   `verify_status` int(1) DEFAULT NULL COMMENT '审核状态：0->未审核；1->审核通过',
   `sort` int(11) DEFAULT NULL COMMENT '排序',
   `sale` int(11) DEFAULT NULL COMMENT '销量',
@@ -1657,6 +1657,28 @@ INSERT INTO `sms_home_brand` VALUES ('38', '1', '万和', '1', '0');
 INSERT INTO `sms_home_brand` VALUES ('39', '21', 'OPPO', '1', '0');
 
 -- ----------------------------
+-- Table structure for sms_home_category
+-- ----------------------------
+DROP TABLE IF EXISTS `sms_home_category`;
+CREATE TABLE `sms_home_category` (
+    `id` bigint(20) NOT NULL AUTO_INCREMENT,
+    `category_id` bigint(20) NULL DEFAULT NULL,
+    `category_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+    `type` int(1) NULL DEFAULT NULL COMMENT '广告位置，0:PC广告首页，1:APP广告轮播',
+    `status` int(1) NULL DEFAULT NULL COMMENT '0:下线，1:上线',
+    `pic` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+    `url` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '链接地址',
+    `sort` int(11) NULL DEFAULT 0 COMMENT '排序',
+    PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 DEFAULT CHARSET = utf8 COLLATE = utf8_bin ROW_FORMAT = COMPACT;
+
+-- ----------------------------
+-- Records of sms_home_new_product
+-- ----------------------------
+INSERT INTO `sms_home_category` VALUES (1, 19, '手机', 0, 1, 'http://tulingmall-xushu.oss-cn-chengdu.aliyuncs.com/phone.jpg', 'http://localhost:8081/#/detail/26', 10);
+INSERT INTO `sms_home_category` VALUES (2, 7, '外套', 0, 1, 'http://tulingmall-xushu.oss-cn-chengdu.aliyuncs.com/clothes.jpg', 'http://localhost:8081/#/detail/30', 20);
+
+-- ----------------------------
 -- Table structure for sms_home_new_product
 -- ----------------------------
 DROP TABLE IF EXISTS `sms_home_new_product`;
@@ -1924,12 +1946,12 @@ CREATE TABLE `ums_member_level` (
   `default_status` int(1) DEFAULT NULL COMMENT '是否为默认等级：0->不是；1->是',
   `free_freight_point` decimal(10,2) DEFAULT NULL COMMENT '免运费标准',
   `comment_growth_point` int(11) DEFAULT NULL COMMENT '每次评价获取的成长值',
-  `priviledge_free_freight` int(1) DEFAULT NULL COMMENT '是否有免邮特权',
-  `priviledge_sign_in` int(1) DEFAULT NULL COMMENT '是否有签到特权',
-  `priviledge_comment` int(1) DEFAULT NULL COMMENT '是否有评论获奖励特权',
-  `priviledge_promotion` int(1) DEFAULT NULL COMMENT '是否有专享活动特权',
-  `priviledge_member_price` int(1) DEFAULT NULL COMMENT '是否有会员价格特权',
-  `priviledge_birthday` int(1) DEFAULT NULL COMMENT '是否有生日特权',
+  `privilege_free_freight` int(1) DEFAULT NULL COMMENT '是否有免邮特权',
+  `privilege_sign_in` int(1) DEFAULT NULL COMMENT '是否有签到特权',
+  `privilege_comment` int(1) DEFAULT NULL COMMENT '是否有评论获奖励特权',
+  `privilege_promotion` int(1) DEFAULT NULL COMMENT '是否有专享活动特权',
+  `privilege_member_price` int(1) DEFAULT NULL COMMENT '是否有会员价格特权',
+  `privilege_birthday` int(1) DEFAULT NULL COMMENT '是否有生日特权',
   `note` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='会员等级表';

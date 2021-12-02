@@ -7,6 +7,14 @@ package pers.brian.mall.common.constant;
  * @Version: 0.0.1
  **/
 public class ComConstants {
-    // 登录session key
+    /**
+     * 后台登录session key
+     */
     public static final String FLAG_CURRENT_USER = "currentUser";
+
+    /**
+     * 前台登录session key
+     */
+    public static final String FRONT_CURRENT_USER = "frontCurrentUser";
+
 }

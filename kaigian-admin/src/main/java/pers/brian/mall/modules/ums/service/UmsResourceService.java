@@ -2,7 +2,7 @@ package pers.brian.mall.modules.ums.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
-import pers.brian.mall.modules.ums.model.UmsResource;
+import pers.brian.mall.modules.ums.model.entity.UmsResource;
 
 /**
  * @Description: 后台资源管理Service

@@ -5,9 +5,9 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
-import pers.brian.mall.modules.ums.dto.UmsMenuNode;
+import pers.brian.mall.modules.ums.model.dto.UmsMenuNode;
 import pers.brian.mall.modules.ums.mapper.UmsMenuMapper;
-import pers.brian.mall.modules.ums.model.UmsMenu;
+import pers.brian.mall.modules.ums.model.entity.UmsMenu;
 import pers.brian.mall.modules.ums.service.UmsMenuService;
 
 import java.util.Date;

@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import pers.brian.mall.modules.ums.mapper.UmsMemberLevelMapper;
-import pers.brian.mall.modules.ums.model.UmsMemberLevel;
+import pers.brian.mall.modules.ums.model.entity.UmsMemberLevel;
 import pers.brian.mall.modules.ums.service.UmsMemberLevelService;
 
 import java.util.List;
