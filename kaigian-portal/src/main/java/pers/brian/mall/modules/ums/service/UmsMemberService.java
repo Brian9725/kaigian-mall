@@ -13,4 +13,20 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface UmsMemberService extends IService<UmsMember> {
 
+    /**
+     * 前台用户注册
+     *
+     * @param umsMemberParam 用户信息
+     * @return 注册完成的用户信息
+     */
+    UmsMember register(UmsMember umsMemberParam);
+
+    /**
+     * 前台用户登陆
+     *
+     * @param username 用户名
+     * @param password 密码
+     * @return 登陆的用户信息
+     */
+    UmsMember login(String username, String password);
 }
