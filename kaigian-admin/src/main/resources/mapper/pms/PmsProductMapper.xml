@@ -7,7 +7,7 @@
         <id column="id" property="id"/>
         <result column="brand_id" property="brandId"/>
         <result column="product_category_id" property="productCategoryId"/>
-        <result column="feight_template_id" property="feightTemplateId"/>
+        <result column="freight_template_id" property="freightTemplateId"/>
         <result column="product_attribute_category_id" property="productAttributeCategoryId"/>
         <result column="name" property="name"/>
         <result column="pic" property="pic"/>
@@ -15,7 +15,7 @@
         <result column="delete_status" property="deleteStatus"/>
         <result column="publish_status" property="publishStatus"/>
         <result column="new_status" property="newStatus"/>
-        <result column="recommand_status" property="recommandStatus"/>
+        <result column="recommend_status" property="recommendStatus"/>
         <result column="verify_status" property="verifyStatus"/>
         <result column="sort" property="sort"/>
         <result column="sale" property="sale"/>

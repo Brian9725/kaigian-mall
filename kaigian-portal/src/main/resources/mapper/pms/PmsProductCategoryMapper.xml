@@ -46,7 +46,7 @@
                                                    FROM pms_product_category pc2
                                                    WHERE pc2.parent_id = pc.id AND p.product_category_id = pc2.id)
             AND p.delete_status = 0
-            AND p.recommand_status = 1
+            AND p.recommend_status = 1
         WHERE pc.parent_id = 0
           AND nav_status = 1
         ORDER BY pc.sort,

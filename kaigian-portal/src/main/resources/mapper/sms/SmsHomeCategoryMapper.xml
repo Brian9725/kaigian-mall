@@ -46,7 +46,7 @@
         FROM sms_home_category hc
                  LEFT JOIN pms_product p ON hc.category_id = p.product_category_id
             AND delete_status = 0
-            AND recommand_status = 1
+            AND recommend_status = 1
         WHERE hc.type = 0
           AND hc.`status` = 1
         ORDER BY hc.sort,

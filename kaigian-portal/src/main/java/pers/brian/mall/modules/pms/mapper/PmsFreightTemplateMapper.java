@@ -1,6 +1,6 @@
 package pers.brian.mall.modules.pms.mapper;
 
-import pers.brian.mall.modules.pms.model.entity.PmsFeightTemplate;
+import pers.brian.mall.modules.pms.model.PmsFreightTemplate;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author BrianHu
- * @since 2021-11-15
+ * @since 2021-11-30
  */
-public interface PmsFeightTemplateMapper extends BaseMapper<PmsFeightTemplate> {
+public interface PmsFreightTemplateMapper extends BaseMapper<PmsFreightTemplate> {
 
 }

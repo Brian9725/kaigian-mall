@@ -20,9 +20,9 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@TableName("pms_feight_template")
-@ApiModel(value="PmsFeightTemplate对象", description="运费模版")
-public class PmsFeightTemplate implements Serializable {
+@TableName("pms_freight_template")
+@ApiModel(value="PmsFreightTemplate对象", description="运费模版")
+public class PmsFreightTemplate implements Serializable {
 
     private static final long serialVersionUID=1L;
 

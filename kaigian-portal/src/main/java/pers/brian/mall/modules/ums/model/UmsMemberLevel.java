@@ -43,22 +43,22 @@ public class UmsMemberLevel implements Serializable {
     private Integer commentGrowthPoint;
 
     @ApiModelProperty(value = "是否有免邮特权")
-    private Integer priviledgeFreeFreight;
+    private Integer privilegeFreeFreight;
 
     @ApiModelProperty(value = "是否有签到特权")
-    private Integer priviledgeSignIn;
+    private Integer privilegeSignIn;
 
     @ApiModelProperty(value = "是否有评论获奖励特权")
-    private Integer priviledgeComment;
+    private Integer privilegeComment;
 
     @ApiModelProperty(value = "是否有专享活动特权")
-    private Integer priviledgePromotion;
+    private Integer privilegePromotion;
 
     @ApiModelProperty(value = "是否有会员价格特权")
-    private Integer priviledgeMemberPrice;
+    private Integer privilegeMemberPrice;
 
     @ApiModelProperty(value = "是否有生日特权")
-    private Integer priviledgeBirthday;
+    private Integer privilegeBirthday;
 
     private String note;
 

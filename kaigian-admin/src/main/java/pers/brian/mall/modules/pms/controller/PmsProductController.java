@@ -71,7 +71,7 @@ public class PmsProductController {
     @ResponseBody
     public CommonResult<Boolean> updateRecommendStatus(@RequestParam(value = "recommendStatus", defaultValue = "0") Integer recommendStatus,
                                                        @RequestParam(value = "ids", defaultValue = "") List<Long> ids) {
-        boolean updated = productService.updateStatus(recommendStatus, ids, PmsProduct::getRecommandStatus);
+        boolean updated = productService.updateStatus(recommendStatus, ids, PmsProduct::getRecommendStatus);
         if (updated) {
             return CommonResult.success(true);
         } else {
