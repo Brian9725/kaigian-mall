@@ -5,7 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pers.brian.mall.common.api.CommonResult;
 import pers.brian.mall.dto.AddCartDTO;
+import pers.brian.mall.dto.CartItemStockDTO;
 import pers.brian.mall.modules.oms.service.OmsCartItemService;
+
+import java.util.List;
 
 /**
  * @Description: 购物车控制器
@@ -37,5 +40,34 @@ public class CartController {
     public CommonResult<Integer> getCartProductSum() {
         Integer count = cartItemService.getCarProductSum();
         return CommonResult.success(count);
+    }
+
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @ResponseBody
+    public CommonResult<List<CartItemStockDTO>> getList() {
+        List<CartItemStockDTO> list = cartItemService.getList();
+        return CommonResult.success(list);
+    }
+
+    @RequestMapping(value = "/update/quantity", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult<Boolean> updateQuantity(@RequestParam Long id, @RequestParam Integer quantity) {
+        Boolean updated = cartItemService.updateQuantity(id, quantity);
+        if (updated) {
+            return CommonResult.success(true);
+        } else {
+            return CommonResult.failed();
+        }
+    }
+
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult<Boolean> delete(@RequestParam Long id) {
+        Boolean deleted = cartItemService.delete(id);
+        if (deleted) {
+            return CommonResult.success(true);
+        } else {
+            return CommonResult.failed();
+        }
     }
 }

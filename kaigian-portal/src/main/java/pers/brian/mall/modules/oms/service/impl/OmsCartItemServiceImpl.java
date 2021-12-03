@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import pers.brian.mall.common.api.ResultCode;
 import pers.brian.mall.common.exception.Asserts;
 import pers.brian.mall.dto.AddCartDTO;
+import pers.brian.mall.dto.CartItemStockDTO;
 import pers.brian.mall.modules.oms.mapper.OmsCartItemMapper;
 import pers.brian.mall.modules.oms.model.OmsCartItem;
 import pers.brian.mall.modules.oms.service.OmsCartItemService;
@@ -42,6 +43,9 @@ public class OmsCartItemServiceImpl extends ServiceImpl<OmsCartItemMapper, OmsCa
 
     @Autowired
     private PmsProductService productService;
+
+    @Autowired
+    private OmsCartItemMapper cartItemMapper;
 
     @Override
     public Boolean add(AddCartDTO addCartDTO) {
@@ -109,6 +113,28 @@ public class OmsCartItemServiceImpl extends ServiceImpl<OmsCartItemMapper, OmsCa
             }
         }
         return 0;
+    }
+
+    @Override
+    public List<CartItemStockDTO> getList() {
+        // 当前用户
+        UmsMember currentMember = memberService.getCurrentMember();
+        List<CartItemStockDTO> list = cartItemMapper.getCartItemStock(currentMember.getId());
+        return list;
+    }
+
+    @Override
+    public Boolean updateQuantity(Long id, Integer quantity) {
+        UpdateWrapper<OmsCartItem> updateWrapper = new UpdateWrapper<>();
+        updateWrapper.lambda()
+                .set(OmsCartItem::getQuantity, quantity)
+                .eq(OmsCartItem::getId, id);
+        return this.update(updateWrapper);
+    }
+
+    @Override
+    public Boolean delete(Long id) {
+        return this.removeById(id);
     }
 
     /**
