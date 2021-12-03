@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import pers.brian.mall.common.api.CommonResult;
 import pers.brian.mall.common.constant.ComConstants;
+import pers.brian.mall.common.util.JwtTokenUtil;
 import pers.brian.mall.modules.ums.model.UmsMember;
 import pers.brian.mall.modules.ums.service.UmsMemberService;
 
@@ -36,6 +37,15 @@ public class UserController {
     @Autowired
     private HttpSession session;
 
+    @Autowired
+    private JwtTokenUtil jwtTokenUtil;
+
+    @Value("${jwt.tokenHead}")
+    private String tokenHead;
+
+    @Value("${jwt.tokenHeader}")
+    private String tokenHeader;
+
     @ApiOperation(value = "用户注册")
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
@@ -50,13 +60,21 @@ public class UserController {
     @ApiOperation(value = "登录")
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult<UmsMember> login(@Validated UmsMember umsMemberParam) {
+    public CommonResult<Map<String, String>> login(@Validated UmsMember umsMemberParam) {
         UmsMember loginUser = memberService.login(umsMemberParam.getUsername(), umsMemberParam.getPassword());
         if (loginUser == null) {
             return CommonResult.validateFailed("用户名或密码错误");
         }
         session.setAttribute(ComConstants.FRONT_CURRENT_USER, loginUser);
-        return CommonResult.success(loginUser);
+
+        // jwt加密
+        String token = jwtTokenUtil.generateUserNameStr(loginUser.getUsername());
+        Map<String, String> tokenMap = new HashMap<>(4);
+        tokenMap.put("token", token);
+        tokenMap.put("tokenHead", tokenHead);
+        tokenMap.put("tokenHeader", tokenHeader);
+
+        return CommonResult.success(tokenMap);
     }
 }
 

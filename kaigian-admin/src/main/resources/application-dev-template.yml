@@ -10,11 +10,6 @@ spring:
     password:  # Redis服务器连接密码（默认为空）
     timeout: 3000ms # 连接超时时间（毫秒）
 
-logging:
-  level:
-    root: info
-    pers.brian: debug
-
 aliyun:
   oss:
     endpoint: oss-cn-chengdu.aliyuncs.com # oss对外服务的访问域名

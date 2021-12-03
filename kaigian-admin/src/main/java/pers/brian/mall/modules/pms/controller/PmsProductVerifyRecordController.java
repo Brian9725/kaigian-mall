@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2021-11-15
  */
 @RestController
-@RequestMapping("/pms/pmsProductVertifyRecord")
-public class PmsProductVertifyRecordController {
+@RequestMapping("/pms/pmsProductVerifyRecord")
+public class PmsProductVerifyRecordController {
 
 }
 

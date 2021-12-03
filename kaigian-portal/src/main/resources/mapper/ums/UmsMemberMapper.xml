@@ -21,7 +21,7 @@
         <result column="source_type" property="sourceType" />
         <result column="integration" property="integration" />
         <result column="growth" property="growth" />
-        <result column="luckey_count" property="luckeyCount" />
+        <result column="lucky_count" property="luckyCount" />
         <result column="history_integration" property="historyIntegration" />
     </resultMap>
 

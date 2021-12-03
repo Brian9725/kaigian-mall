@@ -10,8 +10,3 @@ spring:
     password:  # Redis服务器连接密码（默认为空）
     timeout: 3000ms # 连接超时时间（毫秒）
 
-logging:
-  level:
-    root: info
-    pers.brian: debug
-

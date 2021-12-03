@@ -24,6 +24,11 @@ redis:
   expire:
     common: 86400 # 24小时
 
+logging:
+  level:
+    root: info
+    pers.brian: debug
+
 secure:
   ignored:
     urls: #安全路径白名单

@@ -1,6 +1,6 @@
 package pers.brian.mall.modules.pms.mapper;
 
-import pers.brian.mall.modules.pms.model.PmsProductVertifyRecord;
+import pers.brian.mall.modules.pms.model.entity.PmsProductVerifyRecord;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author BrianHu
- * @since 2021-11-30
+ * @since 2021-11-15
  */
-public interface PmsProductVertifyRecordMapper extends BaseMapper<PmsProductVertifyRecord> {
+public interface PmsProductVerifyRecordMapper extends BaseMapper<PmsProductVerifyRecord> {
 
 }

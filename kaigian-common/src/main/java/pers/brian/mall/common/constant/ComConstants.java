@@ -10,7 +10,7 @@ public class ComConstants {
     /**
      * 后台登录session key
      */
-    public static final String FLAG_CURRENT_USER = "currentUser";
+    public static final String ADMIN_CURRENT_USER = "adminCurrentUser";
 
     /**
      * 前台登录session key
