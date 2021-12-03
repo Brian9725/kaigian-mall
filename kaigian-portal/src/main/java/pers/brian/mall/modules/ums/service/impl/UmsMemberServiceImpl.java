@@ -1,19 +1,19 @@
 package pers.brian.mall.modules.ums.service.impl;
 
+import cn.hutool.core.util.StrUtil;
 import cn.hutool.crypto.digest.BCrypt;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.StringUtils;
-import pers.brian.mall.common.constant.ComConstants;
-import pers.brian.mall.common.exception.Asserts;
-import pers.brian.mall.modules.ums.model.UmsMember;
-import pers.brian.mall.modules.ums.mapper.UmsMemberMapper;
-import pers.brian.mall.modules.ums.service.UmsMemberService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
+import pers.brian.mall.common.exception.Asserts;
+import pers.brian.mall.common.util.JwtTokenUtil;
+import pers.brian.mall.modules.ums.mapper.UmsMemberMapper;
+import pers.brian.mall.modules.ums.model.UmsMember;
+import pers.brian.mall.modules.ums.service.UmsMemberCacheService;
+import pers.brian.mall.modules.ums.service.UmsMemberService;
 
-import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.List;
 
@@ -29,7 +29,7 @@ import java.util.List;
 public class UmsMemberServiceImpl extends ServiceImpl<UmsMemberMapper, UmsMember> implements UmsMemberService {
 
     @Autowired
-    private HttpSession session;
+    private UmsMemberCacheService memberCacheService;
 
     @Override
     public UmsMember register(UmsMember umsMemberParam) {
@@ -70,7 +70,27 @@ public class UmsMemberServiceImpl extends ServiceImpl<UmsMemberMapper, UmsMember
 
     @Override
     public UmsMember getCurrentMember() {
-        UmsMember member = (UmsMember) session.getAttribute(ComConstants.FRONT_CURRENT_USER);
-        return member;
+        String userName = JwtTokenUtil.currentUserName.get();
+        if (StrUtil.isNotBlank(userName)) {
+            return getMemberByUsername(userName);
+        }
+        return null;
+    }
+
+    @Override
+    public UmsMember getMemberByUsername(String username) {
+        UmsMember user = memberCacheService.getUser(username);
+        if (user != null) {
+            return user;
+        }
+        QueryWrapper<UmsMember> wrapper = new QueryWrapper<>();
+        wrapper.lambda().eq(UmsMember::getUsername, username);
+        List<UmsMember> adminList = list(wrapper);
+        if (adminList != null && adminList.size() > 0) {
+            user = adminList.get(0);
+            memberCacheService.setUser(user);
+            return user;
+        }
+        return null;
     }
 }

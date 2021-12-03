@@ -1,7 +1,7 @@
 package pers.brian.mall.modules.ums.service;
 
-import pers.brian.mall.modules.ums.model.UmsMember;
 import com.baomidou.mybatisplus.extension.service.IService;
+import pers.brian.mall.modules.ums.model.UmsMember;
 
 /**
  * <p>
@@ -36,4 +36,12 @@ public interface UmsMemberService extends IService<UmsMember> {
      * @return 当前登陆的用户
      */
     UmsMember getCurrentMember();
+
+    /**
+     * 通过用户名获取用户信息
+     *
+     * @param username 用户名
+     * @return 用户信息
+     */
+    UmsMember getMemberByUsername(String username);
 }

@@ -68,7 +68,7 @@ public class UmsAdminController {
         if (login == null) {
             return CommonResult.validateFailed("用户名或密码错误");
         }
-        session.setAttribute(ComConstants.FLAG_CURRENT_USER, login);
+        session.setAttribute(ComConstants.ADMIN_CURRENT_USER, login);
         System.out.println(session.getId());
         Map<String, String> tokenMap = new HashMap<>(16);
         // jwt
@@ -79,7 +79,7 @@ public class UmsAdminController {
     @RequestMapping(value = "/info", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<Map<String, Object>> getAdminInfo() {
-        UmsAdmin umsAdmin = (UmsAdmin) session.getAttribute(ComConstants.FLAG_CURRENT_USER);
+        UmsAdmin umsAdmin = (UmsAdmin) session.getAttribute(ComConstants.ADMIN_CURRENT_USER);
         System.out.println(session.getId());
         Map<String, Object> data = new HashMap<>(16);
         data.put("username", umsAdmin.getUsername());
@@ -97,7 +97,7 @@ public class UmsAdminController {
     @RequestMapping(value = "/logout", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult<Boolean> logout() {
-        session.setAttribute(ComConstants.FLAG_CURRENT_USER, null);
+        session.setAttribute(ComConstants.ADMIN_CURRENT_USER, null);
         return CommonResult.success(true);
     }
 

@@ -1,12 +1,15 @@
 package pers.brian.mall.interceptor;
 
+import cn.hutool.core.util.StrUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.util.PathMatcher;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import pers.brian.mall.common.api.ResultCode;
-import pers.brian.mall.common.constant.ComConstants;
 import pers.brian.mall.common.exception.ApiException;
+import pers.brian.mall.common.util.JwtTokenUtil;
+import pers.brian.mall.modules.ums.model.UmsMember;
 import pers.brian.mall.modules.ums.service.UmsMemberService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,6 +32,15 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
     @Autowired
     private UmsMemberService memberService;
 
+    @Autowired
+    private JwtTokenUtil jwtTokenUtil;
+
+    @Value("${jwt.tokenHead}")
+    private String tokenHead;
+
+    @Value("${jwt.tokenHeader}")
+    private String tokenHeader;
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         // 1.不需要登录就可以访问的路径——白名单
@@ -44,10 +56,24 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
             }
         }
 
-        // 2.未登录用户，直接拒绝访问
-        if (null == request.getSession().getAttribute(ComConstants.FRONT_CURRENT_USER)) {
+        // 获取jwt
+        String jwt = request.getHeader(tokenHeader);
+        // 判断jwt是否为空以及是否以tokenHead开头
+        if (StrUtil.isBlank(jwt) || !jwt.startsWith(tokenHead)) {
             throw new ApiException(ResultCode.UNAUTHORIZED);
         }
+        // jwt解密
+        String userName = jwtTokenUtil.getUserNameFromToken(jwt.substring(tokenHead.length()));
+        if (StrUtil.isBlank(userName)) {
+            throw new ApiException(ResultCode.UNAUTHORIZED);
+        }
+
+        // 获取登陆用户信息
+        UmsMember member = memberService.getMemberByUsername(userName);
+        if (member == null) {
+            throw new ApiException(ResultCode.UNAUTHORIZED);
+        }
+        JwtTokenUtil.currentUserName.set(userName);
         return true;
     }
 

@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import pers.brian.mall.common.util.JwtTokenUtil;
 import pers.brian.mall.interceptor.AuthInterceptor;
 
 /**
@@ -30,5 +31,15 @@ public class GlobalWebAppConfigurer implements WebMvcConfigurer {
     @ConfigurationProperties(prefix = "secure.ignored")
     public AuthInterceptor authInterceptor() {
         return new AuthInterceptor();
+    }
+
+    /**
+     * JWT验证工具类
+     *
+     * @return JWT工具类实例
+     */
+    @Bean
+    public JwtTokenUtil jwtTokenUtil() {
+        return new JwtTokenUtil();
     }
 }
