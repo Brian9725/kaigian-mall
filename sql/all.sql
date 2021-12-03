@@ -73,10 +73,10 @@ CREATE TABLE `cms_member_report` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for cms_prefrence_area
+-- Table structure for cms_preference_area
 -- ----------------------------
-DROP TABLE IF EXISTS `cms_prefrence_area`;
-CREATE TABLE `cms_prefrence_area` (
+DROP TABLE IF EXISTS `cms_preference_area`;
+CREATE TABLE `cms_preference_area` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `sub_title` varchar(255) DEFAULT NULL,
@@ -87,35 +87,35 @@ CREATE TABLE `cms_prefrence_area` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='优选专区';
 
 -- ----------------------------
--- Records of cms_prefrence_area
+-- Records of cms_preference_area
 -- ----------------------------
-INSERT INTO `cms_prefrence_area` VALUES ('1', '让音质更出众', '音质不打折 完美现场感', null, null, '1');
-INSERT INTO `cms_prefrence_area` VALUES ('2', '让音质更出众22', '让音质更出众22', null, null, null);
-INSERT INTO `cms_prefrence_area` VALUES ('3', '让音质更出众33', null, null, null, null);
-INSERT INTO `cms_prefrence_area` VALUES ('4', '让音质更出众44', null, null, null, null);
+INSERT INTO `cms_preference_area` VALUES ('1', '让音质更出众', '音质不打折 完美现场感', null, null, '1');
+INSERT INTO `cms_preference_area` VALUES ('2', '让音质更出众22', '让音质更出众22', null, null, null);
+INSERT INTO `cms_preference_area` VALUES ('3', '让音质更出众33', null, null, null, null);
+INSERT INTO `cms_preference_area` VALUES ('4', '让音质更出众44', null, null, null, null);
 
 -- ----------------------------
--- Table structure for cms_prefrence_area_product_relation
+-- Table structure for cms_preference_area_product_relation
 -- ----------------------------
-DROP TABLE IF EXISTS `cms_prefrence_area_product_relation`;
-CREATE TABLE `cms_prefrence_area_product_relation` (
+DROP TABLE IF EXISTS `cms_preference_area_product_relation`;
+CREATE TABLE `cms_preference_area_product_relation` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `prefrence_area_id` bigint(20) DEFAULT NULL,
+  `preference_area_id` bigint(20) DEFAULT NULL,
   `product_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COMMENT='优选专区和产品关系表';
 
 -- ----------------------------
--- Records of cms_prefrence_area_product_relation
+-- Records of cms_preference_area_product_relation
 -- ----------------------------
-INSERT INTO `cms_prefrence_area_product_relation` VALUES ('1', '1', '12');
-INSERT INTO `cms_prefrence_area_product_relation` VALUES ('2', '1', '13');
-INSERT INTO `cms_prefrence_area_product_relation` VALUES ('3', '1', '14');
-INSERT INTO `cms_prefrence_area_product_relation` VALUES ('4', '1', '18');
-INSERT INTO `cms_prefrence_area_product_relation` VALUES ('5', '1', '7');
-INSERT INTO `cms_prefrence_area_product_relation` VALUES ('6', '2', '7');
-INSERT INTO `cms_prefrence_area_product_relation` VALUES ('7', '1', '22');
-INSERT INTO `cms_prefrence_area_product_relation` VALUES ('24', '1', '23');
+INSERT INTO `cms_preference_area_product_relation` VALUES ('1', '1', '12');
+INSERT INTO `cms_preference_area_product_relation` VALUES ('2', '1', '13');
+INSERT INTO `cms_preference_area_product_relation` VALUES ('3', '1', '14');
+INSERT INTO `cms_preference_area_product_relation` VALUES ('4', '1', '18');
+INSERT INTO `cms_preference_area_product_relation` VALUES ('5', '1', '7');
+INSERT INTO `cms_preference_area_product_relation` VALUES ('6', '2', '7');
+INSERT INTO `cms_preference_area_product_relation` VALUES ('7', '1', '22');
+INSERT INTO `cms_preference_area_product_relation` VALUES ('24', '1', '23');
 
 -- ----------------------------
 -- Table structure for cms_subject
@@ -1262,24 +1262,24 @@ CREATE TABLE `pms_product_operate_log` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for pms_product_vertify_record
+-- Table structure for pms_product_verify_record
 -- ----------------------------
-DROP TABLE IF EXISTS `pms_product_vertify_record`;
-CREATE TABLE `pms_product_vertify_record` (
+DROP TABLE IF EXISTS `pms_product_verify_record`;
+CREATE TABLE `pms_product_verify_record` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `product_id` bigint(20) DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
-  `vertify_man` varchar(64) DEFAULT NULL COMMENT '审核人',
+  `verify_man` varchar(64) DEFAULT NULL COMMENT '审核人',
   `status` int(1) DEFAULT NULL,
   `detail` varchar(255) DEFAULT NULL COMMENT '反馈详情',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='商品审核记录';
 
 -- ----------------------------
--- Records of pms_product_vertify_record
+-- Records of pms_product_verify_record
 -- ----------------------------
-INSERT INTO `pms_product_vertify_record` VALUES ('1', '1', '2018-04-27 16:36:41', 'test', '1', '验证通过');
-INSERT INTO `pms_product_vertify_record` VALUES ('2', '2', '2018-04-27 16:36:41', 'test', '1', '验证通过');
+INSERT INTO `pms_product_verify_record` VALUES ('1', '1', '2018-04-27 16:36:41', 'test', '1', '验证通过');
+INSERT INTO `pms_product_verify_record` VALUES ('2', '2', '2018-04-27 16:36:41', 'test', '1', '验证通过');
 
 -- ----------------------------
 -- Table structure for pms_sku_stock
@@ -1916,7 +1916,7 @@ CREATE TABLE `ums_member` (
   `source_type` int(1) DEFAULT NULL COMMENT '用户来源',
   `integration` int(11) DEFAULT NULL COMMENT '积分',
   `growth` int(11) DEFAULT NULL COMMENT '成长值',
-  `luckey_count` int(11) DEFAULT NULL COMMENT '剩余抽奖次数',
+  `lucky_count` int(11) DEFAULT NULL COMMENT '剩余抽奖次数',
   `history_integration` int(11) DEFAULT NULL COMMENT '历史积分数量',
   PRIMARY KEY (`id`),
   UNIQUE KEY `idx_username` (`username`),
@@ -2109,7 +2109,7 @@ CREATE TABLE `ums_member_task` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL,
   `growth` int(11) DEFAULT NULL COMMENT '赠送成长值',
-  `intergration` int(11) DEFAULT NULL COMMENT '赠送积分',
+  `integration` int(11) DEFAULT NULL COMMENT '赠送积分',
   `type` int(1) DEFAULT NULL COMMENT '任务类型：0->新手任务；1->日常任务',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='会员任务表';

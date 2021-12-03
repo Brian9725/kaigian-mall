@@ -7,7 +7,7 @@
         <id column="id" property="id" />
         <result column="name" property="name" />
         <result column="growth" property="growth" />
-        <result column="intergration" property="intergration" />
+        <result column="integration" property="integration" />
         <result column="type" property="type" />
     </resultMap>
 

@@ -1,6 +1,6 @@
 package pers.brian.mall.modules.pms.service;
 
-import pers.brian.mall.modules.pms.model.PmsProductVertifyRecord;
+import pers.brian.mall.modules.pms.model.PmsProductVerifyRecord;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author BrianHu
  * @since 2021-11-30
  */
-public interface PmsProductVertifyRecordService extends IService<PmsProductVertifyRecord> {
+public interface PmsProductVerifyRecordService extends IService<PmsProductVerifyRecord> {
 
 }

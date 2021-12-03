@@ -77,7 +77,7 @@ public class UmsMember implements Serializable {
     private Integer growth;
 
     @ApiModelProperty(value = "剩余抽奖次数")
-    private Integer luckeyCount;
+    private Integer luckyCount;
 
     @ApiModelProperty(value = "历史积分数量")
     private Integer historyIntegration;
