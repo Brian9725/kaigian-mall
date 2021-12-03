@@ -1,7 +1,10 @@
 package pers.brian.mall.modules.oms.service;
 
-import pers.brian.mall.modules.oms.model.OmsOrder;
 import com.baomidou.mybatisplus.extension.service.IService;
+import pers.brian.mall.dto.ConfirmOrderDTO;
+import pers.brian.mall.modules.oms.model.OmsOrder;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,11 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface OmsOrderService extends IService<OmsOrder> {
 
+    /**
+     * 生成确认订单
+     *
+     * @param ids 商品id
+     * @return 确认订单内容
+     */
+    ConfirmOrderDTO generateConfirmOrder(List<Long> ids);
 }

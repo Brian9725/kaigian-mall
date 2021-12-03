@@ -1,0 +1,36 @@
+package pers.brian.mall.controller;
+
+import io.swagger.annotations.Api;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import pers.brian.mall.common.api.CommonResult;
+import pers.brian.mall.dto.ConfirmOrderDTO;
+import pers.brian.mall.modules.oms.service.OmsOrderService;
+
+import java.util.List;
+
+/**
+ * @Description: 订单相关的服务
+ * @Author: BrianHu
+ * @Create: 2021-12-03 16:45
+ * @Version: 0.0.1
+ **/
+@RestController
+@Api(tags = "OrderController")
+@RequestMapping("/order")
+@Slf4j
+public class OrderController {
+
+    @Autowired
+    private OmsOrderService orderService;
+
+    @RequestMapping(value = "generateConfirmOrder", method = RequestMethod.POST)
+    public CommonResult<ConfirmOrderDTO> generateConfirmOrder(@RequestParam("itemIds") List<Long> ids) {
+        ConfirmOrderDTO confirmOrderDTO = orderService.generateConfirmOrder(ids);
+        return CommonResult.success(confirmOrderDTO);
+    }
+}
