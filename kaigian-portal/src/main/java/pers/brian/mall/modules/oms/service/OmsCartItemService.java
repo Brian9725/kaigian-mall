@@ -21,4 +21,11 @@ public interface OmsCartItemService extends IService<OmsCartItem> {
      * @return 是否添加成功
      */
     Boolean add(AddCartDTO addCartDTO);
+
+    /**
+     * 获取购物车中商品数量
+     *
+     * @return 购物车商品数量
+     */
+    Integer getCarProductSum();
 }

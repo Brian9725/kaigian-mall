@@ -20,6 +20,8 @@ import pers.brian.mall.modules.ums.model.UmsMember;
 import pers.brian.mall.modules.ums.service.UmsMemberService;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -90,6 +92,23 @@ public class OmsCartItemServiceImpl extends ServiceImpl<OmsCartItemMapper, OmsCa
                     .eq(OmsCartItem::getId, cartItem.getId());
             return (baseMapper.update(cartItem, updateWrapper) > 0);
         }
+    }
+
+    @Override
+    public Integer getCarProductSum() {
+        QueryWrapper<OmsCartItem> queryWrapper = new QueryWrapper<>();
+        Long memberId = memberService.getCurrentMember().getId();
+        // 查询当前用户的购物车商品的数量  1个字段
+        queryWrapper.select("sum(quantity) as total").lambda().eq(OmsCartItem::getMemberId, memberId);
+
+        List<Map<String, Object>> list = baseMapper.selectMaps(queryWrapper);
+        if (list != null && list.size() == 1) {
+            Map<String, Object> map = list.get(0);
+            if (map.get("total") != null) {
+                return Integer.parseInt(map.get("total").toString());
+            }
+        }
+        return 0;
     }
 
     /**

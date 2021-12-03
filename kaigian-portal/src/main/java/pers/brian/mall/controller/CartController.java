@@ -31,4 +31,11 @@ public class CartController {
             return CommonResult.failed();
         }
     }
+
+    @RequestMapping(value = "/products/sum", method = RequestMethod.GET)
+    @ResponseBody
+    public CommonResult<Integer> getCartProductSum() {
+        Integer count = cartItemService.getCarProductSum();
+        return CommonResult.success(count);
+    }
 }
