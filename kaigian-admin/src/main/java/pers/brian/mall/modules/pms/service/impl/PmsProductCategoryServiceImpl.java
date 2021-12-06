@@ -8,9 +8,9 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pers.brian.mall.modules.pms.mapper.PmsProductCategoryMapper;
 import pers.brian.mall.modules.pms.model.dto.PmsProductCategoryChildrenDTO;
 import pers.brian.mall.modules.pms.model.dto.PmsProductCategoryDTO;
-import pers.brian.mall.modules.pms.mapper.PmsProductCategoryMapper;
 import pers.brian.mall.modules.pms.model.entity.PmsProductCategory;
 import pers.brian.mall.modules.pms.model.entity.PmsProductCategoryAttributeRelation;
 import pers.brian.mall.modules.pms.service.PmsProductCategoryAttributeRelationService;
@@ -30,16 +30,11 @@ import java.util.List;
 @Service
 public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategoryMapper, PmsProductCategory> implements PmsProductCategoryService {
 
-    private final PmsProductCategoryMapper productCategoryMapper;
-
-    private final PmsProductCategoryAttributeRelationService productCategoryAttributeRelationService;
+    @Autowired
+    private PmsProductCategoryMapper productCategoryMapper;
 
     @Autowired
-    public PmsProductCategoryServiceImpl(PmsProductCategoryMapper productCategoryMapper,
-                                         PmsProductCategoryAttributeRelationService productCategoryAttributeRelationService) {
-        this.productCategoryMapper = productCategoryMapper;
-        this.productCategoryAttributeRelationService = productCategoryAttributeRelationService;
-    }
+    private PmsProductCategoryAttributeRelationService productCategoryAttributeRelationService;
 
     @Override
     public Page<PmsProductCategory> page(Long parentId, Integer pageNum, Integer pageSize) {

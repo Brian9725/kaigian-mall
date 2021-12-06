@@ -28,12 +28,8 @@ import java.util.List;
 @RequestMapping("/product")
 public class PmsProductController {
 
-    private final PmsProductService productService;
-
     @Autowired
-    public PmsProductController(PmsProductService productService) {
-        this.productService = productService;
-    }
+    private PmsProductService productService;
 
     @ApiOperation("查询商品")
     @RequestMapping(value = "/list", method = RequestMethod.GET)

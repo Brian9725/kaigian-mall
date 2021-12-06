@@ -26,12 +26,8 @@ import java.util.List;
 @RequestMapping("/role")
 public class UmsRoleController {
 
-    private final UmsRoleService roleService;
-
     @Autowired
-    public UmsRoleController(UmsRoleService roleService) {
-        this.roleService = roleService;
-    }
+    private UmsRoleService roleService;
 
     @ApiOperation("添加角色")
     @RequestMapping(value = "/create", method = RequestMethod.POST)

@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
-import pers.brian.mall.modules.pms.model.dto.PmsRelationAttrInfoDTO;
 import pers.brian.mall.modules.pms.mapper.PmsProductAttributeMapper;
+import pers.brian.mall.modules.pms.model.dto.PmsRelationAttrInfoDTO;
 import pers.brian.mall.modules.pms.model.entity.PmsProductAttribute;
 import pers.brian.mall.modules.pms.model.entity.PmsProductAttributeCategory;
 import pers.brian.mall.modules.pms.service.PmsProductAttributeCategoryService;
@@ -28,15 +28,11 @@ import java.util.List;
 @Service
 public class PmsProductAttributeServiceImpl extends ServiceImpl<PmsProductAttributeMapper, PmsProductAttribute> implements PmsProductAttributeService {
 
-    private final PmsProductAttributeMapper productAttributeMapper;
-
-    private final PmsProductAttributeCategoryService productAttributeCategoryService;
+    @Autowired
+    private PmsProductAttributeMapper productAttributeMapper;
 
     @Autowired
-    public PmsProductAttributeServiceImpl(PmsProductAttributeMapper productAttributeMapper, PmsProductAttributeCategoryService productAttributeCategoryService) {
-        this.productAttributeMapper = productAttributeMapper;
-        this.productAttributeCategoryService = productAttributeCategoryService;
-    }
+    private PmsProductAttributeCategoryService productAttributeCategoryService;
 
     @Override
     public List<PmsRelationAttrInfoDTO> getRelationAttrInfoByCid(Long cId) {

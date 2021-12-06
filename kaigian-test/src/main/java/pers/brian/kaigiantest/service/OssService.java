@@ -8,7 +8,7 @@ import java.util.Map;
  * @Create: 2021-11-17 13:58
  * @Version: 0.0.1
  **/
-public interface OSSService {
+public interface OssService {
 
 	/**
 	 * 请求oss签名

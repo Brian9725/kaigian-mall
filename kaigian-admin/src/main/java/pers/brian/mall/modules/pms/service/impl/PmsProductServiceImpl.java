@@ -33,32 +33,23 @@ import java.util.List;
 @Service
 public class PmsProductServiceImpl extends ServiceImpl<PmsProductMapper, PmsProduct> implements PmsProductService {
 
-    private final PmsProductMapper productMapper;
-
-    private final PmsMemberPriceService memberPriceService;
-
-    private final PmsProductLadderService productLadderService;
-
-    private final PmsProductFullReductionService productFullReductionService;
-
-    private final PmsSkuStockService skuStockService;
-
-    private final PmsProductAttributeValueService productAttributeValueService;
+    @Autowired
+    private PmsProductMapper productMapper;
 
     @Autowired
-    public PmsProductServiceImpl(PmsProductMapper productMapper,
-                                 PmsMemberPriceService memberPriceService,
-                                 PmsProductLadderService productLadderService,
-                                 PmsProductFullReductionService productFullReductionService,
-                                 PmsSkuStockService skuStockService,
-                                 PmsProductAttributeValueService productAttributeValueService) {
-        this.productMapper = productMapper;
-        this.memberPriceService = memberPriceService;
-        this.productLadderService = productLadderService;
-        this.productFullReductionService = productFullReductionService;
-        this.skuStockService = skuStockService;
-        this.productAttributeValueService = productAttributeValueService;
-    }
+    private PmsMemberPriceService memberPriceService;
+
+    @Autowired
+    private PmsProductLadderService productLadderService;
+
+    @Autowired
+    private PmsProductFullReductionService productFullReductionService;
+
+    @Autowired
+    private PmsSkuStockService skuStockService;
+
+    @Autowired
+    private PmsProductAttributeValueService productAttributeValueService;
 
     @Override
     public Page<PmsProduct> list(PmsProductConditionDTO condition) {
