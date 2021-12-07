@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import pers.brian.kaigiantest.service.OSSService;
+import pers.brian.kaigiantest.service.OssService;
 
 import java.util.Map;
 
@@ -17,10 +17,10 @@ import java.util.Map;
  **/
 @RestController
 @RequestMapping(value = "/oss")
-public class OSSController {
+public class OssController {
 
 	@Autowired
-	private OSSService ossService;
+	private OssService ossService;
 
 	@CrossOrigin
 	@RequestMapping(value = "/policy", method = RequestMethod.GET)

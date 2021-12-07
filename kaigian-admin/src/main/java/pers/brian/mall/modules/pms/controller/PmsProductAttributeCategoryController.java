@@ -24,12 +24,8 @@ import java.util.List;
 @RequestMapping("/productAttribute/category")
 public class PmsProductAttributeCategoryController {
 
-    private final PmsProductAttributeCategoryService productAttributeCategoryService;
-
     @Autowired
-    public PmsProductAttributeCategoryController(PmsProductAttributeCategoryService productAttributeCategoryService) {
-        this.productAttributeCategoryService = productAttributeCategoryService;
-    }
+    private PmsProductAttributeCategoryService productAttributeCategoryService;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody

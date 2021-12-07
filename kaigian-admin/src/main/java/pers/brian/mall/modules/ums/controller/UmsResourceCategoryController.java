@@ -22,12 +22,8 @@ import java.util.List;
 @RequestMapping("/resourceCategory")
 public class UmsResourceCategoryController {
 
-    private final UmsResourceCategoryService resourceCategoryService;
-
     @Autowired
-    public UmsResourceCategoryController(UmsResourceCategoryService resourceCategoryService) {
-        this.resourceCategoryService = resourceCategoryService;
-    }
+    private UmsResourceCategoryService resourceCategoryService;
 
     @ApiOperation("查询所有后台资源分类")
     @RequestMapping(value = "/listAll", method = RequestMethod.GET)

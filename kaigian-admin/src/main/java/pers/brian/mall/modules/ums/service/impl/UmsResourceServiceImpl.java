@@ -23,13 +23,8 @@ import java.util.Date;
 @Service
 public class UmsResourceServiceImpl extends ServiceImpl<UmsResourceMapper, UmsResource> implements UmsResourceService {
 
-    private final UmsAdminCacheService adminCacheService;
-
     @Autowired
-    public UmsResourceServiceImpl(UmsAdminCacheService adminCacheService) {
-        this.adminCacheService = adminCacheService;
-    }
-
+    private UmsAdminCacheService adminCacheService;
 
     @Override
     public boolean create(UmsResource umsResource) {

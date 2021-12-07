@@ -29,29 +29,20 @@ import java.util.List;
 @Service
 public class UmsRoleServiceImpl extends ServiceImpl<UmsRoleMapper, UmsRole> implements UmsRoleService {
 
-    private final UmsAdminCacheService adminCacheService;
-
-    private final UmsRoleMenuRelationService roleMenuRelationService;
-
-    private final UmsRoleResourceRelationService roleResourceRelationService;
-
-    private final UmsMenuMapper menuMapper;
-
-    private final UmsResourceMapper resourceMapper;
+    @Autowired
+    private UmsAdminCacheService adminCacheService;
 
     @Autowired
-    public UmsRoleServiceImpl(UmsAdminCacheService adminCacheService,
-                              UmsRoleMenuRelationService roleMenuRelationService,
-                              UmsRoleResourceRelationService roleResourceRelationService,
-                              UmsMenuMapper menuMapper,
-                              UmsResourceMapper resourceMapper) {
-        this.adminCacheService = adminCacheService;
-        this.roleMenuRelationService = roleMenuRelationService;
-        this.roleResourceRelationService = roleResourceRelationService;
-        this.menuMapper = menuMapper;
-        this.resourceMapper = resourceMapper;
-    }
+    private UmsRoleMenuRelationService roleMenuRelationService;
 
+    @Autowired
+    private UmsRoleResourceRelationService roleResourceRelationService;
+
+    @Autowired
+    private UmsMenuMapper menuMapper;
+
+    @Autowired
+    private UmsResourceMapper resourceMapper;
 
     @Override
     public boolean create(UmsRole role) {

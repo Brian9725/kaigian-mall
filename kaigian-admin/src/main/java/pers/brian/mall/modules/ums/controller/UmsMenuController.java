@@ -25,12 +25,8 @@ import java.util.List;
 @RequestMapping("/menu")
 public class UmsMenuController {
 
-    private final UmsMenuService menuService;
-
     @Autowired
-    public UmsMenuController(UmsMenuService menuService) {
-        this.menuService = menuService;
-    }
+    private UmsMenuService menuService;
 
     @ApiOperation("添加后台菜单")
     @RequestMapping(value = "/create", method = RequestMethod.POST)

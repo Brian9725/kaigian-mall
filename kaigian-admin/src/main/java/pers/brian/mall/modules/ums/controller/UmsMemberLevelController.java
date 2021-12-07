@@ -21,12 +21,8 @@ import java.util.List;
 @RequestMapping("/memberLevel")
 public class UmsMemberLevelController {
 
-    private final UmsMemberLevelService memberLevelService;
-
     @Autowired
-    public UmsMemberLevelController(UmsMemberLevelService memberLevelService) {
-        this.memberLevelService = memberLevelService;
-    }
+    private UmsMemberLevelService memberLevelService;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody

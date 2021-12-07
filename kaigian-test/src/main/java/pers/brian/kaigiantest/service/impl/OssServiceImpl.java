@@ -6,7 +6,7 @@ import com.aliyun.oss.common.utils.BinaryUtil;
 import com.aliyun.oss.model.MatchMode;
 import com.aliyun.oss.model.PolicyConditions;
 import org.springframework.stereotype.Service;
-import pers.brian.kaigiantest.service.OSSService;
+import pers.brian.kaigiantest.service.OssService;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -20,7 +20,7 @@ import java.util.Map;
  * @Version: 0.0.1
  **/
 @Service
-public class OSSServiceImpl implements OSSService {
+public class OssServiceImpl implements OssService {
 
 	@Override
 	public Map<String, String> policy() {

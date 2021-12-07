@@ -23,12 +23,8 @@ import java.util.List;
 @RequestMapping("/brand")
 public class PmsBrandController {
 
-    private final PmsBrandService brandService;
-
     @Autowired
-    public PmsBrandController(PmsBrandService brandService) {
-        this.brandService = brandService;
-    }
+    private PmsBrandService brandService;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody

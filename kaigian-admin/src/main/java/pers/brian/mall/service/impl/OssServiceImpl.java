@@ -29,21 +29,21 @@ public class OssServiceImpl implements OssService {
 
     @Value("${aliyun.oss.policy.expire}")
     private int ALIYUN_OSS_EXPIRE;
+
     @Value("${aliyun.oss.maxSize}")
     private int ALIYUN_OSS_MAX_SIZE;
+
     @Value("${aliyun.oss.bucketName}")
     private String ALIYUN_OSS_BUCKET_NAME;
+
     @Value("${aliyun.oss.endpoint}")
     private String ALIYUN_OSS_ENDPOINT;
+
     @Value("${aliyun.oss.dir.prefix}")
     private String ALIYUN_OSS_DIR_PREFIX;
 
-    private final OSS ossClient;
-
     @Autowired
-    public OssServiceImpl(OSS ossClient) {
-        this.ossClient = ossClient;
-    }
+    private OSS ossClient;
 
     @Override
     public OssPolicyResult policy() {

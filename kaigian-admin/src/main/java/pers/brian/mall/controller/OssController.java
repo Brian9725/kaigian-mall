@@ -20,12 +20,8 @@ import pers.brian.mall.service.OssService;
 @RequestMapping(value = "/aliyun/oss")
 public class OssController {
 
-    private final OssService ossService;
-
     @Autowired
-    public OssController(OssService ossService) {
-        this.ossService = ossService;
-    }
+    private OssService ossService;
 
     @ApiOperation("请求OSS授权")
     @RequestMapping(value = "/policy", method = RequestMethod.GET)

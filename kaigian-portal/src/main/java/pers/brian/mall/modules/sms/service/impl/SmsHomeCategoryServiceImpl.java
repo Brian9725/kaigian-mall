@@ -22,7 +22,7 @@ import java.util.List;
 public class SmsHomeCategoryServiceImpl extends ServiceImpl<SmsHomeCategoryMapper, SmsHomeCategory> implements SmsHomeCategoryService {
 
     @Autowired
-    SmsHomeCategoryMapper homeCategoryMapper;
+    private SmsHomeCategoryMapper homeCategoryMapper;
 
     @Override
     public List<HomeGoodsSaleDTO> getGoodsSale() {

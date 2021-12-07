@@ -36,18 +36,14 @@ import java.util.stream.Collectors;
 @RequestMapping("/admin")
 public class UmsAdminController {
 
-    private final HttpSession session;
-
-    private final UmsAdminService adminService;
-
-    private final UmsRoleService roleService;
+    @Autowired
+    private HttpSession session;
 
     @Autowired
-    public UmsAdminController(HttpSession session, UmsAdminService adminService, UmsRoleService roleService) {
-        this.session = session;
-        this.adminService = adminService;
-        this.roleService = roleService;
-    }
+    private UmsAdminService adminService;
+
+    @Autowired
+    private UmsRoleService roleService;
 
     @ApiOperation(value = "用户注册")
     @RequestMapping(value = "/register", method = RequestMethod.POST)

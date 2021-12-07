@@ -4,8 +4,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pers.brian.mall.modules.pms.model.dto.PmsProductAttributeCategoryDTO;
 import pers.brian.mall.modules.pms.mapper.PmsProductAttributeCategoryMapper;
+import pers.brian.mall.modules.pms.model.dto.PmsProductAttributeCategoryDTO;
 import pers.brian.mall.modules.pms.model.entity.PmsProductAttributeCategory;
 import pers.brian.mall.modules.pms.service.PmsProductAttributeCategoryService;
 
@@ -22,12 +22,8 @@ import java.util.List;
 @Service
 public class PmsProductAttributeCategoryServiceImpl extends ServiceImpl<PmsProductAttributeCategoryMapper, PmsProductAttributeCategory> implements PmsProductAttributeCategoryService {
 
-    private final PmsProductAttributeCategoryMapper productAttributeCategoryMapper;
-
     @Autowired
-    public PmsProductAttributeCategoryServiceImpl(PmsProductAttributeCategoryMapper productAttributeCategoryMapper) {
-        this.productAttributeCategoryMapper = productAttributeCategoryMapper;
-    }
+    private PmsProductAttributeCategoryMapper productAttributeCategoryMapper;
 
     @Override
     public Page<PmsProductAttributeCategory> page(Integer pageNum, Integer pageSize) {
