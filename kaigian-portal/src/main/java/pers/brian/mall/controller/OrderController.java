@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pers.brian.mall.common.api.CommonResult;
 import pers.brian.mall.dto.ConfirmOrderDTO;
+import pers.brian.mall.dto.OrderParamDTO;
+import pers.brian.mall.modules.oms.model.OmsOrder;
 import pers.brian.mall.modules.oms.service.OmsOrderService;
 
 import java.util.List;
@@ -30,5 +32,12 @@ public class OrderController {
     public CommonResult<ConfirmOrderDTO> generateConfirmOrder(@RequestParam("itemIds") List<Long> ids) {
         ConfirmOrderDTO confirmOrderDTO = orderService.generateConfirmOrder(ids);
         return CommonResult.success(confirmOrderDTO);
+    }
+
+    @RequestMapping(value="/generateOrder",method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult generateOrder(@RequestBody OrderParamDTO paramDTO){
+        OmsOrder omsOrder = orderService.generateOrder(paramDTO);
+        return CommonResult.success(omsOrder.getId());
     }
 }
