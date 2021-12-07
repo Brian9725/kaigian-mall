@@ -2,6 +2,7 @@ package pers.brian.mall.modules.oms.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import pers.brian.mall.dto.ConfirmOrderDTO;
+import pers.brian.mall.dto.OrderDetailDTO;
 import pers.brian.mall.dto.OrderParamDTO;
 import pers.brian.mall.modules.oms.model.OmsOrder;
 
@@ -32,4 +33,12 @@ public interface OmsOrderService extends IService<OmsOrder> {
      * @return 生成的订单信息
      */
     OmsOrder generateOrder(OrderParamDTO paramDTO);
+
+    /**
+     * 根据id获取订单详情
+     *
+     * @param id 订单id
+     * @return 订单详情
+     */
+    OrderDetailDTO getOrderDetail(Long id);
 }

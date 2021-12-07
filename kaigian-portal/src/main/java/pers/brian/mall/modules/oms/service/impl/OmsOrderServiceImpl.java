@@ -15,6 +15,7 @@ import pers.brian.mall.common.exception.ApiException;
 import pers.brian.mall.common.service.RedisService;
 import pers.brian.mall.dto.CartItemStockDTO;
 import pers.brian.mall.dto.ConfirmOrderDTO;
+import pers.brian.mall.dto.OrderDetailDTO;
 import pers.brian.mall.dto.OrderParamDTO;
 import pers.brian.mall.modules.oms.mapper.OmsCartItemMapper;
 import pers.brian.mall.modules.oms.mapper.OmsOrderMapper;
@@ -129,6 +130,11 @@ public class OmsOrderServiceImpl extends ServiceImpl<OmsOrderMapper, OmsOrder> i
         removeCartItem(cartItemStockByIds);
 
         return omsOrder;
+    }
+
+    @Override
+    public OrderDetailDTO getOrderDetail(Long id) {
+        return this.baseMapper.getOrderDetail(id);
     }
 
     /**
