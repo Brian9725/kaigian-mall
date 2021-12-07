@@ -3,10 +3,7 @@ package pers.brian.mall.controller;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pers.brian.mall.common.api.CommonResult;
 import pers.brian.mall.dto.ConfirmOrderDTO;
 import pers.brian.mall.modules.oms.service.OmsOrderService;
@@ -29,6 +26,7 @@ public class OrderController {
     private OmsOrderService orderService;
 
     @RequestMapping(value = "generateConfirmOrder", method = RequestMethod.POST)
+    @ResponseBody
     public CommonResult<ConfirmOrderDTO> generateConfirmOrder(@RequestParam("itemIds") List<Long> ids) {
         ConfirmOrderDTO confirmOrderDTO = orderService.generateConfirmOrder(ids);
         return CommonResult.success(confirmOrderDTO);

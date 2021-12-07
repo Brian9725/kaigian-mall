@@ -63,8 +63,8 @@ public class OmsOrderServiceImpl extends ServiceImpl<OmsOrderMapper, OmsOrder> i
         UmsMember currentMember = memberService.getCurrentMember();
         QueryWrapper<UmsMemberReceiveAddress> queryWrapper = new QueryWrapper<>();
         queryWrapper.lambda().eq(UmsMemberReceiveAddress::getMemberId, currentMember.getId());
-        List<UmsMemberReceiveAddress> list = addressService.list(queryWrapper);
-        confirmOrderDTO.setAddressList(list);
+        List<UmsMemberReceiveAddress> addressList = addressService.list(queryWrapper);
+        confirmOrderDTO.setAddressList(addressList);
 
         return confirmOrderDTO;
     }
@@ -88,11 +88,12 @@ public class OmsOrderServiceImpl extends ServiceImpl<OmsOrderMapper, OmsOrder> i
             // 总价
             priceTotal = priceTotal.add(omsCartItem.getPrice().multiply(new BigDecimal(omsCartItem.getQuantity())));
 
+            // TODO:将是否包邮冗余到cartItem中，避免这里查数据库耗费性能
             PmsProduct product = productService.getById(omsCartItem.getProductId());
             String serviceIds = product.getServiceIds();
             String[] serviceIdsArray = serviceIds.split(",");
             if (serviceIdsArray.length > 0) {
-                // 判断是否包邮
+                // 判断是否包邮，默认运费是10元
                 if (!ArrayUtil.containsAny(serviceIdsArray, "3")) {
                     freightAmount = freightAmount.add(new BigDecimal(10));
                 }
