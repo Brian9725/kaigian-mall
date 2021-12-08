@@ -19,7 +19,7 @@ public class OrderTimeOutSender {
     @Autowired
     private OmsOrderService orderService;
 
-    @Scheduled(cron = "0 0/1 * ? * ?")
+    @Scheduled(cron = "0 0/50 * ? * ?")
     private void cancelOverTimeOrder() {
         log.info("--------OrderTimeOutSender订单超时取消并解锁库存的定时器开始----------");
         orderService.cancelOverTimeOrder();
