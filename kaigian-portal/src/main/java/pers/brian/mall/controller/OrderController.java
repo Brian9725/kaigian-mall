@@ -28,7 +28,7 @@ public class OrderController {
     @Autowired
     private OmsOrderService orderService;
 
-    @RequestMapping(value = "generateConfirmOrder", method = RequestMethod.POST)
+    @RequestMapping(value = "/generateConfirmOrder", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult<ConfirmOrderDTO> generateConfirmOrder(@RequestParam("itemIds") List<Long> ids) {
         ConfirmOrderDTO confirmOrderDTO = orderService.generateConfirmOrder(ids);
