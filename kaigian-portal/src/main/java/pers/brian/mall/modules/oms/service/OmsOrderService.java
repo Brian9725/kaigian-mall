@@ -41,4 +41,9 @@ public interface OmsOrderService extends IService<OmsOrder> {
      * @return 订单详情
      */
     OrderDetailDTO getOrderDetail(Long id);
+
+    /**
+     * 取消超时的订单
+     */
+    void cancelOverTimeOrder();
 }
