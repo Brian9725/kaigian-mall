@@ -20,14 +20,19 @@
         <result column="sp1" property="sp1" />
         <result column="sp2" property="sp2" />
         <result column="sp3" property="sp3" />
-        <result column="promotion_name" property="promotionName" />
-        <result column="promotion_amount" property="promotionAmount" />
-        <result column="coupon_amount" property="couponAmount" />
-        <result column="integration_amount" property="integrationAmount" />
-        <result column="real_amount" property="realAmount" />
-        <result column="gift_integration" property="giftIntegration" />
-        <result column="gift_growth" property="giftGrowth" />
-        <result column="product_attr" property="productAttr" />
+        <result column="promotion_name" property="promotionName"/>
+        <result column="promotion_amount" property="promotionAmount"/>
+        <result column="coupon_amount" property="couponAmount"/>
+        <result column="integration_amount" property="integrationAmount"/>
+        <result column="real_amount" property="realAmount"/>
+        <result column="gift_integration" property="giftIntegration"/>
+        <result column="gift_growth" property="giftGrowth"/>
+        <result column="product_attr" property="productAttr"/>
     </resultMap>
 
+    <select id="selectByOrderId" resultMap="BaseResultMap">
+        select *
+        from oms_order_item
+        where order_id = #{id}
+    </select>
 </mapper>

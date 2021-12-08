@@ -1,5 +1,6 @@
 package pers.brian.mall.controller;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import pers.brian.mall.common.api.CommonResult;
 import pers.brian.mall.dto.ConfirmOrderDTO;
 import pers.brian.mall.dto.OrderDetailDTO;
+import pers.brian.mall.dto.OrderListDTO;
 import pers.brian.mall.dto.OrderParamDTO;
 import pers.brian.mall.modules.oms.model.OmsOrder;
 import pers.brian.mall.modules.oms.service.OmsOrderService;
@@ -47,5 +49,13 @@ public class OrderController {
     public CommonResult<OrderDetailDTO> getOrderDetail(@RequestParam("orderId") Long id) {
         OrderDetailDTO dto = orderService.getOrderDetail(id);
         return CommonResult.success(dto);
+    }
+
+    @RequestMapping(value = "/list/userOrder", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult<IPage<OrderListDTO>> getMyOrders(@RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize,
+                                                         @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
+        IPage<OrderListDTO> myOrders = orderService.getMyOrders(pageSize, pageNum);
+        return CommonResult.success(myOrders);
     }
 }

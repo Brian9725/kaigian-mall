@@ -8,6 +8,8 @@ import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,10 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 import pers.brian.mall.common.api.ResultCode;
 import pers.brian.mall.common.exception.ApiException;
 import pers.brian.mall.common.service.RedisService;
-import pers.brian.mall.dto.CartItemStockDTO;
-import pers.brian.mall.dto.ConfirmOrderDTO;
-import pers.brian.mall.dto.OrderDetailDTO;
-import pers.brian.mall.dto.OrderParamDTO;
+import pers.brian.mall.dto.*;
 import pers.brian.mall.modules.oms.mapper.OmsCartItemMapper;
 import pers.brian.mall.modules.oms.mapper.OmsOrderMapper;
 import pers.brian.mall.modules.oms.model.OmsCartItem;
@@ -193,6 +192,12 @@ public class OmsOrderServiceImpl extends ServiceImpl<OmsOrderMapper, OmsOrder> i
                     .eq(PmsSkuStock::getId, productSkuId);
             skuStockService.update(stockUpdateWrapper);
         }
+    }
+
+    @Override
+    public IPage<OrderListDTO> getMyOrders(Integer pageSize, Integer pageNum) {
+        Page<?> page = new Page<>(pageNum, pageSize);
+        return this.baseMapper.getMyOrders(page, memberService.getCurrentMember().getId());
     }
 
     /**
