@@ -119,8 +119,7 @@ public class OmsCartItemServiceImpl extends ServiceImpl<OmsCartItemMapper, OmsCa
     public List<CartItemStockDTO> getList() {
         // 当前用户
         UmsMember currentMember = memberService.getCurrentMember();
-        List<CartItemStockDTO> list = cartItemMapper.getCartItemStock(currentMember.getId());
-        return list;
+        return cartItemMapper.getCartItemStock(currentMember.getId());
     }
 
     @Override
