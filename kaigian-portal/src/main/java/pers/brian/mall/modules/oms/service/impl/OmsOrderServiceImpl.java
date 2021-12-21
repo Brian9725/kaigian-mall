@@ -1,10 +1,15 @@
 package pers.brian.mall.modules.oms.service.impl;
 
 import cn.hutool.core.collection.CollectionUtil;
+import cn.hutool.core.date.DateField;
+import cn.hutool.core.date.DateTime;
+import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,18 +18,17 @@ import org.springframework.transaction.annotation.Transactional;
 import pers.brian.mall.common.api.ResultCode;
 import pers.brian.mall.common.exception.ApiException;
 import pers.brian.mall.common.service.RedisService;
-import pers.brian.mall.dto.CartItemStockDTO;
-import pers.brian.mall.dto.ConfirmOrderDTO;
-import pers.brian.mall.dto.OrderDetailDTO;
-import pers.brian.mall.dto.OrderParamDTO;
+import pers.brian.mall.dto.*;
 import pers.brian.mall.modules.oms.mapper.OmsCartItemMapper;
 import pers.brian.mall.modules.oms.mapper.OmsOrderMapper;
 import pers.brian.mall.modules.oms.model.OmsCartItem;
 import pers.brian.mall.modules.oms.model.OmsOrder;
 import pers.brian.mall.modules.oms.model.OmsOrderItem;
+import pers.brian.mall.modules.oms.model.OmsOrderSetting;
 import pers.brian.mall.modules.oms.service.OmsCartItemService;
 import pers.brian.mall.modules.oms.service.OmsOrderItemService;
 import pers.brian.mall.modules.oms.service.OmsOrderService;
+import pers.brian.mall.modules.oms.service.OmsOrderSettingService;
 import pers.brian.mall.modules.pms.model.PmsProduct;
 import pers.brian.mall.modules.pms.model.PmsSkuStock;
 import pers.brian.mall.modules.pms.service.PmsProductService;
@@ -77,6 +81,9 @@ public class OmsOrderServiceImpl extends ServiceImpl<OmsOrderMapper, OmsOrder> i
 
     @Autowired
     private PmsSkuStockService skuStockService;
+
+    @Autowired
+    private OmsOrderSettingService orderSettingService;
 
     @Override
     public ConfirmOrderDTO generateConfirmOrder(List<Long> ids) {
@@ -137,6 +144,62 @@ public class OmsOrderServiceImpl extends ServiceImpl<OmsOrderMapper, OmsOrder> i
         return this.baseMapper.getOrderDetail(id);
     }
 
+    @Override
+    public void cancelOverTimeOrder() {
+        // 1.获取规定的时间
+        OmsOrderSetting orderSetting = orderSettingService.getById(1L);
+        // 普通订单的超时分钟
+        Integer overtime = orderSetting.getNormalOrderOvertime();
+        // 获取当前时间的指定时间之前
+        DateTime offset = DateUtil.offset(new Date(), DateField.MINUTE, -overtime);
+        // 2. 获取超过规定时间未支付的订单
+        QueryWrapper<OmsOrder> queryWrapper = new QueryWrapper<>();
+        //未支付
+        queryWrapper.lambda().eq(OmsOrder::getStatus, 0)
+                //是否超时
+                .le(OmsOrder::getCreateTime, offset);
+        // 所有超时未支付的订单
+        List<OmsOrder> list = this.list(queryWrapper);
+        if (CollectionUtil.isEmpty(list)) {
+            log.warn("暂无超时订单");
+            return;
+        }
+        // 订单的id 用于获取订单详情
+        List<Long> orderIds = new ArrayList<>();
+        for (OmsOrder omsOrder : list) {
+            // 设置订单关闭
+            omsOrder.setStatus(4);
+            omsOrder.setModifyTime(new Date());
+            orderIds.add(omsOrder.getId());
+        }
+        // 3. 改变状态：取消
+        this.updateBatchById(list);
+        // 4. 归还锁定库存
+        // 4.1 获取订单详情
+        QueryWrapper<OmsOrderItem> itemQueryWrapper = new QueryWrapper<>();
+        itemQueryWrapper.lambda().in(OmsOrderItem::getOrderId, orderIds);
+        // in (订单id)
+        List<OmsOrderItem> itemList = orderItemService.list(itemQueryWrapper);
+        // 循环归还库存
+        for (OmsOrderItem omsOrderItem : itemList) {
+            // 归还的数量
+            Integer productQuantity = omsOrderItem.getProductQuantity();
+            // skuId
+            Long productSkuId = omsOrderItem.getProductSkuId();
+            UpdateWrapper<PmsSkuStock> stockUpdateWrapper = new UpdateWrapper<>();
+            stockUpdateWrapper.setSql("lock_stock=lock_stock-" + productQuantity)
+                    .lambda()
+                    .eq(PmsSkuStock::getId, productSkuId);
+            skuStockService.update(stockUpdateWrapper);
+        }
+    }
+
+    @Override
+    public IPage<OrderListDTO> getMyOrders(Integer pageSize, Integer pageNum) {
+        Page<?> page = new Page<>(pageNum, pageSize);
+        return this.baseMapper.getMyOrders(page, memberService.getCurrentMember().getId());
+    }
+
     /**
      * 计算价格
      *
@@ -176,7 +239,7 @@ public class OmsOrderServiceImpl extends ServiceImpl<OmsOrderMapper, OmsOrder> i
     /**
      * 删除订单后的购物车
      *
-     * @param cartItemStockByIds
+     * @param cartItemStockByIds 将要被删除的购物车货品信息
      */
     private void removeCartItem(List<CartItemStockDTO> cartItemStockByIds) {
         // 1.购物车集合
@@ -191,7 +254,7 @@ public class OmsOrderServiceImpl extends ServiceImpl<OmsOrderMapper, OmsOrder> i
     /**
      * 锁定库存，把当前的购买数累加到sku的lock_stock中
      *
-     * @param cartItemStockByIds
+     * @param cartItemStockByIds 将要被锁定的购物车货品信息
      */
     private void lockStock(List<CartItemStockDTO> cartItemStockByIds) {
         for (CartItemStockDTO cart : cartItemStockByIds) {
@@ -205,34 +268,11 @@ public class OmsOrderServiceImpl extends ServiceImpl<OmsOrderMapper, OmsOrder> i
     }
 
     /**
-     * `order_id` bigint(20) DEFAULT NULL COMMENT '订单id',
-     * `order_sn` varchar(64) DEFAULT NULL COMMENT '订单编号',
-     * `product_id` bigint(20) DEFAULT NULL,
-     * `product_pic` varchar(500) DEFAULT NULL,
-     * `product_name` varchar(200) DEFAULT NULL,
-     * `product_brand` varchar(200) DEFAULT NULL,
-     * `product_sn` varchar(64) DEFAULT NULL,
-     * `product_price` decimal(10,2) DEFAULT NULL COMMENT '销售价格',
-     * `product_quantity` int(11) DEFAULT NULL COMMENT '购买数量',
-     * `product_sku_id` bigint(20) DEFAULT NULL COMMENT '商品sku编号',
-     * `product_sku_code` varchar(50) DEFAULT NULL COMMENT '商品sku条码',
-     * `product_category_id` bigint(20) DEFAULT NULL COMMENT '商品分类id',
-     * `sp1` varchar(100) DEFAULT NULL COMMENT '商品的销售属性',
-     * `sp2` varchar(100) DEFAULT NULL,
-     * `sp3` varchar(100) DEFAULT NULL,
-     * `promotion_name` varchar(200) DEFAULT NULL COMMENT '商品促销名称',
-     * `promotion_amount` decimal(10,2) DEFAULT NULL COMMENT '商品促销分解金额',
-     * `coupon_amount` decimal(10,2) DEFAULT NULL COMMENT '优惠券优惠分解金额',
-     * `integration_amount` decimal(10,2) DEFAULT NULL COMMENT '积分优惠分解金额',
-     * `real_amount` decimal(10,2) DEFAULT NULL COMMENT '该商品经过优惠后的分解金额',
-     * `gift_integration` int(11) DEFAULT '0',
-     * `gift_growth` int(11) DEFAULT '0',
-     * `product_attr` varchar(500) DEFAULT NULL COMMENT '商品销售属性:[{"key":"颜色","value":"颜色"},{"key":"容量","value":"4G"}]',
      * 生成订单详情
      *
-     * @param omsOrder
-     * @param cartItemStockByIds
-     * @return
+     * @param omsOrder           订单信息
+     * @param cartItemStockByIds 货品信息
+     * @return 生成的新订单信息
      */
     private List<OmsOrderItem> newOrderItems(OmsOrder omsOrder, List<CartItemStockDTO> cartItemStockByIds) {
         List<OmsOrderItem> list = new ArrayList<>();
@@ -261,8 +301,8 @@ public class OmsOrderServiceImpl extends ServiceImpl<OmsOrderMapper, OmsOrder> i
     /**
      * 判断是否有库存
      *
-     * @param cartItemStockByIds
-     * @return
+     * @param cartItemStockByIds 购物车中的货品信息
+     * @return 已经没有库存的货品名称
      */
     public String hasStock(List<CartItemStockDTO> cartItemStockByIds) {
         for (CartItemStockDTO cart : cartItemStockByIds) {
@@ -271,7 +311,6 @@ public class OmsOrderServiceImpl extends ServiceImpl<OmsOrderMapper, OmsOrder> i
                 return cart.getProductName();
             }
         }
-
         return null;
     }
 
@@ -279,10 +318,10 @@ public class OmsOrderServiceImpl extends ServiceImpl<OmsOrderMapper, OmsOrder> i
     /**
      * 创建OmsOrder
      *
-     * @param paramDTO
-     * @param currentMember
-     * @param cartItemStockByIds
-     * @return
+     * @param paramDTO           用户下单的货品信息和地址
+     * @param currentMember      当前用户的信息
+     * @param cartItemStockByIds 货品信息
+     * @return 订单信息
      */
     public OmsOrder newOrder(OrderParamDTO paramDTO, UmsMember currentMember, List<CartItemStockDTO> cartItemStockByIds) {
         OmsOrder omsOrder = new OmsOrder();
@@ -377,6 +416,5 @@ public class OmsOrderServiceImpl extends ServiceImpl<OmsOrderMapper, OmsOrder> i
             sb.append(incr);
         }
         return sb.toString();
-
     }
 }

@@ -108,7 +108,7 @@ public class OmsCartItemServiceImpl extends ServiceImpl<OmsCartItemMapper, OmsCa
         List<Map<String, Object>> list = baseMapper.selectMaps(queryWrapper);
         if (list != null && list.size() == 1) {
             Map<String, Object> map = list.get(0);
-            if (map.get("total") != null) {
+            if (map != null && map.get("total") != null) {
                 return Integer.parseInt(map.get("total").toString());
             }
         }
@@ -119,8 +119,7 @@ public class OmsCartItemServiceImpl extends ServiceImpl<OmsCartItemMapper, OmsCa
     public List<CartItemStockDTO> getList() {
         // 当前用户
         UmsMember currentMember = memberService.getCurrentMember();
-        List<CartItemStockDTO> list = cartItemMapper.getCartItemStock(currentMember.getId());
-        return list;
+        return cartItemMapper.getCartItemStock(currentMember.getId());
     }
 
     @Override

@@ -1,8 +1,10 @@
 package pers.brian.mall.modules.oms.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import pers.brian.mall.dto.ConfirmOrderDTO;
 import pers.brian.mall.dto.OrderDetailDTO;
+import pers.brian.mall.dto.OrderListDTO;
 import pers.brian.mall.dto.OrderParamDTO;
 import pers.brian.mall.modules.oms.model.OmsOrder;
 
@@ -41,4 +43,19 @@ public interface OmsOrderService extends IService<OmsOrder> {
      * @return 订单详情
      */
     OrderDetailDTO getOrderDetail(Long id);
+
+    /**
+     * 取消超时的订单
+     */
+    void cancelOverTimeOrder();
+
+
+    /**
+     * 分页获取订单信息
+     *
+     * @param pageSize 每页大小
+     * @param pageNum  页号
+     * @return
+     */
+    IPage<OrderListDTO> getMyOrders(Integer pageSize, Integer pageNum);
 }

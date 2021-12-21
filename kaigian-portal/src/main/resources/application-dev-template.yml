@@ -10,3 +10,8 @@ spring:
     password:  # Redis服务器连接密码（默认为空）
     timeout: 3000ms # 连接超时时间（毫秒）
 
+jwt:
+  secret: secretKey #服务端私钥（一定不能泄露）
+  expiration: 86400 #过期时间 60*60*24  =一天
+  tokenHead: KaiGian #jwt规范  #告诉客户端jwt令牌开头需要加的一个字符串
+  tokenHeader: Authorization #告诉客户端你要在请求头里面传什么参数名字

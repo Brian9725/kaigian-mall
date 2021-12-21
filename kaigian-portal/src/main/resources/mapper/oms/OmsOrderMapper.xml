@@ -92,4 +92,16 @@
           and o.delete_status = 0
     </select>
 
+    <resultMap id="MyOrdersMap" extends="BaseResultMap" type="pers.brian.mall.dto.OrderListDTO">
+        <collection property="orderItemList" column="id"
+                    select="pers.brian.mall.modules.oms.mapper.OmsOrderItemMapper.selectByOrderId"/>
+    </resultMap>
+
+    <select id="getMyOrders" resultMap="MyOrdersMap">
+        SELECT o.*
+        FROM oms_order o
+        WHERE o.delete_status = 0
+          and o.member_id = #{memberId}
+    </select>
+
 </mapper>
