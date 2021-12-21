@@ -9,7 +9,6 @@
         <module>kaigian-portal</module>
         <module>kaigian-mpbg</module>
         <module>kaigian-test</module>
-        <module>kaigian-security</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
