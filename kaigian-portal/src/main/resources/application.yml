@@ -46,3 +46,4 @@ secure:
       - /user/**
       - /product/**
       - /home/**
+      - /order/paySuccess

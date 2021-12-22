@@ -3,6 +3,7 @@
 /kaigian-admin/src/main/resources/application-dev.yml
 /kaigian-portal/src/main/resources/application-dev.yml
 /kaigian-mpbg/src/main/resources/generator.properties
+/kaigian-portal/src/main/resources/zfbinfo.properties
 *.iml
 # Compiled class file
 *.class
