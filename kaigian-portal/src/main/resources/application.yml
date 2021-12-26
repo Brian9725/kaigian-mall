@@ -46,3 +46,5 @@ secure:
       - /user/**
       - /product/**
       - /home/**
+      - /order/paySuccess/*
+      - /static/qrcode/**

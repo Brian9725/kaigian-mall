@@ -36,7 +36,8 @@ class KaiGianTestApplicationTests {
 
 		// 上传文件流。
 		InputStream inputStream = new FileInputStream("C:\\Users\\Brian\\Desktop\\163.png");
-		ossClient.putObject("kaigian-mall", "164.jpg", inputStream);
+		// 注释下面的语句以防止maven打包时报错
+		// ossClient.putObject("kaigian-mall", "164.jpg", inputStream);
 
 		// 关闭OSSClient。
 		ossClient.shutdown();

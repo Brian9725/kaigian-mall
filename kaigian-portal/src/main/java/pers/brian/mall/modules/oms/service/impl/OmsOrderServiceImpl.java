@@ -4,6 +4,7 @@ import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.DateField;
 import cn.hutool.core.date.DateTime;
 import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -18,6 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 import pers.brian.mall.common.api.ResultCode;
 import pers.brian.mall.common.exception.ApiException;
 import pers.brian.mall.common.service.RedisService;
+import pers.brian.mall.component.trade.alipay.model.TradePayProp;
 import pers.brian.mall.dto.*;
 import pers.brian.mall.modules.oms.mapper.OmsCartItemMapper;
 import pers.brian.mall.modules.oms.mapper.OmsOrderMapper;
@@ -84,6 +86,9 @@ public class OmsOrderServiceImpl extends ServiceImpl<OmsOrderMapper, OmsOrder> i
 
     @Autowired
     private OmsOrderSettingService orderSettingService;
+
+    @Autowired
+    private TradePayProp tradePayProp;
 
     @Override
     public ConfirmOrderDTO generateConfirmOrder(List<Long> ids) {
@@ -198,6 +203,56 @@ public class OmsOrderServiceImpl extends ServiceImpl<OmsOrderMapper, OmsOrder> i
     public IPage<OrderListDTO> getMyOrders(Integer pageSize, Integer pageNum) {
         Page<?> page = new Page<>(pageNum, pageSize);
         return this.baseMapper.getMyOrders(page, memberService.getCurrentMember().getId());
+    }
+
+    @Override
+    public void paySuccess(Long orderId, Integer payType) {
+        /**
+         * 1.更新订单状态和支付方式、支付时间
+         * 2.清除锁定库存，扣除实际库存
+         * 3.删除二维码
+         */
+        // 更新订单状态和支付方式、支付时间
+        OmsOrder omsOrder = new OmsOrder();
+        // 待发货
+        omsOrder.setStatus(1);
+        omsOrder.setPayType(payType);
+        omsOrder.setPaymentTime(new Date());
+        omsOrder.setId(orderId);
+
+        UpdateWrapper<OmsOrder> updateWrapper = new UpdateWrapper<>();
+        updateWrapper.lambda().set(OmsOrder::getStatus, omsOrder.getStatus())
+                .set(OmsOrder::getPayType, omsOrder.getPayType())
+                .set(OmsOrder::getPaymentTime, omsOrder.getPaymentTime())
+                .eq(OmsOrder::getId, omsOrder.getId());
+        boolean update = this.update(updateWrapper);
+
+        if (!update) {
+            throw new ApiException("订单支付成功：更新失败！");
+        }
+
+        //清除锁定库存，扣除实际库存
+        QueryWrapper<OmsOrderItem> itemQueryWrapper = new QueryWrapper<>();
+        itemQueryWrapper.lambda().eq(OmsOrderItem::getOrderId, omsOrder.getId());
+        List<OmsOrderItem> list = orderItemService.list(itemQueryWrapper);
+        // 所有需要更新库存的id
+        for (OmsOrderItem omsOrderItem : list) {
+            UpdateWrapper<PmsSkuStock> skuUpdateWrapper = new UpdateWrapper<>();
+            skuUpdateWrapper.setSql("stock=stock-" + omsOrderItem.getProductQuantity())
+                    .setSql("lock_stock=lock_stock-" + omsOrderItem.getProductQuantity())
+                    .lambda().eq(PmsSkuStock::getId, omsOrderItem.getProductSkuId());
+            skuStockService.update(skuUpdateWrapper);
+        }
+
+        // 删除二维码
+        // 需要修改为运行机器上的路径
+        String fileName = String.format("/qr-%s.png", orderId);
+        String filePath = tradePayProp.getStorePath() + fileName;
+        // 如果二维码存在
+        if (FileUtil.exist(filePath) && FileUtil.isFile(filePath)) {
+            // 删除
+            FileUtil.del(filePath);
+        }
     }
 
     /**
