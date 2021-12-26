@@ -58,4 +58,12 @@ public interface OmsOrderService extends IService<OmsOrder> {
      * @return
      */
     IPage<OrderListDTO> getMyOrders(Integer pageSize, Integer pageNum);
+
+    /**
+     * 支付成功回调
+     *
+     * @param orderId 订单id
+     * @param payType 支付类型：1.支付宝，2.微信
+     */
+    void paySuccess(Long orderId, Integer payType);
 }
