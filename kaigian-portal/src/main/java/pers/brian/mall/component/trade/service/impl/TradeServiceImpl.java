@@ -2,14 +2,12 @@ package pers.brian.mall.component.trade.service.impl;
 
 import cn.hutool.core.date.DateUnit;
 import cn.hutool.core.date.DateUtil;
-import cn.hutool.core.util.StrUtil;
 import com.alipay.api.AlipayResponse;
 import com.alipay.api.response.AlipayTradePrecreateResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pers.brian.mall.common.api.CommonResult;
 import pers.brian.mall.common.exception.ApiException;
 import pers.brian.mall.component.trade.alipay.config.Configs;
 import pers.brian.mall.component.trade.alipay.model.ExtendParams;
@@ -68,7 +66,7 @@ public class TradeServiceImpl implements TradeService {
     }
 
     @Override
-    public CommonResult<String> tradeQrCode(Long orderId, PayTypeEnum payTypeEnum) {
+    public String tradeQrCode(Long orderId, PayTypeEnum payTypeEnum) {
         // 订单信息
         OrderDetailDTO detail = orderService.getOrderDetail(orderId);
         if (detail == null) {
@@ -92,8 +90,7 @@ public class TradeServiceImpl implements TradeService {
         if (between > overtime) {
             throw new ApiException("订单超时未支付，请重新下单!");
         }
-        String qrCodePath = (payTypeEnum == PayTypeEnum.ALI_PAY) ? aliPayTrade(detail) : weChatPayTrade(detail);
-        return StrUtil.isEmpty(qrCodePath) ? CommonResult.failed() : CommonResult.success(qrCodePath);
+        return (payTypeEnum == PayTypeEnum.ALI_PAY) ? aliPayTrade(detail) : weChatPayTrade(detail);
     }
 
 
@@ -140,7 +137,7 @@ public class TradeServiceImpl implements TradeService {
         String timeoutExpress = "120m";
 
         // 商品明细列表，需填写购买商品详细信息，
-        List<GoodsDetail> goodsDetailList = new ArrayList<GoodsDetail>();
+        List<GoodsDetail> goodsDetailList = new ArrayList<>();
 
 
         for (OmsOrderItem orderItem : detail.getOrderItemList()) {

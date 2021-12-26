@@ -1,6 +1,5 @@
 package pers.brian.mall.component.trade.service;
 
-import pers.brian.mall.common.api.CommonResult;
 import pers.brian.mall.component.trade.constant.PayTypeEnum;
 
 /**
@@ -17,5 +16,5 @@ public interface TradeService {
      * @param payTypeEnum 支付方式
      * @return 支付二维码路径
      */
-    CommonResult<String> tradeQrCode(Long orderId, PayTypeEnum payTypeEnum);
+    String tradeQrCode(Long orderId, PayTypeEnum payTypeEnum);
 }

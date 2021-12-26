@@ -1,5 +1,6 @@
 package pers.brian.mall.controller;
 
+import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -19,6 +20,7 @@ import pers.brian.mall.dto.OrderParamDTO;
 import pers.brian.mall.modules.oms.model.OmsOrder;
 import pers.brian.mall.modules.oms.service.OmsOrderService;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -79,6 +81,12 @@ public class OrderController {
         if (payTypeEnum == null) {
             throw new ApiException("支付类型参数错误！");
         }
-        return tradeService.tradeQrCode(orderId, payTypeEnum);
+        String tradeQrCode = tradeService.tradeQrCode(orderId, payTypeEnum);
+        return StrUtil.isEmpty(tradeQrCode) ? CommonResult.failed() : CommonResult.success(tradeQrCode);
+    }
+
+    @RequestMapping(value = "/paySuccess/{payType}", method = RequestMethod.POST)
+    public void getMyOrders(@PathVariable("payType") Integer payType, HttpServletRequest request) {
+        System.out.println("支付宝支付回调" + payType);
     }
 }
