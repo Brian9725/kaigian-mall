@@ -8,6 +8,8 @@ import org.springframework.security.config.annotation.web.configurers.Expression
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import pers.brian.mall.config.component.JwtAuthenticationFilter;
 import pers.brian.mall.config.component.RestfulAccessDeniedHandler;
 import pers.brian.mall.config.component.RestfulAuthenticationEntryPoint;
 
@@ -58,7 +60,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // 没有权限访问时的处理类
                 .accessDeniedHandler(restfulAccessDeniedHandler())
                 // 没有登录时的处理类
-                .authenticationEntryPoint(restfulAuthenticationEntryPoint());
+                .authenticationEntryPoint(restfulAuthenticationEntryPoint())
+                .and()
+                // 加入jwt认证过滤器
+                .addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+    }
+
+    @Bean
+    public JwtAuthenticationFilter jwtAuthenticationFilter() {
+        return new JwtAuthenticationFilter();
     }
 
     @Bean
