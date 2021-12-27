@@ -30,7 +30,7 @@ public class GlobalWebAppConfigurer implements WebMvcConfigurer {
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(authInterceptor()).addPathPatterns("/**");
+        // registry.addInterceptor(authInterceptor()).addPathPatterns("/**");
     }
 
     @Bean
