@@ -9,10 +9,12 @@
         <module>kaigian-portal</module>
         <module>kaigian-mpbg</module>
         <module>kaigian-test</module>
+        <module>kaigian-security</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
+        <!--todo:升级到2.6.2-->
         <version>2.3.6.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
@@ -34,7 +36,7 @@
         <velocity.version>2.2</velocity.version>
         <lombok.version>1.18.16</lombok.version>
         <mall.common.version>0.0.1-SNAPSHOT</mall.common.version>
-        <log4j2.version>2.17.0</log4j2.version>
+        <mall.security.version>0.0.1-SNAPSHOT</mall.security.version>
     </properties>
 
     <dependencies>
@@ -66,6 +68,12 @@
                 <groupId>pers.brian</groupId>
                 <artifactId>kaigian-common</artifactId>
                 <version>${mall.common.version}</version>
+            </dependency>
+            <!--security-->
+            <dependency>
+                <groupId>pers.brian</groupId>
+                <artifactId>kaigian-security</artifactId>
+                <version>${mall.security.version}</version>
             </dependency>
             <!--集成druid连接池-->
             <dependency>

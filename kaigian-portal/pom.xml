@@ -8,7 +8,7 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>kaigian-protal</artifactId>
+    <artifactId>kaigian-portal</artifactId>
     <description>提供前台访问的后端接口</description>
 
     <properties>
@@ -19,6 +19,10 @@
         <dependency>
             <groupId>pers.brian</groupId>
             <artifactId>kaigian-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>pers.brian</groupId>
+            <artifactId>kaigian-security</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

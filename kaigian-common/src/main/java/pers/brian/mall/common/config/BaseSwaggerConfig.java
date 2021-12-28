@@ -1,7 +1,7 @@
 package pers.brian.mall.common.config;
 
-import pers.brian.mall.common.domain.SwaggerProperties;
 import org.springframework.context.annotation.Bean;
+import pers.brian.mall.common.domain.SwaggerProperties;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -11,6 +11,7 @@ import springfox.documentation.spi.service.contexts.SecurityContext;
 import springfox.documentation.spring.web.plugins.Docket;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -29,7 +30,9 @@ public abstract class BaseSwaggerConfig {
                 .select()
                 .apis(RequestHandlerSelectors.basePackage(swaggerProperties.getApiBasePackage()))
                 .paths(PathSelectors.any())
-                .build();
+                .build()
+                .securitySchemes(Collections.singletonList(apiKey()))
+                .securityContexts(Collections.singletonList(securityContext()));
         if (swaggerProperties.isEnableSecurity()) {
             docket.securitySchemes(securitySchemes()).securityContexts(securityContexts());
         }
@@ -45,10 +48,25 @@ public abstract class BaseSwaggerConfig {
                 .build();
     }
 
+    // 设置完成后会在swagger页面上出现一个Authorization按钮
+    // 就可以往请求头中设置Authorization参数了
+    private ApiKey apiKey() {
+        return new ApiKey("Authorization", "Authorization", "header");
+    }
+
+    // 需要进行安全策略的地址
+    private SecurityContext securityContext() {
+        return SecurityContext.builder()
+                .securityReferences(defaultAuth())
+                .forPaths(PathSelectors.regex("/*.*"))
+                .build();
+    }
+
     /**
      * 设置完成后进入SwaggerUI，出现“Authorization”按钮，点击即可输入我们配置的认证参数。
      * 对于不需要输入参数的接口（上文所述的包含auth的接口），在未输入Authorization参数就可以访问。
      * 通过Swagger2的securitySchemes配置全局参数：如下列代码所示，securitySchemes的ApiKey中增加一个名为“Authorization”，type为“header”的参数。
+     *
      * @return
      */
     private List<ApiKey> securitySchemes() {

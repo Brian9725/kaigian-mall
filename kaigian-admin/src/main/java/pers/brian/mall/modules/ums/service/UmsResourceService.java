@@ -2,7 +2,10 @@ package pers.brian.mall.modules.ums.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
+import pers.brian.mall.dto.ResourceRoleDTO;
 import pers.brian.mall.modules.ums.model.entity.UmsResource;
+
+import java.util.List;
 
 /**
  * @Description: 后台资源管理Service
@@ -30,4 +33,11 @@ public interface UmsResourceService extends IService<UmsResource> {
      * 分页查询资源
      */
     Page<UmsResource> list(Long categoryId, String nameKeyword, String urlKeyword, Integer pageSize, Integer pageNum);
+
+    /**
+     * 获取角色资源映射关系
+     *
+     * @return 资源角色映射关系
+     */
+    List<ResourceRoleDTO> getAllResourceRole();
 }

@@ -3,6 +3,7 @@ package pers.brian.mall.modules.ums.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
+import pers.brian.mall.dto.ResourceRoleDTO;
 import pers.brian.mall.modules.ums.model.entity.UmsResource;
 
 import java.util.List;
@@ -34,4 +35,10 @@ public interface UmsResourceMapper extends BaseMapper<UmsResource> {
      */
     List<UmsResource> getResourceListByRoleId(@Param("roleId") Long roleId);
 
+    /**
+     * 获取角色资源映射关系
+     *
+     * @return 资源角色映射关系
+     */
+    List<ResourceRoleDTO> getAllResourceRole();
 }

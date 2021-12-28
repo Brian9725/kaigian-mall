@@ -5,12 +5,14 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import pers.brian.mall.common.api.CommonPage;
 import pers.brian.mall.common.api.CommonResult;
 import pers.brian.mall.common.constant.ComConstants;
+import pers.brian.mall.common.util.JwtTokenUtil;
 import pers.brian.mall.modules.ums.model.dto.UmsAdminLoginParam;
 import pers.brian.mall.modules.ums.model.dto.UmsAdminParam;
 import pers.brian.mall.modules.ums.model.dto.UpdateAdminPasswordParam;
@@ -45,6 +47,15 @@ public class UmsAdminController {
     @Autowired
     private UmsRoleService roleService;
 
+    @Autowired
+    private JwtTokenUtil jwtTokenUtil;
+
+    @Value("${jwt.tokenHead}")
+    private String tokenHead;
+
+    @Value("${jwt.tokenHeader}")
+    private String tokenHeader;
+
     @ApiOperation(value = "用户注册")
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
@@ -60,13 +71,17 @@ public class UmsAdminController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult<Map<String, String>> login(@Validated @RequestBody UmsAdminLoginParam umsAdminLoginParam) {
-        UmsAdmin login = adminService.login(umsAdminLoginParam.getUsername(), umsAdminLoginParam.getPassword());
-        if (login == null) {
+        UmsAdmin admin = adminService.login(umsAdminLoginParam.getUsername(), umsAdminLoginParam.getPassword());
+        if (admin == null) {
             return CommonResult.validateFailed("用户名或密码错误");
         }
-        session.setAttribute(ComConstants.ADMIN_CURRENT_USER, login);
-        System.out.println(session.getId());
-        Map<String, String> tokenMap = new HashMap<>(16);
+        session.setAttribute(ComConstants.ADMIN_CURRENT_USER, admin);
+        String token = jwtTokenUtil.generateUserNameStr(admin.getUsername());
+
+        Map<String, String> tokenMap = new HashMap<>();
+        tokenMap.put("token", token);
+        tokenMap.put("tokenHead", tokenHead);
+        tokenMap.put("tokenHeader", tokenHeader);
         // jwt
         return CommonResult.success(tokenMap);
     }

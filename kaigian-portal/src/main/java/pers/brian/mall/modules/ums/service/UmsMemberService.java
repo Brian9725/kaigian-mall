@@ -1,6 +1,7 @@
 package pers.brian.mall.modules.ums.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.springframework.security.core.userdetails.UserDetails;
 import pers.brian.mall.modules.ums.model.UmsMember;
 
 /**
@@ -44,4 +45,12 @@ public interface UmsMemberService extends IService<UmsMember> {
      * @return 用户信息
      */
     UmsMember getMemberByUsername(String username);
+
+    /**
+     * 通过用户名获取用户信息（spring-security用）
+     *
+     * @param username 用户名
+     * @return 用户信息
+     */
+    UserDetails loadUserByUsername(String username);
 }

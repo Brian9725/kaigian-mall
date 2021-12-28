@@ -22,3 +22,9 @@ aliyun:
     #callback:  # 文件上传成功后的回调地址
     dir:
       prefix: kaigianmall/images/ # 上传文件夹路径前缀
+
+jwt:
+  secret: secretKey #服务端私钥（一定不能泄露）
+  expiration: 86400 #过期时间 60*60*24  =一天
+  tokenHead: KaiGian #jwt规范  #告诉客户端jwt令牌开头需要加的一个字符串
+  tokenHeader: Authorization #告诉客户端你要在请求头里面传什么参数名字

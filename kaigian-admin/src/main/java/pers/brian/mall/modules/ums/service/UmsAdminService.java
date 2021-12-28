@@ -2,12 +2,13 @@ package pers.brian.mall.modules.ums.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.springframework.transaction.annotation.Transactional;
+import pers.brian.mall.domain.AdminUserDetails;
 import pers.brian.mall.modules.ums.model.dto.UmsAdminParam;
 import pers.brian.mall.modules.ums.model.dto.UpdateAdminPasswordParam;
 import pers.brian.mall.modules.ums.model.entity.UmsAdmin;
 import pers.brian.mall.modules.ums.model.entity.UmsResource;
 import pers.brian.mall.modules.ums.model.entity.UmsRole;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -36,8 +37,6 @@ public interface UmsAdminService extends IService<UmsAdmin> {
      */
     UmsAdmin login(String username, String password);
 
-
-
     /**
      * 根据用户名或昵称分页查询用户
      */
@@ -56,7 +55,7 @@ public interface UmsAdminService extends IService<UmsAdmin> {
     /**
      * 修改用户角色关系
      */
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     int updateRole(Long adminId, List<Long> roleIds);
 
     /**
@@ -77,5 +76,5 @@ public interface UmsAdminService extends IService<UmsAdmin> {
     /**
      * 获取用户信息
      */
-    UmsAdmin loadUserByUsername(String username);
+    AdminUserDetails loadUserByUsername(String username);
 }

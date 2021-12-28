@@ -7,28 +7,26 @@
         <groupId>pers.brian</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>kaigian-test</artifactId>
-    <name>kaigian-test</name>
+    <artifactId>kaigian-security</artifactId>
+    <name>kaigian-security</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-
-        <!--OSS SDK-->
-        <dependency>
-            <groupId>com.aliyun.oss</groupId>
-            <artifactId>aliyun-sdk-oss</artifactId>
-            <version>3.10.2</version>
+            <groupId>pers.brian</groupId>
+            <artifactId>kaigian-common</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
     </dependencies>
 
