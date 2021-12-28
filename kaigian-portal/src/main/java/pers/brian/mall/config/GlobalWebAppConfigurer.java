@@ -21,16 +21,6 @@ public class GlobalWebAppConfigurer implements WebMvcConfigurer {
     private TradePayProp tradePayProp;
 
     /**
-     * JWT验证工具类
-     *
-     * @return JWT工具类实例
-     */
-    @Bean
-    public JwtTokenUtil jwtTokenUtil() {
-        return new JwtTokenUtil();
-    }
-
-    /**
      * 将物理文件夹中的支付二维码映射为静态资源路径
      *
      * @param registry registry

@@ -7,12 +7,14 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pers.brian.mall.dto.ResourceRoleDTO;
 import pers.brian.mall.modules.ums.mapper.UmsResourceMapper;
 import pers.brian.mall.modules.ums.model.entity.UmsResource;
 import pers.brian.mall.modules.ums.service.UmsAdminCacheService;
 import pers.brian.mall.modules.ums.service.UmsResourceService;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Description: 后台资源管理Service实现类
@@ -62,5 +64,10 @@ public class UmsResourceServiceImpl extends ServiceImpl<UmsResourceMapper, UmsRe
             lambda.like(UmsResource::getUrl, urlKeyword);
         }
         return page(page, wrapper);
+    }
+
+    @Override
+    public List<ResourceRoleDTO> getAllResourceRole() {
+        return this.baseMapper.getAllResourceRole();
     }
 }

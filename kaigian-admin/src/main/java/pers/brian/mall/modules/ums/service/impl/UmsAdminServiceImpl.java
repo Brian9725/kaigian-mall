@@ -11,18 +11,21 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import pers.brian.mall.common.exception.ApiException;
 import pers.brian.mall.common.exception.Asserts;
-import pers.brian.mall.modules.ums.model.dto.UmsAdminParam;
-import pers.brian.mall.modules.ums.model.dto.UpdateAdminPasswordParam;
+import pers.brian.mall.domain.AdminUserDetails;
 import pers.brian.mall.modules.ums.mapper.UmsAdminLoginLogMapper;
 import pers.brian.mall.modules.ums.mapper.UmsAdminMapper;
 import pers.brian.mall.modules.ums.mapper.UmsResourceMapper;
 import pers.brian.mall.modules.ums.mapper.UmsRoleMapper;
+import pers.brian.mall.modules.ums.model.dto.UmsAdminParam;
+import pers.brian.mall.modules.ums.model.dto.UpdateAdminPasswordParam;
 import pers.brian.mall.modules.ums.model.entity.*;
 import pers.brian.mall.modules.ums.service.UmsAdminCacheService;
 import pers.brian.mall.modules.ums.service.UmsAdminRoleRelationService;
@@ -94,17 +97,21 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
 
     @Override
     public UmsAdmin login(String username, String password) {
-
         //密码需要客户端加密后传递
         UmsAdmin umsAdmin = null;
         try {
-            umsAdmin = loadUserByUsername(username);
+            AdminUserDetails adminUserDetails = loadUserByUsername(username);
+            umsAdmin = adminUserDetails.getUmsAdmin();
             if (!BCrypt.checkpw(password, umsAdmin.getPassword())) {
                 Asserts.fail("密码不正确");
             }
-            /*if(!userDetails.isEnabled()){
+
+            // 生成spring-security的通过认证标识
+            UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(adminUserDetails, null, adminUserDetails.getAuthorities());
+            SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+            if (!adminUserDetails.isEnabled()) {
                 Asserts.fail("帐号已被禁用");
-            }*/
+            }
             insertLoginLog(username);
         } catch (Exception e) {
             Asserts.fail("登录异常:" + e.getMessage());
@@ -247,13 +254,16 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
     }
 
     @Override
-    public UmsAdmin loadUserByUsername(String username) {
+    public AdminUserDetails loadUserByUsername(String username) {
         //获取用户信息
         UmsAdmin admin = getAdminByUsername(username);
         if (admin != null) {
             // 查询用户访问资源，暂留， 后续改动
-            // List<UmsResource> resourceList = getResourceList(admin.getId());
-            return admin;
+            List<UmsResource> resourceList = getResourceList(admin.getId());
+
+            List<UmsRole> roleList = getRoleList(admin.getId());
+            AdminUserDetails adminUserDetails = new AdminUserDetails(admin, roleList);
+            return adminUserDetails;
         }
         throw new ApiException("用户不存在");
     }
