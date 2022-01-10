@@ -5,10 +5,10 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @Description: redis操作Service
- * @Author: BrianHu
- * @Create: 2021-11-11 11:11
- * @Version: 0.0.1
+ * redis操作Service
+ *
+ * @author BrianHu
+ * @create 2021-11-11 11:11
  **/
 public interface RedisService {
 

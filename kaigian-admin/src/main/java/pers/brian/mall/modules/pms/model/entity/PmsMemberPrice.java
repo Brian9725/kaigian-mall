@@ -14,12 +14,10 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * <p>
  * 商品会员价格表
- * </p>
  *
  * @author BrianHu
- * @since 2021-11-15
+ * @create 2021-11-15 12:00
  */
 @Data
 @EqualsAndHashCode(callSuper = false)

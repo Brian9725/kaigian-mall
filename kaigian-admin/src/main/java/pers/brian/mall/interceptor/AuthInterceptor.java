@@ -16,10 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
- * @Description:
- * @Author: BrianHu
- * @Create: 2021-11-11 11:11
- * @Version: 0.0.1
+ * @author BrianHu
+ * @create 2021-11-11 11:11
  **/
 public class AuthInterceptor extends HandlerInterceptorAdapter {
 

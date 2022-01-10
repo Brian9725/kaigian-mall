@@ -7,12 +7,10 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**
- * <p>
  * 产品阶梯价格表(只针对同商品) 服务实现类
- * </p>
  *
  * @author BrianHu
- * @since 2021-11-30
+ * @create 2021-11-30 12:00
  */
 @Service
 public class PmsProductLadderServiceImpl extends ServiceImpl<PmsProductLadderMapper, PmsProductLadder> implements PmsProductLadderService {

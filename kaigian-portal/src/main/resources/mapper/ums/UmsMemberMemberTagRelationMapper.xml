@@ -4,9 +4,9 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="pers.brian.mall.modules.ums.model.UmsMemberMemberTagRelation">
-        <id column="id" property="id" />
-        <result column="member_id" property="memberId" />
-        <result column="tag_id" property="tagId" />
+        <id column="id" property="id"/>
+        <result column="member_id" property="memberId"/>
+        <result column="tag_id" property="tagId"/>
     </resultMap>
 
 </mapper>

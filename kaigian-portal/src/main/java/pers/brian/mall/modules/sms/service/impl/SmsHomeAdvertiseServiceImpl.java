@@ -10,12 +10,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * <p>
  * 首页轮播广告表 服务实现类
- * </p>
  *
  * @author BrianHu
- * @since 2021-12-01
+ * @create 2021-12-01 12:00
  */
 @Service
 public class SmsHomeAdvertiseServiceImpl extends ServiceImpl<SmsHomeAdvertiseMapper, SmsHomeAdvertise> implements SmsHomeAdvertiseService {

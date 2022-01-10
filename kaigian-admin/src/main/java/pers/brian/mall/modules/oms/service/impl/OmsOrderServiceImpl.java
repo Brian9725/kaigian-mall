@@ -12,12 +12,10 @@ import pers.brian.mall.modules.oms.model.entity.OmsOrder;
 import pers.brian.mall.modules.oms.service.OmsOrderService;
 
 /**
- * <p>
  * 订单表 服务实现类
- * </p>
  *
  * @author BrianHu
- * @since 2021-12-01
+ * @create 2021-12-01 12:00
  */
 @Service
 public class OmsOrderServiceImpl extends ServiceImpl<OmsOrderMapper, OmsOrder> implements OmsOrderService {

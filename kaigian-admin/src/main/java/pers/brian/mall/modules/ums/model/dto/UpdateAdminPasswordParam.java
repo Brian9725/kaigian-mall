@@ -7,10 +7,10 @@ import lombok.Setter;
 import javax.validation.constraints.NotEmpty;
 
 /**
- * @Description: 修改用户名密码参数
- * @Author: BrianHu
- * @Create: 2021-11-11 11:11
- * @Version: 0.0.1
+ * 修改用户名密码参数
+ *
+ * @author BrianHu
+ * @create 2021-11-11 11:11
  **/
 @Getter
 @Setter

@@ -2,29 +2,31 @@ package pers.brian.mall.modules.sms.model;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
+
 import java.util.Date;
+
 import com.baomidou.mybatisplus.annotation.TableId;
+
 import java.io.Serializable;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * <p>
  * 限时购通知记录
- * </p>
  *
  * @author BrianHu
- * @since 2021-12-01
+ * @create 2021-12-01 12:00
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("sms_flash_promotion_log")
-@ApiModel(value="SmsFlashPromotionLog对象", description="限时购通知记录")
+@ApiModel(value = "SmsFlashPromotionLog对象", description = "限时购通知记录")
 public class SmsFlashPromotionLog implements Serializable {
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;

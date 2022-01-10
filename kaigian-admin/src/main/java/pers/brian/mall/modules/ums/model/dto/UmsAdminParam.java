@@ -8,10 +8,10 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
 /**
- * @Description: 用户登录参数
- * @Author: BrianHu
- * @Create: 2021-11-11 11:11
- * @Version: 0.0.1
+ * 用户登录参数
+ *
+ * @author BrianHu
+ * @create 2021-11-11 11:11
  **/
 @Getter
 @Setter

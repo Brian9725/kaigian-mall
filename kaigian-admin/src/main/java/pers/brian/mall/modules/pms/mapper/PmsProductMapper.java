@@ -6,12 +6,10 @@ import pers.brian.mall.modules.pms.model.entity.PmsProduct;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
- * <p>
  * 商品信息 Mapper 接口
- * </p>
  *
  * @author BrianHu
- * @since 2021-11-15
+ * @create 2021-11-15 12:00
  */
 @Component
 public interface PmsProductMapper extends BaseMapper<PmsProduct> {

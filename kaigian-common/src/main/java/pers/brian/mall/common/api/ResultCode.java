@@ -1,10 +1,10 @@
 package pers.brian.mall.common.api;
 
 /**
- * @Description: 枚举了一些常用API操作码
- * @Author: BrianHu
- * @Create: 2021-11-11 11:11
- * @Version: 0.0.1
+ * 枚举了一些常用API操作码
+ *
+ * @author BrianHu
+ * @create 2021-11-11 11:11
  **/
 public enum ResultCode implements IErrorCode {
 

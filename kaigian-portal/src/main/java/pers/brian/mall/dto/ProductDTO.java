@@ -8,10 +8,8 @@ import lombok.EqualsAndHashCode;
 import java.math.BigDecimal;
 
 /**
- * @Description:
- * @Author: BrianHu
- * @Create: 2021-11-30 16:20
- * @Version: 0.0.1
+ * @author BrianHu
+ * @create 2021-11-30 16:20
  **/
 @Data
 @EqualsAndHashCode(callSuper = false)

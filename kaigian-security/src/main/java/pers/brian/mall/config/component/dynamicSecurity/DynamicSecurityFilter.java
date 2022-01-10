@@ -15,10 +15,10 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 /**
- * @Description: 动态权限过滤器，用于实现基于路径的动态权限过滤
- * @Author: BrianHu
- * @Create: 2021-12-28 10:58
- * @Version: 0.0.1
+ * 动态权限过滤器，用于实现基于路径的动态权限过滤
+ *
+ * @author BrianHu
+ * @create 2021-12-28 10:58
  **/
 public class DynamicSecurityFilter extends AbstractSecurityInterceptor implements Filter {
 

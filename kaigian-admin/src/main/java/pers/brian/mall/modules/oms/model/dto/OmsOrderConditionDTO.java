@@ -10,10 +10,10 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 
 /**
- * @Description: 订单列表删选条件
- * @Author: BrianHu
- * @Create: 2021-12-07 14:07
- * @Version: 0.0.1
+ * 订单列表删选条件
+ *
+ * @author BrianHu
+ * @create 2021-12-07 14:07
  **/
 @Data
 @NoArgsConstructor

@@ -1,31 +1,34 @@
 package pers.brian.mall.modules.pms.model;
 
 import java.math.BigDecimal;
+
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
+
 import java.util.Date;
+
 import com.baomidou.mybatisplus.annotation.TableId;
+
 import java.io.Serializable;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * <p>
  * 商品信息
- * </p>
  *
  * @author BrianHu
- * @since 2021-11-30
+ * @create 2021-11-30 12:00
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("pms_product")
-@ApiModel(value="PmsProduct对象", description="商品信息")
+@ApiModel(value = "PmsProduct对象", description = "商品信息")
 public class PmsProduct implements Serializable {
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;

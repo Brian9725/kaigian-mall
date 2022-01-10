@@ -16,19 +16,19 @@
         <result column="promotion_amount" property="promotionAmount"/>
         <result column="integration_amount" property="integrationAmount"/>
         <result column="coupon_amount" property="couponAmount"/>
-        <result column="discount_amount" property="discountAmount" />
-        <result column="pay_type" property="payType" />
-        <result column="source_type" property="sourceType" />
-        <result column="status" property="status" />
-        <result column="order_type" property="orderType" />
-        <result column="delivery_company" property="deliveryCompany" />
-        <result column="delivery_sn" property="deliverySn" />
-        <result column="auto_confirm_day" property="autoConfirmDay" />
-        <result column="integration" property="integration" />
-        <result column="growth" property="growth" />
-        <result column="promotion_info" property="promotionInfo" />
-        <result column="bill_type" property="billType" />
-        <result column="bill_header" property="billHeader" />
+        <result column="discount_amount" property="discountAmount"/>
+        <result column="pay_type" property="payType"/>
+        <result column="source_type" property="sourceType"/>
+        <result column="status" property="status"/>
+        <result column="order_type" property="orderType"/>
+        <result column="delivery_company" property="deliveryCompany"/>
+        <result column="delivery_sn" property="deliverySn"/>
+        <result column="auto_confirm_day" property="autoConfirmDay"/>
+        <result column="integration" property="integration"/>
+        <result column="growth" property="growth"/>
+        <result column="promotion_info" property="promotionInfo"/>
+        <result column="bill_type" property="billType"/>
+        <result column="bill_header" property="billHeader"/>
         <result column="bill_content" property="billContent"/>
         <result column="bill_receiver_phone" property="billReceiverPhone"/>
         <result column="bill_receiver_email" property="billReceiverEmail"/>
@@ -82,12 +82,14 @@
                o.create_time,
                oi.product_pic,
                oi.product_name,
-               oi.id                                                           as item_id,
+               oi.id as item_id,
                oi.product_price,
                oi.product_quantity,
-               (SELECT normal_order_overtime FROM oms_order_setting LIMIT 0,1) as normal_order_overtime
+               (SELECT normal_order_overtime FROM oms_order_setting LIMIT 0,
+               1) as normal_order_overtime
         FROM oms_order o
-                 LEFT JOIN oms_order_item oi on o.id = oi.order_id
+            LEFT JOIN oms_order_item oi
+        on o.id = oi.order_id
         WHERE o.id = #{id}
           and o.delete_status = 0
     </select>

@@ -12,12 +12,11 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
- * @Description: <p>
+ * <p>
  * 会员等级表
- * </p>
- * @Author: BrianHu
- * @Create: 2021-11-11 11:11
- * @Version: 0.0.1
+ *
+ * @author BrianHu
+ * @create 2021-11-11 11:11
  **/
 @Data
 @EqualsAndHashCode(callSuper = false)

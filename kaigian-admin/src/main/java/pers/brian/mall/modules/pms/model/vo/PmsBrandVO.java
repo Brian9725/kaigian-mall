@@ -12,10 +12,10 @@ import lombok.experimental.Accessors;
 import java.io.Serializable;
 
 /**
- * @Description: 品牌展示对象
- * @Author: BrianHu
- * @Create: 2021-11-25 10:53
- * @Version: 0.0.1
+ * 品牌展示对象
+ *
+ * @author BrianHu
+ * @create 2021-11-25 10:53
  **/
 @Data
 @Builder

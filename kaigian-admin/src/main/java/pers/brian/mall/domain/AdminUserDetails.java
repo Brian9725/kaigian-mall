@@ -13,10 +13,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @Description: 用户信息
- * @Author: BrianHu
- * @Create: 2021-12-27 17:12
- * @Version: 0.0.1
+ * 用户信息
+ *
+ * @author BrianHu
+ * @create 2021-12-27 17:12
  **/
 public class AdminUserDetails implements UserDetails {
 

@@ -6,12 +6,10 @@ import pers.brian.mall.modules.ums.model.UmsMemberReceiveAddress;
 import java.util.List;
 
 /**
- * <p>
  * 会员收货地址表 服务类
- * </p>
  *
  * @author BrianHu
- * @since 2021-12-01
+ * @create 2021-12-01 12:00
  */
 public interface UmsMemberReceiveAddressService extends IService<UmsMemberReceiveAddress> {
 

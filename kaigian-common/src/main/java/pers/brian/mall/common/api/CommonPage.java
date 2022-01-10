@@ -6,10 +6,10 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import java.util.List;
 
 /**
- * @Description: 分页数据封装类
- * @Author: BrianHu
- * @Create: 2021-11-11 11:11
- * @Version: 0.0.1
+ * 分页数据封装类
+ *
+ * @author BrianHu
+ * @create 2021-11-11 11:11
  **/
 public class CommonPage<T> {
     private Integer pageNum;
@@ -30,7 +30,7 @@ public class CommonPage<T> {
         // 总数据数量
         result.setTotal(pageResult.getTotal());
         // 总页数
-        result.setTotalPage(Convert.toInt(pageResult.getTotal()/pageResult.getSize()+1));
+        result.setTotalPage(Convert.toInt(pageResult.getTotal() / pageResult.getSize() + 1));
         // 当前页数据
         result.setList(pageResult.getRecords());
         return result;

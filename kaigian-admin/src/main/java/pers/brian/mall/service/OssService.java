@@ -3,10 +3,8 @@ package pers.brian.mall.service;
 import pers.brian.mall.dto.OssPolicyResult;
 
 /**
- * @Description:
- * @Author: BrianHu
- * @Create: 2021-11-17 16:58
- * @Version: 0.0.1
+ * @author BrianHu
+ * @create 2021-11-17 16:58
  **/
 public interface OssService {
     /**

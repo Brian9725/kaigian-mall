@@ -1,31 +1,34 @@
 package pers.brian.mall.modules.sms.model.entity;
 
 import java.math.BigDecimal;
+
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
+
 import java.util.Date;
+
 import com.baomidou.mybatisplus.annotation.TableId;
+
 import java.io.Serializable;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * <p>
  * 优惠卷表
- * </p>
  *
  * @author BrianHu
- * @since 2021-12-01
+ * @create 2021-12-01 12:00
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("sms_coupon")
-@ApiModel(value="SmsCoupon对象", description="优惠卷表")
+@ApiModel(value = "SmsCoupon对象", description = "优惠卷表")
 public class SmsCoupon implements Serializable {
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;

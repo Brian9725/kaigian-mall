@@ -21,10 +21,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @Description: 前台用户服务接口
- * @Author: BrianHu
- * @Create: 2021-12-02 16:17
- * @Version: 0.0.1
+ * 前台用户服务接口
+ *
+ * @author BrianHu
+ * @create 2021-12-02 16:17
  **/
 @Controller
 @Api(tags = "UserController")

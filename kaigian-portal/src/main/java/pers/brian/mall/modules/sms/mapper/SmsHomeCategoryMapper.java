@@ -8,12 +8,10 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import java.util.List;
 
 /**
- * <p>
  * Mapper 接口
- * </p>
  *
  * @author BrianHu
- * @since 2021-12-01
+ * @create 2021-12-01 12:00
  */
 @Component
 public interface SmsHomeCategoryMapper extends BaseMapper<SmsHomeCategory> {

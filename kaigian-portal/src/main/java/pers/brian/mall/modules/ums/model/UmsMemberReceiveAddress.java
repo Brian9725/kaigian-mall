@@ -3,27 +3,27 @@ package pers.brian.mall.modules.ums.model;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+
 import java.io.Serializable;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * <p>
  * 会员收货地址表
- * </p>
  *
  * @author BrianHu
- * @since 2021-12-01
+ * @create 2021-12-01 12:00
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("ums_member_receive_address")
-@ApiModel(value="UmsMemberReceiveAddress对象", description="会员收货地址表")
+@ApiModel(value = "UmsMemberReceiveAddress对象", description = "会员收货地址表")
 public class UmsMemberReceiveAddress implements Serializable {
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;

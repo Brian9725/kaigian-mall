@@ -1,30 +1,31 @@
 package pers.brian.mall.modules.ums.model;
 
 import java.math.BigDecimal;
+
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+
 import java.io.Serializable;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * <p>
  * 会员积分成长规则表
- * </p>
  *
  * @author BrianHu
- * @since 2021-12-01
+ * @create 2021-12-01 12:00
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("ums_member_rule_setting")
-@ApiModel(value="UmsMemberRuleSetting对象", description="会员积分成长规则表")
+@ApiModel(value = "UmsMemberRuleSetting对象", description = "会员积分成长规则表")
 public class UmsMemberRuleSetting implements Serializable {
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;

@@ -4,16 +4,16 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="pers.brian.mall.modules.ums.model.UmsMemberReceiveAddress">
-        <id column="id" property="id" />
-        <result column="member_id" property="memberId" />
-        <result column="name" property="name" />
-        <result column="phone_number" property="phoneNumber" />
-        <result column="default_status" property="defaultStatus" />
-        <result column="post_code" property="postCode" />
-        <result column="province" property="province" />
-        <result column="city" property="city" />
-        <result column="region" property="region" />
-        <result column="detail_address" property="detailAddress" />
+        <id column="id" property="id"/>
+        <result column="member_id" property="memberId"/>
+        <result column="name" property="name"/>
+        <result column="phone_number" property="phoneNumber"/>
+        <result column="default_status" property="defaultStatus"/>
+        <result column="post_code" property="postCode"/>
+        <result column="province" property="province"/>
+        <result column="city" property="city"/>
+        <result column="region" property="region"/>
+        <result column="detail_address" property="detailAddress"/>
     </resultMap>
 
 </mapper>

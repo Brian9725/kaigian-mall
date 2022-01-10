@@ -6,10 +6,10 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 
 /**
- * @Description: OSS授权返回结果
- * @Author: BrianHu
- * @Create: 2021-11-17 16:58
- * @Version: 0.0.1
+ * OSS授权返回结果
+ *
+ * @author BrianHu
+ * @create 2021-11-17 16:58
  **/
 @Data
 @Builder

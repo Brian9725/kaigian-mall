@@ -11,10 +11,8 @@ import java.math.BigDecimal;
 import java.util.List;
 
 /**
- * @Description:
- * @Author: BrianHu
- * @Create: 2021-12-03 16:46
- * @Version: 0.0.1
+ * @author BrianHu
+ * @create 2021-12-03 16:46
  **/
 @Data
 @EqualsAndHashCode(callSuper = false)

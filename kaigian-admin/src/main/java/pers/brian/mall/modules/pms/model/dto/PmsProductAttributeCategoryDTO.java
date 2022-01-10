@@ -10,10 +10,8 @@ import pers.brian.mall.modules.pms.model.entity.PmsProductAttribute;
 import java.util.List;
 
 /**
- * @Description:
- * @Author: BrianHu
- * @Create: 2021-11-22 15:13
- * @Version: 0.0.1
+ * @author BrianHu
+ * @create 2021-11-22 15:13
  **/
 @Data
 @NoArgsConstructor

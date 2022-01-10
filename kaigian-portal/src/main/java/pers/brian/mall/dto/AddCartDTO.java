@@ -5,10 +5,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * @Description:
- * @Author: BrianHu
- * @Create: 2021-12-02 17:30
- * @Version: 0.0.1
+ * @author BrianHu
+ * @create 2021-12-02 17:30
  **/
 @Data
 @EqualsAndHashCode(callSuper = false)

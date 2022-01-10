@@ -7,10 +7,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @Description: 动态权限相关业务类
- * @Author: BrianHu
- * @Create: 2021-12-28 10:58
- * @Version: 0.0.1
+ * 动态权限相关业务类
+ *
+ * @author BrianHu
+ * @create 2021-12-28 10:58
  **/
 public interface DynamicSecurityService {
     /**

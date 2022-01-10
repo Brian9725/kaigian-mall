@@ -8,12 +8,10 @@ import pers.brian.mall.modules.oms.model.OmsCartItem;
 import java.util.List;
 
 /**
- * <p>
  * 购物车表 服务类
- * </p>
  *
  * @author BrianHu
- * @since 2021-12-01
+ * @create 2021-12-01 12:00
  */
 public interface OmsCartItemService extends IService<OmsCartItem> {
 

@@ -32,10 +32,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @Description: 订单相关的服务
- * @Author: BrianHu
- * @Create: 2021-12-03 16:45
- * @Version: 0.0.1
+ * 订单相关的服务
+ *
+ * @author BrianHu
+ * @create 2021-12-03 16:45
  **/
 @RestController
 @Api(tags = "OrderController")

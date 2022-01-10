@@ -9,10 +9,10 @@ import pers.brian.mall.modules.oms.model.OmsOrderItem;
 import java.util.List;
 
 /**
- * @Description: 我的订单列表数据传输对象
- * @Author: BrianHu
- * @Create: 2021-12-08 12:01
- * @Version: 0.0.1
+ * 我的订单列表数据传输对象
+ *
+ * @author BrianHu
+ * @create 2021-12-08 12:01
  **/
 @Data
 @EqualsAndHashCode(callSuper = false)

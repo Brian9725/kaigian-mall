@@ -11,12 +11,11 @@ import lombok.EqualsAndHashCode;
 import java.io.Serializable;
 
 /**
- * @Description: <p>
+ * <p>
  * 后台角色资源关系表
- * </p>
- * @Author: BrianHu
- * @Create: 2021-11-11 11:11
- * @Version: 0.0.1
+ *
+ * @author BrianHu
+ * @create 2021-11-11 11:11
  **/
 @Data
 @EqualsAndHashCode(callSuper = false)

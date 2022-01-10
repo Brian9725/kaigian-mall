@@ -9,12 +9,11 @@ import pers.brian.mall.modules.ums.model.entity.UmsResource;
 import java.util.List;
 
 /**
- * @Description: <p>
+ * <p>
  * 后台资源表 Mapper 接口
- * </p>
- * @Author: BrianHu
- * @Create: 2021-11-11 11:11
- * @Version: 0.0.1
+ *
+ * @author BrianHu
+ * @create 2021-11-11 11:11
  **/
 @Component
 public interface UmsResourceMapper extends BaseMapper<UmsResource> {

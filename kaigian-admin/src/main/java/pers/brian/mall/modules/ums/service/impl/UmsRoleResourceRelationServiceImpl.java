@@ -7,10 +7,10 @@ import pers.brian.mall.modules.ums.model.entity.UmsRoleResourceRelation;
 import pers.brian.mall.modules.ums.service.UmsRoleResourceRelationService;
 
 /**
- * @Description: 角色资源关系管理Service实现类
- * @Author: BrianHu
- * @Create: 2021-11-11 11:11
- * @Version: 0.0.1
+ * 角色资源关系管理Service实现类
+ *
+ * @author BrianHu
+ * @create 2021-11-11 11:11
  **/
 @Service
 public class UmsRoleResourceRelationServiceImpl extends ServiceImpl<UmsRoleResourceRelationMapper, UmsRoleResourceRelation> implements UmsRoleResourceRelationService {

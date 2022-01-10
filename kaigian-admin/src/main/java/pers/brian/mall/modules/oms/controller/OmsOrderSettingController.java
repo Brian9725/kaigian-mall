@@ -8,12 +8,10 @@ import pers.brian.mall.modules.oms.model.entity.OmsOrderSetting;
 import pers.brian.mall.modules.oms.service.OmsOrderSettingService;
 
 /**
- * <p>
  * 订单设置表 前端控制器
- * </p>
  *
  * @author BrianHu
- * @since 2021-12-01
+ * @create 2021-12-01 12:00
  */
 @RestController
 @RequestMapping("/orderSetting")

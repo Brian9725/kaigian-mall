@@ -8,14 +8,12 @@ import lombok.EqualsAndHashCode;
 import java.util.List;
 
 /**
- * @Description:
- * @Author: BrianHu
- * @Create: 2021-12-01 11:58
- * @Version: 0.0.1
+ * @author BrianHu
+ * @create 2021-12-01 12:00 11:58
  **/
 @Data
 @EqualsAndHashCode(callSuper = false)
-@ApiModel(value="首页推荐类型及商品列表数据传输对象", description="首页推荐类型及商品列表数据传输对象")
+@ApiModel(value = "首页推荐类型及商品列表数据传输对象", description = "首页推荐类型及商品列表数据传输对象")
 public class HomeGoodsSaleDTO {
     private String categoryName;
 

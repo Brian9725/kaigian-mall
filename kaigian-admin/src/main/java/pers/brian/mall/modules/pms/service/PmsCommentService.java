@@ -4,12 +4,10 @@ import pers.brian.mall.modules.pms.model.entity.PmsComment;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
- * <p>
  * 商品评价表 服务类
- * </p>
  *
  * @author BrianHu
- * @since 2021-11-15
+ * @create 2021-11-15 12:00
  */
 public interface PmsCommentService extends IService<PmsComment> {
 

@@ -4,10 +4,10 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="pers.brian.mall.modules.ums.model.UmsMemberTag">
-        <id column="id" property="id" />
-        <result column="name" property="name" />
-        <result column="finish_order_count" property="finishOrderCount" />
-        <result column="finish_order_amount" property="finishOrderAmount" />
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="finish_order_count" property="finishOrderCount"/>
+        <result column="finish_order_amount" property="finishOrderAmount"/>
     </resultMap>
 
 </mapper>

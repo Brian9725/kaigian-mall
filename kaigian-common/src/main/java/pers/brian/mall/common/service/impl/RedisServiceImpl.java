@@ -10,10 +10,10 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @Description: redis操作实现类
- * @Author: BrianHu
- * @Create: 2021-11-11 11:11
- * @Version: 0.0.1
+ * redis操作实现类
+ *
+ * @author BrianHu
+ * @create 2021-11-11 11:11
  **/
 public class RedisServiceImpl implements RedisService {
     @Autowired

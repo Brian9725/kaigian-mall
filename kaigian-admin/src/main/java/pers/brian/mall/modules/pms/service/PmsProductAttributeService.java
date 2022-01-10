@@ -8,12 +8,10 @@ import pers.brian.mall.modules.pms.model.entity.PmsProductAttribute;
 import java.util.List;
 
 /**
- * <p>
  * 商品属性参数表 服务类
- * </p>
  *
  * @author BrianHu
- * @since 2021-11-15
+ * @create 2021-11-15 12:00
  */
 public interface PmsProductAttributeService extends IService<PmsProductAttribute> {
 

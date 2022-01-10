@@ -11,12 +11,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * <p>
  * 产品分类 服务实现类
- * </p>
  *
  * @author BrianHu
- * @since 2021-11-30
+ * @create 2021-11-30 12:00
  */
 @Service
 public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategoryMapper, PmsProductCategory> implements PmsProductCategoryService {

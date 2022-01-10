@@ -4,12 +4,10 @@ import pers.brian.mall.modules.pms.model.entity.PmsAlbum;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
- * <p>
  * 相册表 服务类
- * </p>
  *
  * @author BrianHu
- * @since 2021-11-15
+ * @create 2021-11-15 12:00
  */
 public interface PmsAlbumService extends IService<PmsAlbum> {
 

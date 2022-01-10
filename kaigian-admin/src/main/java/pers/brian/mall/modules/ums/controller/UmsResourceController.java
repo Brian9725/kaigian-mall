@@ -13,10 +13,10 @@ import pers.brian.mall.modules.ums.service.UmsResourceService;
 import java.util.List;
 
 /**
- * @Description: 后台资源管理Controller
- * @Author: BrianHu
- * @Create: 2021-11-11 11:11
- * @Version: 0.0.1
+ * 后台资源管理Controller
+ *
+ * @author BrianHu
+ * @create 2021-11-11 11:11
  **/
 @Controller
 @Api(tags = "UmsResourceController")
