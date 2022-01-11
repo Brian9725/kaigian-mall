@@ -4,8 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * @author BrianHu
- * @create 2021-11-11 11:11
+ * @Description:
+ * @Author: BrianHu
+ * @Create: 2021-11-11 11:11
+ * @Version: 0.0.1
  **/
 @SpringBootApplication
 public class KaiGianTestApplication {

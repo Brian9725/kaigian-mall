@@ -10,10 +10,10 @@ import pers.brian.mall.modules.ums.service.UmsMemberReceiveAddressService;
 import java.util.List;
 
 /**
- * 收货地址服务接口
- *
- * @author BrianHu
- * @create 2021-12-07 11:06
+ * @Description: 收货地址服务接口
+ * @Author: BrianHu
+ * @Create: 2021-12-07 11:06
+ * @Version: 0.0.1
  **/
 @RestController
 @Api(tags = "MemberAddressController")

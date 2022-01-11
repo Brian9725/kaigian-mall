@@ -11,12 +11,12 @@ import pers.brian.mall.modules.oms.model.entity.OmsOrder;
 import pers.brian.mall.modules.oms.service.OmsOrderService;
 
 /**
+ * <p>
  * 订单表 前端控制器
- * <p>
- * <p>
- * BrianHu
+ * </p>
  *
- * @create 2021-12-01 12:00
+ * @author BrianHu
+ * @since 2021-12-01
  */
 @RestController
 @RequestMapping("/order")

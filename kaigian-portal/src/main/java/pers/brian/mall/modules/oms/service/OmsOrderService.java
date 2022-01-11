@@ -11,10 +11,12 @@ import pers.brian.mall.modules.oms.model.OmsOrder;
 import java.util.List;
 
 /**
+ * <p>
  * 订单表 服务类
+ * </p>
  *
  * @author BrianHu
- * @create 2021-12-01 12:00
+ * @since 2021-12-01
  */
 public interface OmsOrderService extends IService<OmsOrder> {
 

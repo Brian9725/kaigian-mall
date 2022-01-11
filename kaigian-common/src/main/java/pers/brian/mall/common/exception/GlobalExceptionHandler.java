@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import pers.brian.mall.common.api.ResultCode;
 
 /**
- * 全局异常处理
- *
- * @author BrianHu
- * @create 2021-11-11 11:11
+ * @Description: 全局异常处理
+ * @Author: BrianHu
+ * @Create: 2021-11-11 11:11
+ * @Version: 0.0.1
  **/
 @ControllerAdvice
 @Slf4j

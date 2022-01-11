@@ -15,10 +15,12 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
+ * <p>
  * 产品评价回复表
+ * </p>
  *
  * @author BrianHu
- * @create 2021-11-15 12:00
+ * @since 2021-11-15
  */
 @Data
 @EqualsAndHashCode(callSuper = false)

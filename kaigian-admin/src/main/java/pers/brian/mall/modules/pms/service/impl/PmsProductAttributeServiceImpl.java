@@ -18,10 +18,12 @@ import pers.brian.mall.modules.pms.service.PmsProductAttributeService;
 import java.util.List;
 
 /**
+ * <p>
  * 商品属性参数表 服务实现类
+ * </p>
  *
  * @author BrianHu
- * @create 2021-11-15 12:00
+ * @since 2021-11-15
  */
 @Service
 public class PmsProductAttributeServiceImpl extends ServiceImpl<PmsProductAttributeMapper, PmsProductAttribute> implements PmsProductAttributeService {

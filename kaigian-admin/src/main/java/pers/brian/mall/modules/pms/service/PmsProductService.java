@@ -11,10 +11,12 @@ import pers.brian.mall.modules.pms.model.entity.PmsProduct;
 import java.util.List;
 
 /**
+ * <p>
  * 商品信息 服务类
+ * </p>
  *
  * @author BrianHu
- * @create 2021-11-15 12:00
+ * @since 2021-11-15
  */
 public interface PmsProductService extends IService<PmsProduct> {
 

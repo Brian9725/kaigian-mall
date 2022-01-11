@@ -12,10 +12,12 @@ import pers.brian.mall.modules.ums.service.UmsMemberService;
 import java.util.List;
 
 /**
+ * <p>
  * 会员收货地址表 服务实现类
+ * </p>
  *
  * @author BrianHu
- * @create 2021-12-01 12:00
+ * @since 2021-12-01
  */
 @Service
 public class UmsMemberReceiveAddressServiceImpl extends ServiceImpl<UmsMemberReceiveAddressMapper, UmsMemberReceiveAddress> implements UmsMemberReceiveAddressService {

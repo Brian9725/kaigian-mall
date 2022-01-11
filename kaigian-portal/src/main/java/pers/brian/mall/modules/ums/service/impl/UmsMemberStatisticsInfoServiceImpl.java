@@ -7,10 +7,12 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**
+ * <p>
  * 会员统计信息 服务实现类
+ * </p>
  *
  * @author BrianHu
- * @create 2021-12-01 12:00
+ * @since 2021-12-01
  */
 @Service
 public class UmsMemberStatisticsInfoServiceImpl extends ServiceImpl<UmsMemberStatisticsInfoMapper, UmsMemberStatisticsInfo> implements UmsMemberStatisticsInfoService {

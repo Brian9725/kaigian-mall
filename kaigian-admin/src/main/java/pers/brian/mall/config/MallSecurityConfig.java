@@ -21,10 +21,10 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 /**
- * 后台security配置
- *
- * @author BrianHu
- * @create 2021-12-27 17:07
+ * @Description: 后台security配置
+ * @Author: BrianHu
+ * @Create: 2021-12-27 17:07
+ * @Version: 0.0.1
  **/
 @Configuration
 @EnableWebSecurity

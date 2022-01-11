@@ -4,10 +4,10 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import pers.brian.mall.modules.ums.model.entity.UmsAdminRoleRelation;
 
 /**
- * 管理员角色关系管理Service
- *
- * @author BrianHu
- * @create 2021-11-11 11:11
+ * @Description: 管理员角色关系管理Service
+ * @Author: BrianHu
+ * @Create: 2021-11-11 11:11
+ * @Version: 0.0.1
  **/
 public interface UmsAdminRoleRelationService extends IService<UmsAdminRoleRelation> {
 }

@@ -4,10 +4,12 @@ import pers.brian.mall.modules.sms.model.SmsFlashPromotion;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
+ * <p>
  * 限时购表 服务类
+ * </p>
  *
  * @author BrianHu
- * @create 2021-12-01 12:00
+ * @since 2021-12-01
  */
 public interface SmsFlashPromotionService extends IService<SmsFlashPromotion> {
 

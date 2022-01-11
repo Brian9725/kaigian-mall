@@ -7,10 +7,10 @@ import pers.brian.mall.modules.ums.model.entity.UmsRoleMenuRelation;
 import pers.brian.mall.modules.ums.service.UmsRoleMenuRelationService;
 
 /**
- * 角色菜单关系管理Service实现类
- *
- * @author BrianHu
- * @create 2021-11-11 11:11
+ * @Description: 角色菜单关系管理Service实现类
+ * @Author: BrianHu
+ * @Create: 2021-11-11 11:11
+ * @Version: 0.0.1
  **/
 @Service
 public class UmsRoleMenuRelationServiceImpl extends ServiceImpl<UmsRoleMenuRelationMapper, UmsRoleMenuRelation> implements UmsRoleMenuRelationService {

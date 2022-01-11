@@ -1,34 +1,31 @@
 package pers.brian.mall.modules.oms.model.entity;
 
 import java.math.BigDecimal;
-
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
-
 import java.util.Date;
-
 import com.baomidou.mybatisplus.annotation.TableId;
-
 import java.io.Serializable;
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
+ * <p>
  * 订单表
+ * </p>
  *
  * @author BrianHu
- * @create 2021-12-01 12:00
+ * @since 2021-12-01
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("oms_order")
-@ApiModel(value = "OmsOrder对象", description = "订单表")
+@ApiModel(value="OmsOrder对象", description="订单表")
 public class OmsOrder implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID=1L;
 
     @ApiModelProperty(value = "订单id")
     @TableId(value = "id", type = IdType.AUTO)

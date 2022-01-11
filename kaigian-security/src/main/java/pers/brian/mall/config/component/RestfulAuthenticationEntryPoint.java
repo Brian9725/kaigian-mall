@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * 没有登录时的响应
- *
- * @author BrianHu
- * @create 2021-12-27 10:38
+ * @Description: 没有登录时的响应
+ * @Author: BrianHu
+ * @Create: 2021-12-27 10:38
+ * @Version: 0.0.1
  **/
 public class RestfulAuthenticationEntryPoint implements AuthenticationEntryPoint {
     @Override

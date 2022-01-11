@@ -12,10 +12,12 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
+ * <p>
  * 存储产品参数信息的表
+ * </p>
  *
  * @author BrianHu
- * @create 2021-11-15 12:00
+ * @since 2021-11-15
  */
 @Data
 @EqualsAndHashCode(callSuper = false)

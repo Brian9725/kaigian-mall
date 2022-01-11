@@ -4,10 +4,12 @@ import pers.brian.mall.modules.pms.model.PmsProductAttributeValue;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
+ * <p>
  * 存储产品参数信息的表 服务类
+ * </p>
  *
  * @author BrianHu
- * @create 2021-11-30 12:00
+ * @since 2021-11-30
  */
 public interface PmsProductAttributeValueService extends IService<PmsProductAttributeValue> {
 

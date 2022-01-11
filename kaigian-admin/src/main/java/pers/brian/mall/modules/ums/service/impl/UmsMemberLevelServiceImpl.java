@@ -10,11 +10,12 @@ import pers.brian.mall.modules.ums.service.UmsMemberLevelService;
 import java.util.List;
 
 /**
- * <p>
+ * @Description: <p>
  * 会员等级表 服务实现类
- *
- * @author BrianHu
- * @create 2021-11-11 11:11
+ * </p>
+ * @Author: BrianHu
+ * @Create: 2021-11-11 11:11
+ * @Version: 0.0.1
  **/
 @Service
 public class UmsMemberLevelServiceImpl extends ServiceImpl<UmsMemberLevelMapper, UmsMemberLevel> implements UmsMemberLevelService {

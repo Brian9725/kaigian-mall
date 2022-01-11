@@ -8,10 +8,10 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
- * 权限验证拦截器
- *
- * @author BrianHu
- * @create 2021-11-11 11:11
+ * @Description: 权限验证拦截器
+ * @Author: BrianHu
+ * @Create: 2021-11-11 11:11
+ * @Version: 0.0.1
  **/
 @Configuration
 public class GlobalWebAppConfigurer implements WebMvcConfigurer {

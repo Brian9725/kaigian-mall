@@ -12,11 +12,12 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * <p>
+ * @Description: <p>
  * 后台用户角色表
- *
- * @author BrianHu
- * @create 2021-11-11 11:11
+ * </p>
+ * @Author: BrianHu
+ * @Create: 2021-11-11 11:11
+ * @Version: 0.0.1
  **/
 @Data
 @EqualsAndHashCode(callSuper = false)

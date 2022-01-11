@@ -8,10 +8,10 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
- * 商品列表筛选条件
- *
- * @author BrianHu
- * @create 2021-11-26 15:37
+ * @Description: 商品列表筛选条件
+ * @Author: BrianHu
+ * @Create: 2021-11-26 15:37
+ * @Version: 0.0.1
  **/
 @Data
 @NoArgsConstructor

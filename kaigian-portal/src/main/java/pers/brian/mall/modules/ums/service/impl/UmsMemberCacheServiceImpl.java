@@ -9,10 +9,10 @@ import pers.brian.mall.modules.ums.service.UmsMemberCacheService;
 import pers.brian.mall.modules.ums.service.UmsMemberService;
 
 /**
- * 前台用户缓存管理Service实现类
- *
- * @author BrianHu
- * @create 2021-12-03 12:08
+ * @Description: 前台用户缓存管理Service实现类
+ * @Author: BrianHu
+ * @Create: 2021-12-03 12:08
+ * @Version: 0.0.1
  **/
 @Service
 public class UmsMemberCacheServiceImpl implements UmsMemberCacheService {

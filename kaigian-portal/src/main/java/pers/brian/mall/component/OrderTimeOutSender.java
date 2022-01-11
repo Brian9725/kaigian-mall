@@ -7,10 +7,10 @@ import org.springframework.stereotype.Component;
 import pers.brian.mall.modules.oms.service.OmsOrderService;
 
 /**
- * 订单超时取消并解锁库存的定时器o
- *
- * @author BrianHu
- * @create 2021-12-08 11:17
+ * @Description: 订单超时取消并解锁库存的定时器o
+ * @Author: BrianHu
+ * @Create: 2021-12-08 11:17
+ * @Version: 0.0.1
  **/
 @Component
 @Slf4j

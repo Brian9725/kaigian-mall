@@ -13,10 +13,10 @@ import pers.brian.mall.modules.ums.model.entity.UmsRole;
 import java.util.List;
 
 /**
- * 后台管理员管理Service
- *
- * @author BrianHu
- * @create 2021-11-11 11:11
+ * @Description: 后台管理员管理Service
+ * @Author: BrianHu
+ * @Create: 2021-11-11 11:11
+ * @Version: 0.0.1
  **/
 public interface UmsAdminService extends IService<UmsAdmin> {
     /**
@@ -31,7 +31,6 @@ public interface UmsAdminService extends IService<UmsAdmin> {
 
     /**
      * 登录功能
-     *
      * @param username 用户名
      * @param password 密码
      * @return 生成的JWT的token

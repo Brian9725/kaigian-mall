@@ -11,10 +11,10 @@ import pers.brian.mall.dto.ProductDetailDTO;
 import pers.brian.mall.modules.pms.service.PmsProductService;
 
 /**
- * 商品控制器
- *
- * @author BrianHu
- * @create 2021-12-02 13:51
+ * @Description: 商品控制器
+ * @Author: BrianHu
+ * @Create: 2021-12-02 13:51
+ * @Version: 0.0.1
  **/
 @RestController
 @Api(tags = "ProductController")

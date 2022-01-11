@@ -15,10 +15,12 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 /**
+ * <p>
  * 购物车表
+ * </p>
  *
  * @author BrianHu
- * @create 2021-12-01 12:00
+ * @since 2021-12-01
  */
 @Data
 @Accessors(chain = true)

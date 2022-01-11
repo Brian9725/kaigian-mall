@@ -15,10 +15,10 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Swagger基础配置
- *
- * @author BrianHu
- * @create 2021-11-11 11:11
+ * @Description: Swagger基础配置
+ * @Author: BrianHu
+ * @Create: 2021-11-11 11:11
+ * @Version: 0.0.1
  **/
 public abstract class BaseSwaggerConfig {
 
@@ -76,7 +76,6 @@ public abstract class BaseSwaggerConfig {
         result.add(apiKey);
         return result;
     }
-
     /**
      * 在Swagger2的securityContexts中通过正则表达式，设置需要使用参数的接口（或者说，是去除掉不需要使用认证参数的接口），
      * 如下列代码所示，通过PathSelectors.regex("^(?!auth).*$")，所有包含"auth"的接口不需要使用securitySchemes。

@@ -1,8 +1,10 @@
 package pers.brian.mall.common.constant;
 
 /**
- * @author BrianHu
- * @create 2021-11-11 11:11
+ * @Description:
+ * @Author: BrianHu
+ * @Create: 2021-11-11 11:11
+ * @Version: 0.0.1
  **/
 public class ComConstants {
     /**

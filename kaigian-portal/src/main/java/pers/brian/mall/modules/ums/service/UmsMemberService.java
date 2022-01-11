@@ -5,10 +5,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 import pers.brian.mall.modules.ums.model.UmsMember;
 
 /**
+ * <p>
  * 会员表 服务类
+ * </p>
  *
  * @author BrianHu
- * @create 2021-12-01 12:00
+ * @since 2021-12-01
  */
 public interface UmsMemberService extends IService<UmsMember> {
 

@@ -11,10 +11,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * 服务实现类
+ * <p>
+ *  服务实现类
+ * </p>
  *
  * @author BrianHu
- * @create 2021-12-01 12:00
+ * @since 2021-12-01
  */
 @Service
 public class SmsHomeCategoryServiceImpl extends ServiceImpl<SmsHomeCategoryMapper, SmsHomeCategory> implements SmsHomeCategoryService {

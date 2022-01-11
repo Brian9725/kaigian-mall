@@ -8,10 +8,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import pers.brian.mall.modules.ums.service.UmsMemberService;
 
 /**
- * 前台security配置
- *
- * @author BrianHu
- * @create 2021-12-27 10:25
+ * @Description: 前台security配置
+ * @Author: BrianHu
+ * @Create: 2021-12-27 10:25
+ * @Version: 0.0.1
  **/
 @Configuration
 @EnableWebSecurity

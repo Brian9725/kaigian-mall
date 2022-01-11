@@ -3,10 +3,10 @@ package pers.brian.mall.modules.ums.service;
 import pers.brian.mall.modules.ums.model.UmsMember;
 
 /**
- * 前台用户缓存管理Service
- *
- * @author BrianHu
- * @create 2021-12-03 12:07
+ * @Description: 前台用户缓存管理Service
+ * @Author: BrianHu
+ * @Create: 2021-12-03 12:07
+ * @Version: 0.0.1
  **/
 public interface UmsMemberCacheService {
     /**

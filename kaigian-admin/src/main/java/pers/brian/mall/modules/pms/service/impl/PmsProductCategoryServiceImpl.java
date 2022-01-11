@@ -20,10 +20,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * <p>
  * 产品分类 服务实现类
+ * </p>
  *
  * @author BrianHu
- * @create 2021-11-15 12:00
+ * @since 2021-11-15
  */
 @Service
 public class PmsProductCategoryServiceImpl extends ServiceImpl<PmsProductCategoryMapper, PmsProductCategory> implements PmsProductCategoryService {

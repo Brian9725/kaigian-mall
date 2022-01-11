@@ -4,10 +4,12 @@ import pers.brian.mall.modules.pms.model.PmsProductOperateLog;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
- * 服务类
+ * <p>
+ *  服务类
+ * </p>
  *
  * @author BrianHu
- * @create 2021-11-30 12:00
+ * @since 2021-11-30
  */
 public interface PmsProductOperateLogService extends IService<PmsProductOperateLog> {
 

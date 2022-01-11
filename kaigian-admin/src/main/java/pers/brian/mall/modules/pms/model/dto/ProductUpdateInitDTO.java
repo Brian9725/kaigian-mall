@@ -5,8 +5,10 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * @author BrianHu
- * @create 2021-11-29 15:30
+ * @Description:
+ * @Author: BrianHu
+ * @Create: 2021-11-29 15:30
+ * @Version: 0.0.1
  **/
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -14,7 +16,7 @@ import lombok.EqualsAndHashCode;
 public class ProductUpdateInitDTO extends ProductSaveParamsDTO {
 
     private static final long serialVersionUID = -1978301466883717906L;
-
+    
     /**
      * 一级分类id
      */

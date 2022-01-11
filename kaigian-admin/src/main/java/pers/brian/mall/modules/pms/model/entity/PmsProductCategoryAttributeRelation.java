@@ -11,10 +11,12 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
+ * <p>
  * 产品的分类和属性的关系表，用于设置分类筛选条件（只支持一级分类）
+ * </p>
  *
  * @author BrianHu
- * @create 2021-11-15 12:00
+ * @since 2021-11-15
  */
 @Data
 @EqualsAndHashCode(callSuper = false)

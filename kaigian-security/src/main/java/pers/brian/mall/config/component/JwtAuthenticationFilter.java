@@ -17,10 +17,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * JWT过滤器
- *
- * @author BrianHu
- * @create 2021-12-27 10:58
+ * @Description: JWT过滤器
+ * @Author: BrianHu
+ * @Create: 2021-12-27 10:58
+ * @Version: 0.0.1
  **/
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 

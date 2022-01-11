@@ -25,10 +25,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * security配置类
- *
- * @author BrianHu
- * @create 2021-12-27 10:21
+ * @Description: security配置类
+ * @Author: BrianHu
+ * @Create: 2021-12-27 10:21
+ * @Version: 0.0.1
  **/
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 

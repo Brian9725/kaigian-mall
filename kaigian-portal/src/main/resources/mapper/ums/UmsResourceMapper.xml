@@ -4,12 +4,12 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="pers.brian.mall.modules.ums.model.UmsResource">
-        <id column="id" property="id"/>
-        <result column="create_time" property="createTime"/>
-        <result column="name" property="name"/>
-        <result column="url" property="url"/>
-        <result column="description" property="description"/>
-        <result column="category_id" property="categoryId"/>
+        <id column="id" property="id" />
+        <result column="create_time" property="createTime" />
+        <result column="name" property="name" />
+        <result column="url" property="url" />
+        <result column="description" property="description" />
+        <result column="category_id" property="categoryId" />
     </resultMap>
 
 </mapper>

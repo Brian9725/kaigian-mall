@@ -11,10 +11,10 @@ import pers.brian.mall.dto.OssPolicyResult;
 import pers.brian.mall.service.OssService;
 
 /**
- * OSS资源管理
- *
- * @author BrianHu
- * @create 2021-11-17 16:56
+ * @Description: OSS资源管理
+ * @Author: BrianHu
+ * @Create: 2021-11-17 16:56
+ * @Version: 0.0.1
  **/
 @RestController
 @RequestMapping(value = "/aliyun/oss")

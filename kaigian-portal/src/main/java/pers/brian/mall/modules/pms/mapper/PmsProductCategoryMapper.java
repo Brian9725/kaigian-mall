@@ -8,10 +8,12 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import java.util.List;
 
 /**
+ * <p>
  * 产品分类 Mapper 接口
+ * </p>
  *
  * @author BrianHu
- * @create 2021-11-30 12:00
+ * @since 2021-11-30
  */
 @Component
 public interface PmsProductCategoryMapper extends BaseMapper<PmsProductCategory> {

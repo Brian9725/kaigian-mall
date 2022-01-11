@@ -8,11 +8,12 @@ import pers.brian.mall.modules.ums.model.entity.UmsMenu;
 import java.util.List;
 
 /**
- * <p>
+ * @Description: <p>
  * 后台菜单表 Mapper 接口
- *
- * @author BrianHu
- * @create 2021-11-11 11:11
+ * </p>
+ * @Author: BrianHu
+ * @Create: 2021-11-11 11:11
+ * @Version: 0.0.1
  **/
 @Component
 public interface UmsMenuMapper extends BaseMapper<UmsMenu> {

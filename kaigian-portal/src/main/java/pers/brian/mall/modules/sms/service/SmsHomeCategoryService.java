@@ -7,10 +7,12 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import java.util.List;
 
 /**
+ * <p>
  * 服务类
+ * </p>
  *
  * @author BrianHu
- * @create 2021-12-01 12:00
+ * @since 2021-12-01
  */
 public interface SmsHomeCategoryService extends IService<SmsHomeCategory> {
 

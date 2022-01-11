@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * 没有权限访问时的响应处理类
- *
- * @author BrianHu
- * @create 2021-12-27 10:36
+ * @Description: 没有权限访问时的响应处理类
+ * @Author: BrianHu
+ * @Create: 2021-12-27 10:36
+ * @Version: 0.0.1
  **/
 public class RestfulAccessDeniedHandler implements AccessDeniedHandler {
     @Override

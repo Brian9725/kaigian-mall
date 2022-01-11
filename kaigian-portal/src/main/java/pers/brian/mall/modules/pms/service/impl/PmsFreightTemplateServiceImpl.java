@@ -7,10 +7,12 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**
+ * <p>
  * 运费模版 服务实现类
+ * </p>
  *
  * @author BrianHu
- * @create 2021-11-30 12:00
+ * @since 2021-11-30
  */
 @Service
 public class PmsFreightTemplateServiceImpl extends ServiceImpl<PmsFreightTemplateMapper, PmsFreightTemplate> implements PmsFreightTemplateService {

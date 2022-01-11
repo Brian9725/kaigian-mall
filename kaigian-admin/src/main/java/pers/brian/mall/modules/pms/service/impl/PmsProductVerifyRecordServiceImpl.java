@@ -7,10 +7,12 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**
+ * <p>
  * 商品审核记录 服务实现类
+ * </p>
  *
  * @author BrianHu
- * @create 2021-11-15 12:00
+ * @since 2021-11-15
  */
 @Service
 public class PmsProductVerifyRecordServiceImpl extends ServiceImpl<PmsProductVerifyRecordMapper, PmsProductVerifyRecord> implements PmsProductVerifyRecordService {

@@ -4,10 +4,12 @@ import pers.brian.mall.modules.pms.model.entity.PmsMemberPrice;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
+ * <p>
  * 商品会员价格表 服务类
+ * </p>
  *
  * @author BrianHu
- * @create 2021-11-15 12:00
+ * @since 2021-11-15
  */
 public interface PmsMemberPriceService extends IService<PmsMemberPrice> {
 

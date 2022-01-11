@@ -7,8 +7,10 @@ import lombok.EqualsAndHashCode;
 import pers.brian.mall.modules.oms.model.OmsCartItem;
 
 /**
- * @author BrianHu
- * @create 2021-12-03 15:42
+ * @Description:
+ * @Author: BrianHu
+ * @Create: 2021-12-03 15:42
+ * @Version: 0.0.1
  **/
 @Data
 @EqualsAndHashCode(callSuper = false)

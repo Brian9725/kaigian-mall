@@ -4,10 +4,12 @@ import pers.brian.mall.modules.ums.model.UmsMemberStatisticsInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
+ * <p>
  * 会员统计信息 服务类
+ * </p>
  *
  * @author BrianHu
- * @create 2021-12-01 12:00
+ * @since 2021-12-01
  */
 public interface UmsMemberStatisticsInfoService extends IService<UmsMemberStatisticsInfo> {
 

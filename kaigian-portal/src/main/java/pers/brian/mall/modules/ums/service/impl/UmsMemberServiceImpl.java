@@ -27,10 +27,12 @@ import java.util.Date;
 import java.util.List;
 
 /**
+ * <p>
  * 会员表 服务实现类
+ * </p>
  *
  * @author BrianHu
- * @create 2021-12-01 12:00
+ * @since 2021-12-01
  */
 @Service
 public class UmsMemberServiceImpl extends ServiceImpl<UmsMemberMapper, UmsMember> implements UmsMemberService {

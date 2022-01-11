@@ -11,10 +11,10 @@ import pers.brian.mall.modules.oms.service.OmsCartItemService;
 import java.util.List;
 
 /**
- * 购物车控制器
- *
- * @author BrianHu
- * @create 2021-12-02 17:24
+ * @Description: 购物车控制器
+ * @Author: BrianHu
+ * @Create: 2021-12-02 17:24
+ * @Version: 0.0.1
  **/
 @RestController
 @Api(tags = "CarController")

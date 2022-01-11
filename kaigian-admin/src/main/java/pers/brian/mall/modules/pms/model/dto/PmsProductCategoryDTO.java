@@ -8,8 +8,10 @@ import pers.brian.mall.modules.pms.model.entity.PmsProductCategory;
 import java.util.List;
 
 /**
- * @author BrianHu
- * @create 2021-11-22 13:46
+ * @Description:
+ * @Author: BrianHu
+ * @Create: 2021-11-22 13:46
+ * @Version: 0.0.1
  **/
 @Data
 @EqualsAndHashCode(callSuper = false)

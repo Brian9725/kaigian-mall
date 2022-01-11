@@ -23,10 +23,12 @@ import java.lang.reflect.Method;
 import java.util.List;
 
 /**
+ * <p>
  * 商品信息 服务实现类
+ * </p>
  *
  * @author BrianHu
- * @create 2021-11-15 12:00
+ * @since 2021-11-15
  */
 @Service
 public class PmsProductServiceImpl extends ServiceImpl<PmsProductMapper, PmsProduct> implements PmsProductService {

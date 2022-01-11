@@ -13,10 +13,12 @@ import pers.brian.mall.modules.pms.service.PmsProductAttributeCategoryService;
 import java.util.List;
 
 /**
+ * <p>
  * 产品属性分类表 前端控制器
+ * </p>
  *
  * @author BrianHu
- * @create 2021-11-15 12:00
+ * @since 2021-11-15
  */
 @RestController
 @RequestMapping("/productAttribute/category")

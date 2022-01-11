@@ -18,10 +18,10 @@ import pers.brian.mall.modules.sms.service.SmsHomeCategoryService;
 import java.util.List;
 
 /**
- * 首页控制器
- *
- * @author BrianHu
- * @create 2021-11-30 16:07
+ * @Description: 首页控制器
+ * @Author: BrianHu
+ * @Create: 2021-11-30 16:07
+ * @Version: 0.0.1
  **/
 @RestController
 @Api(tags = "HomeController")

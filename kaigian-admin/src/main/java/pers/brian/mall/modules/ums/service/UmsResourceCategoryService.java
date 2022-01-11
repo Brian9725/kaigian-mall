@@ -6,10 +6,10 @@ import pers.brian.mall.modules.ums.model.entity.UmsResourceCategory;
 import java.util.List;
 
 /**
- * 后台资源分类管理Service
- *
- * @author BrianHu
- * @create 2021-11-11 11:11
+ * @Description: 后台资源分类管理Service
+ * @Author: BrianHu
+ * @Create: 2021-11-11 11:11
+ * @Version: 0.0.1
  **/
 public interface UmsResourceCategoryService extends IService<UmsResourceCategory> {
 

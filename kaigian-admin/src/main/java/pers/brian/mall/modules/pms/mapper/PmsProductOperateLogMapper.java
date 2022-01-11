@@ -4,10 +4,12 @@ import pers.brian.mall.modules.pms.model.entity.PmsProductOperateLog;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
- * Mapper 接口
+ * <p>
+ *  Mapper 接口
+ * </p>
  *
  * @author BrianHu
- * @create 2021-11-15 12:00
+ * @since 2021-11-15
  */
 public interface PmsProductOperateLogMapper extends BaseMapper<PmsProductOperateLog> {
 

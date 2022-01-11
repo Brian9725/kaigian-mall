@@ -6,10 +6,10 @@ import pers.brian.mall.common.domain.SwaggerProperties;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * API文档相关配置
- *
- * @author BrianHu
- * @create 2021-11-11 11:11
+ * @Description: API文档相关配置
+ * @Author: BrianHu
+ * @Create: 2021-11-11 11:11
+ * @Version: 0.0.1
  **/
 @Configuration
 @EnableSwagger2

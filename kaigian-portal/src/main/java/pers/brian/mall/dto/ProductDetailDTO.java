@@ -10,8 +10,10 @@ import pers.brian.mall.modules.pms.model.PmsSkuStock;
 import java.util.List;
 
 /**
- * @author BrianHu
- * @create 2021-12-02 13:54
+ * @Description:
+ * @Author: BrianHu
+ * @Create: 2021-12-02 13:54
+ * @Version: 0.0.1
  **/
 @Data
 @EqualsAndHashCode(callSuper = false)

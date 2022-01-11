@@ -10,19 +10,21 @@ import pers.brian.kaigiantest.service.OssService;
 import java.util.Map;
 
 /**
- * @author BrianHu
- * @create 2021-11-11 11:11
+ * @Description:
+ * @Author: BrianHu
+ * @Create: 2021-11-11 11:11
+ * @Version: 0.0.1
  **/
 @RestController
 @RequestMapping(value = "/oss")
 public class OssController {
 
-    @Autowired
-    private OssService ossService;
+	@Autowired
+	private OssService ossService;
 
-    @CrossOrigin
-    @RequestMapping(value = "/policy", method = RequestMethod.GET)
-    public Map<String, String> policy() {
-        return ossService.policy();
-    }
+	@CrossOrigin
+	@RequestMapping(value = "/policy", method = RequestMethod.GET)
+	public Map<String, String> policy() {
+		return ossService.policy();
+	}
 }

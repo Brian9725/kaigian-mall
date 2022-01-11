@@ -9,10 +9,12 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**
+ * <p>
  * 商品信息 服务实现类
+ * </p>
  *
  * @author BrianHu
- * @create 2021-11-30 12:00
+ * @since 2021-11-30
  */
 @Service
 public class PmsProductServiceImpl extends ServiceImpl<PmsProductMapper, PmsProduct> implements PmsProductService {

@@ -1,10 +1,10 @@
 package pers.brian.mall.common.api;
 
 /**
- * 封装API的错误码
- *
- * @author BrianHu
- * @create 2021-11-11 11:11
+ * @Description: 封装API的错误码
+ * @Author: BrianHu
+ * @Create: 2021-11-11 11:11
+ * @Version: 0.0.1
  **/
 public interface IErrorCode {
     long getCode();

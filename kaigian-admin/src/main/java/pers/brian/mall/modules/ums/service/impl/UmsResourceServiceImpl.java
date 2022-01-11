@@ -17,10 +17,10 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 后台资源管理Service实现类
- *
- * @author BrianHu
- * @create 2021-11-11 11:11
+ * @Description: 后台资源管理Service实现类
+ * @Author: BrianHu
+ * @Create: 2021-11-11 11:11
+ * @Version: 0.0.1
  **/
 @Service
 public class UmsResourceServiceImpl extends ServiceImpl<UmsResourceMapper, UmsResource> implements UmsResourceService {

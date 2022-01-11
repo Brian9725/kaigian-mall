@@ -11,8 +11,10 @@ import javax.validation.constraints.Size;
 import java.util.List;
 
 /**
- * @author BrianHu
- * @create 2021-11-29 15:19
+ * @Description:
+ * @Author: BrianHu
+ * @Create: 2021-11-29 15:19
+ * @Version: 0.0.1
  **/
 @Data
 @EqualsAndHashCode(callSuper = false)

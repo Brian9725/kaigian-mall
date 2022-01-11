@@ -4,10 +4,12 @@ import pers.brian.mall.modules.ums.model.UmsMenu;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
+ * <p>
  * 后台菜单表 服务类
+ * </p>
  *
  * @author BrianHu
- * @create 2021-12-01 12:00
+ * @since 2021-12-01
  */
 public interface UmsMenuService extends IService<UmsMenu> {
 

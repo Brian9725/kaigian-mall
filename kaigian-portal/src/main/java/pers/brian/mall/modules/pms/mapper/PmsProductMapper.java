@@ -6,10 +6,12 @@ import pers.brian.mall.dto.ProductDetailDTO;
 import pers.brian.mall.modules.pms.model.PmsProduct;
 
 /**
+ * <p>
  * 商品信息 Mapper 接口
+ * </p>
  *
  * @author BrianHu
- * @create 2021-11-30 12:00
+ * @since 2021-11-30
  */
 @Component
 public interface PmsProductMapper extends BaseMapper<PmsProduct> {

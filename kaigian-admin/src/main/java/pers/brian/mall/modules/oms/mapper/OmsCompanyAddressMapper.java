@@ -4,10 +4,12 @@ import pers.brian.mall.modules.oms.model.entity.OmsCompanyAddress;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
+ * <p>
  * 公司收发货地址表 Mapper 接口
+ * </p>
  *
  * @author BrianHu
- * @create 2021-12-01 12:00
+ * @since 2021-12-01
  */
 public interface OmsCompanyAddressMapper extends BaseMapper<OmsCompanyAddress> {
 

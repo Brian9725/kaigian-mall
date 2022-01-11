@@ -7,10 +7,10 @@ import pers.brian.mall.modules.ums.model.entity.UmsRole;
 import java.util.List;
 
 /**
- * 资源-角色DTO
- *
- * @author BrianHu
- * @create 2021-12-27 17:33
+ * @Description: 资源-角色DTO
+ * @Author: BrianHu
+ * @Create: 2021-12-27 17:33
+ * @Version: 0.0.1
  **/
 @Data
 public class ResourceRoleDTO extends UmsResource {

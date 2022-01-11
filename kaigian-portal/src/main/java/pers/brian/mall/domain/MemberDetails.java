@@ -7,10 +7,10 @@ import pers.brian.mall.modules.ums.model.UmsMember;
 import java.util.Collection;
 
 /**
- * 用户信息、用户权限信息
- *
- * @author BrianHu
- * @create 2021-12-27 11:31
+ * @Description: 用户信息、用户权限信息
+ * @Author: BrianHu
+ * @Create: 2021-12-27 11:31
+ * @Version: 0.0.1
  **/
 public class MemberDetails implements UserDetails {
 
