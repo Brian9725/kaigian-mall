@@ -1,15 +1,13 @@
 package pers.brian.mall.modules.oms.mapper;
 
-import pers.brian.mall.modules.oms.model.OmsOrderReturnApply;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import pers.brian.mall.modules.oms.model.OmsOrderReturnApply;
 
 /**
- * <p>
  * 订单退货申请 Mapper 接口
- * </p>
  *
  * @author BrianHu
- * @since 2021-12-01
+ * @create 2021-12-01 12:00
  */
 public interface OmsOrderReturnApplyMapper extends BaseMapper<OmsOrderReturnApply> {
 

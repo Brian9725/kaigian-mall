@@ -9,13 +9,12 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 
 import java.util.Collection;
-import java.util.Iterator;
 
 /**
- * @Description: 动态权限决策管理器，用于判断用户是否有访问权限
- * @Author: BrianHu
- * @Create: 2021-12-28 10:57
- * @Version: 0.0.1
+ * 动态权限决策管理器，用于判断用户是否有访问权限
+ *
+ * @author BrianHu
+ * @create 2021-12-28 10:57
  **/
 public class DynamicAccessDecisionManager implements AccessDecisionManager {
 

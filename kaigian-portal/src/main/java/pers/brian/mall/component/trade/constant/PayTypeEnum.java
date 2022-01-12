@@ -1,10 +1,10 @@
 package pers.brian.mall.component.trade.constant;
 
 /**
- * @Description: 支付方式枚举类
- * @Author: BrianHu
- * @Create: 2021-12-22 15:05
- * @Version: 0.0.1
+ * 支付方式枚举类
+ *
+ * @author BrianHu
+ * @create 2021-12-22 15:05
  **/
 public enum PayTypeEnum {
 

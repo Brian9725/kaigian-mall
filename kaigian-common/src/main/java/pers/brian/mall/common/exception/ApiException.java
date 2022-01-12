@@ -4,10 +4,10 @@ package pers.brian.mall.common.exception;
 import pers.brian.mall.common.api.IErrorCode;
 
 /**
- * @Description: 自定义API异常
- * @Author: BrianHu
- * @Create: 2021-11-11 11:11
- * @Version: 0.0.1
+ * 自定义API异常
+ *
+ * @author BrianHu
+ * @create 2021-11-11 11:11
  **/
 public class ApiException extends RuntimeException {
     private IErrorCode errorCode;

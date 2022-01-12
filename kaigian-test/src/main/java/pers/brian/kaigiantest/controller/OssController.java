@@ -10,10 +10,8 @@ import pers.brian.kaigiantest.service.OssService;
 import java.util.Map;
 
 /**
- * @Description:
- * @Author: BrianHu
- * @Create: 2021-11-11 11:11
- * @Version: 0.0.1
+ * @author BrianHu
+ * @create 2021-11-11 11:11
  **/
 @RestController
 @RequestMapping(value = "/oss")

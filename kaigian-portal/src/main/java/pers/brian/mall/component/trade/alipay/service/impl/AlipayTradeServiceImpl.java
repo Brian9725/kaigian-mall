@@ -14,7 +14,6 @@ import pers.brian.mall.component.trade.alipay.model.result.AlipayF2FPayResult;
 
 /**
  * Created by liuyangkly on 15/7/29.
- * <p>
  * 一定要在创建AlipayTradeService之前调用Configs.init("xxxxxx");设置参数
  */
 public class AlipayTradeServiceImpl extends AbsAlipayTradeService {

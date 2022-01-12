@@ -1,25 +1,23 @@
 package pers.brian.mall.interceptor;
 
-import pers.brian.mall.common.api.ResultCode;
-import pers.brian.mall.common.exception.ApiException;
-import pers.brian.mall.common.constant.ComConstants;
-import pers.brian.mall.modules.ums.model.entity.UmsAdmin;
-import pers.brian.mall.modules.ums.model.entity.UmsResource;
-import pers.brian.mall.modules.ums.service.UmsAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.util.PathMatcher;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import pers.brian.mall.common.api.ResultCode;
+import pers.brian.mall.common.constant.ComConstants;
+import pers.brian.mall.common.exception.ApiException;
+import pers.brian.mall.modules.ums.model.entity.UmsAdmin;
+import pers.brian.mall.modules.ums.model.entity.UmsResource;
+import pers.brian.mall.modules.ums.service.UmsAdminService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
- * @Description:
- * @Author: BrianHu
- * @Create: 2021-11-11 11:11
- * @Version: 0.0.1
+ * @author BrianHu
+ * @create 2021-11-11 11:11
  **/
 public class AuthInterceptor extends HandlerInterceptorAdapter {
 

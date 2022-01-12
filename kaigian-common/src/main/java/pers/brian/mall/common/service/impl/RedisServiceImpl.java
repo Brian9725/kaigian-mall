@@ -1,8 +1,8 @@
 package pers.brian.mall.common.service.impl;
 
-import pers.brian.mall.common.service.RedisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import pers.brian.mall.common.service.RedisService;
 
 import java.util.List;
 import java.util.Map;
@@ -10,10 +10,10 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @Description: redis操作实现类
- * @Author: BrianHu
- * @Create: 2021-11-11 11:11
- * @Version: 0.0.1
+ * redis操作实现类
+ *
+ * @author BrianHu
+ * @create 2021-11-11 11:11
  **/
 public class RedisServiceImpl implements RedisService {
     @Autowired

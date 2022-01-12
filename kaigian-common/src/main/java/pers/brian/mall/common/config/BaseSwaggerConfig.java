@@ -15,10 +15,10 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * @Description: Swagger基础配置
- * @Author: BrianHu
- * @Create: 2021-11-11 11:11
- * @Version: 0.0.1
+ * Swagger基础配置
+ *
+ * @author BrianHu
+ * @create 2021-11-11 11:11
  **/
 public abstract class BaseSwaggerConfig {
 

@@ -6,12 +6,10 @@ import pers.brian.mall.modules.ums.model.entity.UmsMemberLevel;
 import java.util.List;
 
 /**
- * @Description: <p>
  * 会员等级表 服务类
- * </p>
- * @Author: BrianHu
- * @Create: 2021-11-11 11:11
- * @Version: 0.0.1
+ *
+ * @author BrianHu
+ * @create 2021-11-11 11:11
  **/
 public interface UmsMemberLevelService extends IService<UmsMemberLevel> {
 

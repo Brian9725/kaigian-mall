@@ -6,10 +6,8 @@ import lombok.EqualsAndHashCode;
 import pers.brian.mall.modules.pms.model.PmsProductAttributeValue;
 
 /**
- * @Description:
- * @Author: BrianHu
- * @Create: 2021-12-02 13:55
- * @Version: 0.0.1
+ * @author BrianHu
+ * @create 2021-12-02 13:55
  **/
 @Data
 @EqualsAndHashCode(callSuper = false)

@@ -4,10 +4,10 @@ package pers.brian.mall.common.exception;
 import pers.brian.mall.common.api.IErrorCode;
 
 /**
- * @Description: 断言处理类，用于抛出各种API异常
- * @Author: BrianHu
- * @Create: 2021-11-11 11:11
- * @Version: 0.0.1
+ * 断言处理类，用于抛出各种API异常
+ *
+ * @author BrianHu
+ * @create 2021-11-11 11:11
  **/
 public class Asserts {
     public static void fail(String message) {

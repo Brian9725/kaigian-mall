@@ -5,10 +5,10 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import java.util.List;
 
 /**
- * @Description: 白名单url
- * @Author: BrianHu
- * @Create: 2021-12-27 10:27
- * @Version: 0.0.1
+ * 白名单url
+ *
+ * @author BrianHu
+ * @create 2021-12-27 10:27
  **/
 @ConfigurationProperties(prefix = "secure.ignored")
 public class IgnoredUrlsConfig {

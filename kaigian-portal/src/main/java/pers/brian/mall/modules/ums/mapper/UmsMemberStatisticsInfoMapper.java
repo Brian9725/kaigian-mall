@@ -1,15 +1,13 @@
 package pers.brian.mall.modules.ums.mapper;
 
-import pers.brian.mall.modules.ums.model.UmsMemberStatisticsInfo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import pers.brian.mall.modules.ums.model.UmsMemberStatisticsInfo;
 
 /**
- * <p>
  * 会员统计信息 Mapper 接口
- * </p>
  *
  * @author BrianHu
- * @since 2021-12-01
+ * @create 2021-12-01 12:00
  */
 public interface UmsMemberStatisticsInfoMapper extends BaseMapper<UmsMemberStatisticsInfo> {
 

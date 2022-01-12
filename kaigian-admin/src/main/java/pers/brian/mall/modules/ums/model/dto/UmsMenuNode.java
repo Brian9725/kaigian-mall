@@ -1,17 +1,17 @@
 package pers.brian.mall.modules.ums.model.dto;
 
-import pers.brian.mall.modules.ums.model.entity.UmsMenu;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
+import pers.brian.mall.modules.ums.model.entity.UmsMenu;
 
 import java.util.List;
 
 /**
- * @Description: 后台菜单节点封装
- * @Author: BrianHu
- * @Create: 2021-11-11 11:11
- * @Version: 0.0.1
+ * 后台菜单节点封装
+ *
+ * @author BrianHu
+ * @create 2021-11-11 11:11
  **/
 @Getter
 @Setter

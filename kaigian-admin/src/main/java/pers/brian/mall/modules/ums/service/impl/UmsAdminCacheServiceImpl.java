@@ -19,10 +19,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @Description: 后台用户缓存管理Service实现类
- * @Author: BrianHu
- * @Create: 2021-11-11 11:11
- * @Version: 0.0.1
+ * 后台用户缓存管理Service实现类
+ *
+ * @author BrianHu
+ * @create 2021-11-11 11:11
  **/
 @Service
 public class UmsAdminCacheServiceImpl implements UmsAdminCacheService {

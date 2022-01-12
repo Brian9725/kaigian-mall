@@ -8,10 +8,10 @@ import pers.brian.mall.modules.ums.model.entity.UmsResource;
 import java.util.List;
 
 /**
- * @Description: 后台资源管理Service
- * @Author: BrianHu
- * @Create: 2021-11-11 11:11
- * @Version: 0.0.1
+ * 后台资源管理Service
+ *
+ * @author BrianHu
+ * @create 2021-11-11 11:11
  **/
 public interface UmsResourceService extends IService<UmsResource> {
     /**

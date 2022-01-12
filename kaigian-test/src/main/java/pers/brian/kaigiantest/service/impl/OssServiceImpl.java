@@ -14,10 +14,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * @Description:
- * @Author: BrianHu
- * @Create: 2021-11-17 13:58
- * @Version: 0.0.1
+ * @author BrianHu
+ * @create 2021-11-17 13:58
  **/
 @Service
 public class OssServiceImpl implements OssService {

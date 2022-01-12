@@ -1,15 +1,13 @@
 package pers.brian.mall.modules.sms.service;
 
-import pers.brian.mall.modules.sms.model.entity.SmsFlashPromotionLog;
 import com.baomidou.mybatisplus.extension.service.IService;
+import pers.brian.mall.modules.sms.model.entity.SmsFlashPromotionLog;
 
 /**
- * <p>
  * 限时购通知记录 服务类
- * </p>
  *
  * @author BrianHu
- * @since 2021-12-01
+ * @create 2021-12-01 12:00
  */
 public interface SmsFlashPromotionLogService extends IService<SmsFlashPromotionLog> {
 

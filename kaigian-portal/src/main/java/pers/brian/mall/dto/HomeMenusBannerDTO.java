@@ -8,10 +8,8 @@ import pers.brian.mall.modules.sms.model.SmsHomeAdvertise;
 import java.util.List;
 
 /**
- * @Description:
- * @Author: BrianHu
- * @Create: 2021-12-01 11:10
- * @Version: 0.0.1
+ * @author BrianHu
+ * @create 2021-12-01 11:10
  **/
 @Data
 @EqualsAndHashCode(callSuper = false)

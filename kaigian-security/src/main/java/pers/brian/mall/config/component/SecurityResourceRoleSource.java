@@ -4,10 +4,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @Description: 资源-角色
- * @Author: BrianHu
- * @Create: 2021-12-27 17:28
- * @Version: 0.0.1
+ * 资源-角色
+ *
+ * @author BrianHu
+ * @create 2021-12-27 17:28
  **/
 public interface SecurityResourceRoleSource {
     /**

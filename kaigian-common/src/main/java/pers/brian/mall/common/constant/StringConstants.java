@@ -1,10 +1,10 @@
 package pers.brian.mall.common.constant;
 
 /**
- * @Description: 常用的String常量
- * @Author: BrianHu
- * @Create: 2021-11-19 11:30
- * @Version: 0.0.1
+ * 常用的String常量
+ *
+ * @author BrianHu
+ * @create 2021-11-19 11:30
  **/
 public class StringConstants {
 

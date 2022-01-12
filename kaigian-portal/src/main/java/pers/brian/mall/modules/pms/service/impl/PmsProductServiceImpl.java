@@ -1,20 +1,18 @@
 package pers.brian.mall.modules.pms.service.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import pers.brian.mall.dto.ProductDetailDTO;
-import pers.brian.mall.modules.pms.model.PmsProduct;
-import pers.brian.mall.modules.pms.mapper.PmsProductMapper;
-import pers.brian.mall.modules.pms.service.PmsProductService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pers.brian.mall.dto.ProductDetailDTO;
+import pers.brian.mall.modules.pms.mapper.PmsProductMapper;
+import pers.brian.mall.modules.pms.model.PmsProduct;
+import pers.brian.mall.modules.pms.service.PmsProductService;
 
 /**
- * <p>
  * 商品信息 服务实现类
- * </p>
  *
  * @author BrianHu
- * @since 2021-11-30
+ * @create 2021-11-30 12:00
  */
 @Service
 public class PmsProductServiceImpl extends ServiceImpl<PmsProductMapper, PmsProduct> implements PmsProductService {

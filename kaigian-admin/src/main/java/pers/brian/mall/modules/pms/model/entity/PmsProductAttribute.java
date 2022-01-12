@@ -1,11 +1,8 @@
 package pers.brian.mall.modules.pms.model.entity;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-
-import java.io.Serializable;
-
+import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -13,13 +10,13 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 /**
- * <p>
  * 商品属性参数表
- * </p>
  *
  * @author BrianHu
- * @since 2021-11-15
+ * @create 2021-11-15 12:00
  */
 @Data
 @NoArgsConstructor

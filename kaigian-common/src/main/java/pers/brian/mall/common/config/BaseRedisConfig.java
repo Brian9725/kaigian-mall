@@ -4,8 +4,6 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.jsontype.impl.LaissezFaireSubTypeValidator;
-import pers.brian.mall.common.service.RedisService;
-import pers.brian.mall.common.service.impl.RedisServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.cache.RedisCacheManager;
@@ -16,14 +14,16 @@ import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
+import pers.brian.mall.common.service.RedisService;
+import pers.brian.mall.common.service.impl.RedisServiceImpl;
 
 import java.time.Duration;
 
 /**
- * @Description: Redis基础配置
- * @Author: BrianHu
- * @Create: 2021-11-11 11:11
- * @Version: 0.0.1
+ * Redis基础配置
+ *
+ * @author BrianHu
+ * @create 2021-11-11 11:11
  **/
 public class BaseRedisConfig {
 

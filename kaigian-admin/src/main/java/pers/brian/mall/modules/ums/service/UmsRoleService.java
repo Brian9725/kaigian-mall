@@ -2,18 +2,18 @@ package pers.brian.mall.modules.ums.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.springframework.transaction.annotation.Transactional;
 import pers.brian.mall.modules.ums.model.entity.UmsMenu;
 import pers.brian.mall.modules.ums.model.entity.UmsResource;
 import pers.brian.mall.modules.ums.model.entity.UmsRole;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 /**
- * @Description: 后台角色管理Service
- * @Author: BrianHu
- * @Create: 2021-11-11 11:11
- * @Version: 0.0.1
+ * 后台角色管理Service
+ *
+ * @author BrianHu
+ * @create 2021-11-11 11:11
  **/
 public interface UmsRoleService extends IService<UmsRole> {
     /**

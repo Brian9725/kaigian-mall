@@ -1,10 +1,10 @@
 package pers.brian.mall.common.api;
 
 /**
- * @Description: 通用返回对象
- * @Author: BrianHu
- * @Create: 2021-11-11 11:11
- * @Version: 0.0.1
+ * 通用返回对象
+ *
+ * @author BrianHu
+ * @create 2021-11-11 11:11
  **/
 public class CommonResult<T> {
     private long code;

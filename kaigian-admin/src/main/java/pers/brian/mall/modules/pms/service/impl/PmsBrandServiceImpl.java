@@ -16,12 +16,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * <p>
  * 品牌表 服务实现类
- * </p>
  *
  * @author BrianHu
- * @since 2021-11-15
+ * @create 2021-11-15 12:00
  */
 @Service
 public class PmsBrandServiceImpl extends ServiceImpl<PmsBrandMapper, PmsBrand> implements PmsBrandService {

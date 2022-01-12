@@ -3,10 +3,10 @@ package pers.brian.mall.component.trade.service;
 import pers.brian.mall.component.trade.constant.PayTypeEnum;
 
 /**
- * @Description: 支付服务接口
- * @Author: BrianHu
- * @Create: 2021-12-22 11:27
- * @Version: 0.0.1
+ * 支付服务接口
+ *
+ * @author BrianHu
+ * @create 2021-12-22 11:27
  **/
 public interface TradeService {
     /**

@@ -12,12 +12,10 @@ import pers.brian.mall.modules.pms.service.PmsBrandService;
 import java.util.List;
 
 /**
- * <p>
  * 品牌表 前端控制器
- * </p>
  *
  * @author BrianHu
- * @since 2021-11-15
+ * @create 2021-11-15 12:00
  */
 @RestController
 @RequestMapping("/brand")

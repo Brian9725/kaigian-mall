@@ -17,12 +17,10 @@ import javax.validation.Valid;
 import java.util.List;
 
 /**
- * <p>
  * 商品信息 前端控制器
- * </p>
  *
  * @author BrianHu
- * @since 2021-11-15
+ * @create 2021-11-15 12:00
  */
 @RestController
 @RequestMapping("/product")

@@ -8,12 +8,10 @@ import pers.brian.mall.modules.ums.model.entity.UmsAdmin;
 import java.util.List;
 
 /**
- * @Description: <p>
  * 后台用户表 Mapper 接口
- * </p>
- * @Author: BrianHu
- * @Create: 2021-11-11 11:11
- * @Version: 0.0.1
+ *
+ * @author BrianHu
+ * @create 2021-11-11 11:11
  **/
 @Component
 public interface UmsAdminMapper extends BaseMapper<UmsAdmin> {

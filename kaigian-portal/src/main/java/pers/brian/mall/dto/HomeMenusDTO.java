@@ -7,10 +7,8 @@ import lombok.EqualsAndHashCode;
 import java.util.List;
 
 /**
- * @Description:
- * @Author: BrianHu
- * @Create: 2021-11-30 16:19
- * @Version: 0.0.1
+ * @author BrianHu
+ * @create 2021-11-30 16:19
  **/
 @Data
 @EqualsAndHashCode(callSuper = false)

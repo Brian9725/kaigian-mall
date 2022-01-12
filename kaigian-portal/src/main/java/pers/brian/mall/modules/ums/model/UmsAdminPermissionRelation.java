@@ -1,21 +1,19 @@
 package pers.brian.mall.modules.ums.model;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.io.Serializable;
+
 /**
- * <p>
  * 后台用户和权限关系表(除角色中定义的权限以外的加减权限)
- * </p>
  *
  * @author BrianHu
- * @since 2021-12-01
+ * @create 2021-12-01 12:00
  */
 @Data
 @EqualsAndHashCode(callSuper = false)

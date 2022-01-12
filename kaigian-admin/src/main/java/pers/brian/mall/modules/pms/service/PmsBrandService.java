@@ -7,12 +7,10 @@ import pers.brian.mall.modules.pms.model.entity.PmsBrand;
 import java.util.List;
 
 /**
- * <p>
  * 品牌表 服务类
- * </p>
  *
  * @author BrianHu
- * @since 2021-11-15
+ * @create 2021-11-15 12:00
  */
 public interface PmsBrandService extends IService<PmsBrand> {
 

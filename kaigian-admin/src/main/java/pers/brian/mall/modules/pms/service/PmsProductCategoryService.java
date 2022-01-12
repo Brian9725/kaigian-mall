@@ -9,12 +9,10 @@ import pers.brian.mall.modules.pms.model.entity.PmsProductCategory;
 import java.util.List;
 
 /**
- * <p>
  * 产品分类 服务类
- * </p>
  *
  * @author BrianHu
- * @since 2021-11-15
+ * @create 2021-11-15 12:00
  */
 public interface PmsProductCategoryService extends IService<PmsProductCategory> {
 

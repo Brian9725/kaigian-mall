@@ -9,12 +9,10 @@ import pers.brian.mall.dto.OrderListDTO;
 import pers.brian.mall.modules.oms.model.OmsOrder;
 
 /**
- * <p>
  * 订单表 Mapper 接口
- * </p>
  *
  * @author BrianHu
- * @since 2021-12-01
+ * @create 2021-12-01 12:00
  */
 public interface OmsOrderMapper extends BaseMapper<OmsOrder> {
 

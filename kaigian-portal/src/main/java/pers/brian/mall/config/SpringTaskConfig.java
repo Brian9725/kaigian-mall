@@ -4,10 +4,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
- * @Description: SpringTask配置类
- * @Author: BrianHu
- * @Create: 2021-12-08 11:14
- * @Version: 0.0.1
+ * SpringTask配置类
+ *
+ * @author BrianHu
+ * @create 2021-12-08 11:14
  **/
 @Configuration
 @EnableScheduling

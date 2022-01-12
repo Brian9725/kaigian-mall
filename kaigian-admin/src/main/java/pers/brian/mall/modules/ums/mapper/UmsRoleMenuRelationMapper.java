@@ -5,12 +5,10 @@ import org.springframework.stereotype.Component;
 import pers.brian.mall.modules.ums.model.entity.UmsRoleMenuRelation;
 
 /**
- * @Description: <p>
  * 后台角色菜单关系表 Mapper 接口
- * </p>
- * @Author: BrianHu
- * @Create: 2021-11-11 11:11
- * @Version: 0.0.1
+ *
+ * @author BrianHu
+ * @create 2021-11-11 11:11
  **/
 @Component
 public interface UmsRoleMenuRelationMapper extends BaseMapper<UmsRoleMenuRelation> {

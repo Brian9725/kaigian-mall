@@ -18,10 +18,10 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * @Description: MyBatisPlus代码生成器
- * @Author: BrianHu
- * @Create: 2021-11-11 11:11
- * @Version: 0.0.1
+ * MyBatisPlus代码生成器
+ *
+ * @author BrianHu
+ * @create 2021-11-11 11:11
  **/
 public class MyBatisPlusGenerator {
 

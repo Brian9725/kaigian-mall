@@ -11,10 +11,10 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @Description: 订单详情数据传输对象
- * @Author: BrianHu
- * @Create: 2021-12-07 16:14
- * @Version: 0.0.1
+ * 订单详情数据传输对象
+ *
+ * @author BrianHu
+ * @create 2021-12-07 16:14
  **/
 @Data
 @EqualsAndHashCode(callSuper = false)

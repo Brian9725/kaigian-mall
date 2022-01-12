@@ -3,10 +3,8 @@ package pers.brian.kaigiantest.service;
 import java.util.Map;
 
 /**
- * @Description:
- * @Author: BrianHu
- * @Create: 2021-11-17 13:58
- * @Version: 0.0.1
+ * @author BrianHu
+ * @create 2021-11-17 13:58
  **/
 public interface OssService {
 

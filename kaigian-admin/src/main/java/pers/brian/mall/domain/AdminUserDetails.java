@@ -1,22 +1,20 @@
 package pers.brian.mall.domain;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import pers.brian.mall.modules.ums.model.entity.UmsAdmin;
 import pers.brian.mall.modules.ums.model.entity.UmsRole;
-import pers.brian.mall.modules.ums.service.UmsAdminService;
 
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @Description: 用户信息
- * @Author: BrianHu
- * @Create: 2021-12-27 17:12
- * @Version: 0.0.1
+ * 用户信息
+ *
+ * @author BrianHu
+ * @create 2021-12-27 17:12
  **/
 public class AdminUserDetails implements UserDetails {
 

@@ -12,12 +12,10 @@ import pers.brian.mall.modules.pms.service.PmsProductAttributeCategoryService;
 import java.util.List;
 
 /**
- * <p>
  * 产品属性分类表 服务实现类
- * </p>
  *
  * @author BrianHu
- * @since 2021-11-15
+ * @create 2021-11-15 12:00
  */
 @Service
 public class PmsProductAttributeCategoryServiceImpl extends ServiceImpl<PmsProductAttributeCategoryMapper, PmsProductAttributeCategory> implements PmsProductAttributeCategoryService {

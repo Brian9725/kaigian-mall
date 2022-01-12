@@ -23,12 +23,10 @@ import java.lang.reflect.Method;
 import java.util.List;
 
 /**
- * <p>
  * 商品信息 服务实现类
- * </p>
  *
  * @author BrianHu
- * @since 2021-11-15
+ * @create 2021-11-15 12:00
  */
 @Service
 public class PmsProductServiceImpl extends ServiceImpl<PmsProductMapper, PmsProduct> implements PmsProductService {
@@ -186,7 +184,6 @@ public class PmsProductServiceImpl extends ServiceImpl<PmsProductMapper, PmsProd
 
     /**
      * 公共方法： 保存会员价格、阶梯价格、减满价格、 sku 、 spu 商品的关联数据
-     * <p>
      * 统一： 都需要设置商品id,  都需要批量保存
      *
      * @param list      需要保存的关联数据列表

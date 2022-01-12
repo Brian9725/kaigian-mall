@@ -1,21 +1,20 @@
 package pers.brian.mall.modules.pms.model;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.io.Serializable;
+
 /**
- * <p>
  * 产品分类
- * </p>
  *
  * @author BrianHu
- * @since 2021-11-30
+ * @create 2021-11-30 12:00
  */
 @Data
 @EqualsAndHashCode(callSuper = false)

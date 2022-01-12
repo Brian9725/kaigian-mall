@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import pers.brian.mall.modules.ums.mapper.UmsMenuMapper;
 import pers.brian.mall.modules.ums.mapper.UmsResourceMapper;
 import pers.brian.mall.modules.ums.mapper.UmsRoleMapper;
@@ -14,17 +15,16 @@ import pers.brian.mall.modules.ums.service.UmsAdminCacheService;
 import pers.brian.mall.modules.ums.service.UmsRoleMenuRelationService;
 import pers.brian.mall.modules.ums.service.UmsRoleResourceRelationService;
 import pers.brian.mall.modules.ums.service.UmsRoleService;
-import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 /**
- * @Description: 后台角色管理Service实现类
- * @Author: BrianHu
- * @Create: 2021-11-11 11:11
- * @Version: 0.0.1
+ * 后台角色管理Service实现类
+ *
+ * @author BrianHu
+ * @create 2021-11-11 11:11
  **/
 @Service
 public class UmsRoleServiceImpl extends ServiceImpl<UmsRoleMapper, UmsRole> implements UmsRoleService {
